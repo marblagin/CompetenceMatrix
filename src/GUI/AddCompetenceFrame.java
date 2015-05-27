@@ -26,28 +26,28 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        jLabel5 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
-        jLabel6 = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
-        jLabel7 = new javax.swing.JLabel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        jTable5 = new javax.swing.JTable();
+        CompetenceDetailPanel = new javax.swing.JScrollPane();
+        CompetenceDetailTable = new javax.swing.JTable();
+        HeadLabel = new javax.swing.JLabel();
+        btnAdd = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
+        CompetenceDetailLabel = new javax.swing.JLabel();
+        CompetenceOwnershipLabel = new javax.swing.JLabel();
+        CompetenceOwnershipPanel = new javax.swing.JScrollPane();
+        CompetenceOwnershipTable = new javax.swing.JTable();
+        AddCompetenceLabel = new javax.swing.JLabel();
+        AddCompetencePanel = new javax.swing.JScrollPane();
+        AddCompetenceTable = new javax.swing.JTable();
+        TimesheetLabel = new javax.swing.JLabel();
+        TimesheetPanel = new javax.swing.JScrollPane();
+        TimesheetTable = new javax.swing.JTable();
+        CostLabel = new javax.swing.JLabel();
+        CostPanel = new javax.swing.JScrollPane();
+        CostTable = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        CompetenceDetailTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null}
             },
@@ -55,26 +55,31 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6"
             }
         ));
-        jTable1.setCellSelectionEnabled(true);
-        jTable1.setEditingColumn(1);
-        jTable1.setEditingRow(1);
-        jTable1.setRowHeight(60);
-        jScrollPane1.setViewportView(jTable1);
+        CompetenceDetailTable.setCellSelectionEnabled(true);
+        CompetenceDetailTable.setEditingColumn(1);
+        CompetenceDetailTable.setEditingRow(1);
+        CompetenceDetailTable.setRowHeight(60);
+        CompetenceDetailPanel.setViewportView(CompetenceDetailTable);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setText("Add Competence:");
+        HeadLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        HeadLabel.setText("Add Competence:");
 
-        jButton1.setText("Add");
+        btnAdd.setText("Add");
 
-        jButton2.setText("Back to Editor");
+        btnBack.setText("Back to Editor");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel3.setText("Competence Details");
+        CompetenceDetailLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        CompetenceDetailLabel.setText("Competence Details");
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel4.setText("Competence Ownership");
+        CompetenceOwnershipLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        CompetenceOwnershipLabel.setText("Competence Ownership");
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        CompetenceOwnershipTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null}
             },
@@ -82,16 +87,16 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6"
             }
         ));
-        jTable2.setCellSelectionEnabled(true);
-        jTable2.setEditingColumn(1);
-        jTable2.setEditingRow(1);
-        jTable2.setRowHeight(60);
-        jScrollPane2.setViewportView(jTable2);
+        CompetenceOwnershipTable.setCellSelectionEnabled(true);
+        CompetenceOwnershipTable.setEditingColumn(1);
+        CompetenceOwnershipTable.setEditingRow(1);
+        CompetenceOwnershipTable.setRowHeight(60);
+        CompetenceOwnershipPanel.setViewportView(CompetenceOwnershipTable);
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel5.setText("Applicability of competence");
+        AddCompetenceLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        AddCompetenceLabel.setText("Applicability of competence");
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        AddCompetenceTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null}
             },
@@ -99,16 +104,16 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6"
             }
         ));
-        jTable3.setCellSelectionEnabled(true);
-        jTable3.setEditingColumn(1);
-        jTable3.setEditingRow(1);
-        jTable3.setRowHeight(60);
-        jScrollPane3.setViewportView(jTable3);
+        AddCompetenceTable.setCellSelectionEnabled(true);
+        AddCompetenceTable.setEditingColumn(1);
+        AddCompetenceTable.setEditingRow(1);
+        AddCompetenceTable.setRowHeight(60);
+        AddCompetencePanel.setViewportView(AddCompetenceTable);
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel6.setText("Timesheet");
+        TimesheetLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        TimesheetLabel.setText("Timesheet");
 
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+        TimesheetTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null}
             },
@@ -116,16 +121,16 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6"
             }
         ));
-        jTable4.setCellSelectionEnabled(true);
-        jTable4.setEditingColumn(1);
-        jTable4.setEditingRow(1);
-        jTable4.setRowHeight(60);
-        jScrollPane4.setViewportView(jTable4);
+        TimesheetTable.setCellSelectionEnabled(true);
+        TimesheetTable.setEditingColumn(1);
+        TimesheetTable.setEditingRow(1);
+        TimesheetTable.setRowHeight(60);
+        TimesheetPanel.setViewportView(TimesheetTable);
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel7.setText("Cost per person");
+        CostLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        CostLabel.setText("Cost per person");
 
-        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+        CostTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null}
             },
@@ -133,11 +138,11 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6"
             }
         ));
-        jTable5.setCellSelectionEnabled(true);
-        jTable5.setEditingColumn(1);
-        jTable5.setEditingRow(1);
-        jTable5.setRowHeight(60);
-        jScrollPane5.setViewportView(jTable5);
+        CostTable.setCellSelectionEnabled(true);
+        CostTable.setEditingColumn(1);
+        CostTable.setEditingRow(1);
+        CostTable.setRowHeight(60);
+        CostPanel.setViewportView(CostTable);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -147,22 +152,22 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton2)
+                        .addComponent(btnBack)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1))
+                        .addComponent(btnAdd))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 907, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 907, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 907, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 907, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6)
-                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 907, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7))
+                            .addComponent(HeadLabel)
+                            .addComponent(CompetenceDetailPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 907, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CompetenceDetailLabel)
+                            .addComponent(CompetenceOwnershipPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 907, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CompetenceOwnershipLabel)
+                            .addComponent(AddCompetencePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 907, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(AddCompetenceLabel)
+                            .addComponent(TimesheetPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 907, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TimesheetLabel)
+                            .addComponent(CostPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 907, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CostLabel))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -170,36 +175,44 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(HeadLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel3)
+                .addComponent(CompetenceDetailLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(CompetenceDetailPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
+                .addComponent(CompetenceOwnershipLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(CompetenceOwnershipPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel5)
+                .addComponent(AddCompetenceLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(AddCompetencePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel6)
+                .addComponent(TimesheetLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TimesheetPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel7)
+                .addComponent(CostLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(CostPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(btnAdd)
+                    .addComponent(btnBack))
                 .addContainerGap())
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        MainFrame mf = new MainFrame ();
+        mf.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnBackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -236,23 +249,23 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
-    private javax.swing.JTable jTable4;
-    private javax.swing.JTable jTable5;
+    private javax.swing.JLabel AddCompetenceLabel;
+    private javax.swing.JScrollPane AddCompetencePanel;
+    private javax.swing.JTable AddCompetenceTable;
+    private javax.swing.JLabel CompetenceDetailLabel;
+    private javax.swing.JScrollPane CompetenceDetailPanel;
+    private javax.swing.JTable CompetenceDetailTable;
+    private javax.swing.JLabel CompetenceOwnershipLabel;
+    private javax.swing.JScrollPane CompetenceOwnershipPanel;
+    private javax.swing.JTable CompetenceOwnershipTable;
+    private javax.swing.JLabel CostLabel;
+    private javax.swing.JScrollPane CostPanel;
+    private javax.swing.JTable CostTable;
+    private javax.swing.JLabel HeadLabel;
+    private javax.swing.JLabel TimesheetLabel;
+    private javax.swing.JScrollPane TimesheetPanel;
+    private javax.swing.JTable TimesheetTable;
+    private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnBack;
     // End of variables declaration//GEN-END:variables
 }
