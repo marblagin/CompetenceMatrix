@@ -25,15 +25,7 @@ public class ApplicabilityOfCompetence {
         degrees = Degrees;
         grade = Grade;
     }
-
-    public int getCompetenceReferenceNo() {
-        return competenceReferenceNo;
-    }
-
-    public void setCompetenceReferenceNo(int competenceReferenceNo) {
-        this.competenceReferenceNo = competenceReferenceNo;
-    }
-
+    
     public String getCoreCareer() {
         return coreCareer;
     }
