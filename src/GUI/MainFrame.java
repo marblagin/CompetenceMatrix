@@ -45,6 +45,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Competence Matrix Editor");
+        setPreferredSize(new java.awt.Dimension(1200, 800));
         setResizable(false);
 
         Table.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
