@@ -1,0 +1,695 @@
+1	Core	suggested	KPMG	Soft Skills	non CA	E8
+2	Core	suggested	ITA	Technical	both	E8
+3	Core	suggested	ITA	Technical	both	E8
+4	Core	suggested	ITA	Technical	both	E8
+5	Core	suggested	ITA	Technical	both	E8
+6	Core	suggested	ITA	Technical	both	E8
+7						
+8	Core	suggested	KPMG	Technical	both	E7
+9	Core	suggested	ITA	Technical	both	E7
+10	Core	suggested	ITA	Technical	both	D5
+11	Career Specific	suggested	ITA	Technical	both	D5
+12	Career Specific	suggested	ITA	Technical	both	
+13	Career Specific	suggested	CI-ERP Advisory	Technical	both	D4
+14	Core	Required for promotion	ITA	Technical	both	D5
+15	Career Specific	suggested	GAP	Technical	both	C3
+16	Career Specific	suggested	GAP	Technical	both	C3
+17	Career Specific	suggested	IPBR	Technical	both	C3
+18	Core	suggested	ITA	Technical	both	D5
+19	Core	suggested	ITA	Technical	both	D6
+20	Career Specific	suggested	ITA	Technical	non CA	D5
+21	Career Specific	suggested	ITA	Technical	non CA	D4
+22	Core	suggested	ITA	Soft Skills	non CA	E8
+23	Core	suggested	KPMG	Soft Skills	both	All levels
+24	Core	suggested	KPMG	Soft Skills	both	All levels
+25	Core	suggested	KPMG	Soft Skills	both	All levels
+26	Core	suggested	KPMG	Soft Skills	non CA	E7
+27	Core	suggested	KPMG	Soft Skills	both	C2
+28	Core	suggested	KPMG	Soft Skills	both	B2
+29	Core	suggested	KPMG	Soft Skills	both	A2
+30	Core	suggested	KPMG	Soft Skills	both	D4
+31	Core	suggested	KPMG	Soft Skills	both	D4
+32	Core	suggested	KPMG	Technical	both	All levels
+33	Core	Required for promotion	KPMG	Soft Skills	both	B1
+34	Core	Required for promotion	KPMG	Soft Skills	both	B2
+35	Core	Required for promotion	KPMG	Soft Skills	both	D4
+36	Core	suggested	KPMG	Soft Skills	both	D4
+37	Core	suggested	KPMG	Soft Skills	both	C3
+38	Core	suggested	KPMG	Soft Skills	both	B2
+39	Core	suggested	KPMG	Soft Skills	both	B1
+40	Core	suggested	KPMG	Soft Skills	both	A2
+41	Core	suggested	KPMG	Soft Skills	both	B2
+42	Core	suggested	KPMG	Soft Skills	both	A2
+43	Career Specific	suggested	DPP	Technical	CA	D5
+44	Career Specific	suggested	DPP	Technical	CA	D4
+45	Career Specific	suggested	DPP	Technical	CA	All levels
+46	Career Specific	suggested	KPMG	Soft Skills	both	All levels
+47	Career Specific	suggested	KPMG	Technical	both	All levels
+48	Career Specific	suggested	KPMG	Technical	both	All levels
+49	Career Specific	suggested	KPMG	Technical	both	D5
+50	Career Specific	suggested	KPMG	Technical	both	D5
+51	Career Specific	suggested	KPMG	Technical	both	D5
+52	Career Specific	suggested	KPMG	Technical	both	D5
+53	Career Specific	suggested	KPMG	Technical	both	D5
+54	Career Specific	suggested	KPMG	Technical	both	D5
+55	Career Specific	suggested	KPMG	Technical	both	D5
+56	Career Specific	suggested	KPMG	Technical	both	D5
+57	Career Specific	suggested	KPMG	Technical	both	D5
+58	Career Specific	suggested	KPMG	Technical	both	D5
+59	Core	suggested	ITA	Soft Skills	both	A2
+60	Career Specific	suggested	IPBR	Technical	non CA	C2
+61	Core	Required for promotion	KPMG	Soft Skills	both	B2
+62	Career Specific	suggested	IPBR	Technical	non CA	C2
+63	Career Specific	suggested	IPBR	Technical	non CA	C2
+64	UNDER CONSTRUCTION	suggested	GAP	Technical	both	C3
+65	UNDER CONSTRUCTION	suggested	GAP	Technical	both	UNDER CONSTRUCTION
+66	UNDER CONSTRUCTION	suggested	GAP	Technical	both	UNDER CONSTRUCTION
+67	Career specific	Suggested	GAP	Technical	both	D4
+68	Core	Suggested	ITA	Technical	both	All levels
+69	Career specific	suggested	D&A	Technical	both	All levels
+70	Career specific	suggested	D&A	Technical	both	E8
+71	Career Specific	suggested	IT Attestation	Technical	both	UNDER CONSTRUCTION
+72	Career Specific	suggested	IPBR	Technical	both	D5
+73	Career Specific	suggested	IPBR	Technical	non CA	UNDER CONSTRUCTION
+74	Career Specific	suggested	IPBR	Technical	non CA	UNDER CONSTRUCTION
+75	Core	suggested	KPMG	Soft Skills	both	D6
+76	Core	suggested	ITA	Technical	non CA	D6
+77	Career Specific	suggested	KPMG	Soft Skills	both	B2
+78	Career Specific	suggested	KPMG	Soft Skills	both	A2
+79	Core	suggested	KPMG	Soft Skills	Both	D4
+80	Core	suggested	KPMG	Soft Skills	Both	B2
+81	Core	suggested	KPMG	Soft Skills	Both	A2
+82	Career Specific	suggested	KPMG	Soft Skills	non CA	E9
+83	Career Specific	suggested	KPMG	Soft Skills	both	C2
+84	Career Specific	suggested	KPMG	Soft skills	both	A2
+85	Career Specific	suggested	KPMG	Technical	Both	C3
+86	Career Specific	suggested	KPMG	Soft skills	both	C3
+87	Career Specific	suggested	KPMG	Soft skills	Both	A2
+88	Career Specific	suggested	IT IA	Technical	both	B2
+89	Career Specific	suggested	IT IA	Technical	both	B2
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						

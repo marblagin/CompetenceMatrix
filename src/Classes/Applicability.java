@@ -8,9 +8,8 @@ package Classes;
  *
  * @author Llewellyn Craddock
  */
-public class ApplicabilityOfCompetence {
+public class Applicability extends CompetenceMatrix{
 
-    private int competenceReferenceNo;
     private String coreCareer;
     private String promotion;
     private String softTechnical;
@@ -26,15 +25,15 @@ public class ApplicabilityOfCompetence {
      * @param Degrees
      * @param Grade
      */
-    public ApplicabilityOfCompetence(int CompetenceReferenceNo, String CoreCareer, String Promotion, String SoftTechnical, String Degrees, String Grade) {
-        competenceReferenceNo = CompetenceReferenceNo;
-        coreCareer = CoreCareer;
-        promotion = Promotion;
-        softTechnical = SoftTechnical;
-        degrees = Degrees;
-        grade = Grade;
+    public Applicability(String coreCareer, String promotion, String softTechnical, String degrees, String grade, int competenceReferenceNo) {
+        super(competenceReferenceNo);
+        this.coreCareer = coreCareer;
+        this.promotion = promotion;
+        this.softTechnical = softTechnical;
+        this.degrees = degrees;
+        this.grade = grade;
     }
-    
+   
     /**
      *
      * @return

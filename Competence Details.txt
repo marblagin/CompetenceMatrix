@@ -1,0 +1,211 @@
+1	Advisory Fundamentals	"To introduce new graduates to the nature of the IT Advisory practice and its functions, services and core processes. This course also covers a range of soft skills and includes team dynamics and role-playing as a means of orientating new graduates to our practice."	"This course introduces graduates to ITA core process, functions and services. It also covers a range of soft skills including team dynamics ."	https://portal.ema.kworld.kpmg.com/africa/LnD/Pages/default.aspx	January each year	L&D	Classroom based	None	updated	Updated
+2	CAATS	The course objective is to provide a basic understanding on the principles of CAATs and the use of the audit tool IDEA. The course also highlights the documents and filing structure to be used in CAATs assignments	The course highlights the documents and filling structure to be used in CAATs assignments		"Annually, depending on number of delegates.  "	iTeam	Classroom based	None	updated	
+3	ITRACA	"The objective of the ITRACA training is to equip attendees to effectively perform fieldwork for ITRACA engagements, covering the following modules:
+- Management of IT
+- Continuity of Systems
+- Physical Access and Enviromental Control
+- Security of Information Systems
+-System Development and Change Management
+- Control Assurance"	The ITRACA methodology is designed to facilitate the assessment of the IT risk faced by an organisation in relation to the appropriate mitigating controls implemented by management.		"Annually, depending on number of delegates.  "	GAP	Classroom based	None	updated	
+4	IT EA Basics	"Enables participants to understand the key activities performed within each phase of the KPMG audit workflow, in addition to adding value to the role IT Advisory plays in External Audit.  The course enabkes one to understand the relationship between iT General controls, assess IT controls in line with audit requirements.  It will teach the participants to complete the appropriate elements of the Global Working papers in accordance with the policy on IT Advisory involvement in the External Audit  and the appropriate documentation of these in eAudit."	It will teach the participants to complete the appropriate elements of the Global Working papers in accordance with the policy on ITA involvement in the External Audit and the documentation of these in eAudit.		"Annually, depending on number of delegates.  "	iTeam	Classroom based	None	updated	
+5	IT IA Basics	"An introduction to IT Internal Audit covering methodologies, tools, standards and intergration with IARCS and other ITA service lines"	"This course will enable the attendees to effectively perform fieldwork for Internal Audit engagements, coveing the following modules:
+-Assurance Defined
+-What is Internal Audit?
+-Overview of Internal Audit
+-Understanding Risk
+-Understanding Controls
+-Internal Audit Methodology
+- IA Methodology (Execution)
+- General IT Controls
+- Application Controls
+- Infrastructure Controls
+-IT Project Assurance"		"Annually, depending on number of delegates.  "	IT IA	Classroom based	None	updated	
+6	Introduction to SAP	"This will provide an intriduction to SAP, this will include how to test controls for a SAP GITC."	"This course will cover areas such as the different SAP modules, basic SAP navigation, running SAP reports, extracting data from SAP, authorisation concepts, Introduction to the Basis module."		"Annually, depending on number of delegates.  "	GAP	Classroom based	None	updated	
+7	Application Controls	Incorporated in the IT EA Advanced training course. Please see details in of thie course in Compettence reference number 11								
+8	Process Analysis	"This course is designed to provide Advisory professionals with the foundations to perform process analysis including the skills and knowledge to define, identify, document and analyze a business process. As a result of this training, participants should increase their knowledge of KPMG tools and techniques that support execution of process analysis related to risks and controls, technology, people and process effectiveness. "	"Skills include define,identify, document and analyze a business process."	https://portal.ema.kworld.kpmg.com/africa/LnD/Pages/default.aspx	throughout the year	L&D	Classroom based	"IT Advisory staff are required to complete 5 supplementary eLearning courses:
+(52) Base Processes: Fixed Assests
+(53) Base Processes: Order to cash
+(54) Base Processes: Payroll
+(55) Base Processes: Record to report
+(56) Base Processes: Purchase to pay
+
+"	updated	
+9	IPBR Basics	"To introduce the basic concepts of security, privacy and continuity."	"Will provide skills for general security reviews, to supplement any ITA advisor"		twice a year	IPBR	Classroom based	None	updated	
+10	SAP Business Process Controls Assurance	To provide participants with a high level overview of the business process modules within SAP.	"Participants will understand the Business Process controls (inherent application controls, configurable controls, access controls and IT dependent controls) within the various SAP modules."		Twice a year	CI-ERP Advisory 	Classroom based	(6)  Introduction to SAP or experience in performing application control reviews.	updated	
+11	IT EA Advanced	"Enable participants to understand the context within which IT Advisory supports the External Audit. The participant will be able to assess and add value to the role that IT Advisory plays in the external audit. This course will assist the participant in identifying and managing the procedures for testing IT controls and evaluating the impact of IT deficiencies on the audit process. In addition the participant will understand how other aspects (e.g. Fraud, Service Organizations) can affect the work performed by IT Advisory in the External Audit review and the appropriate elements of the Global Working papers in accordance with the policy on ITA involvement in the External Audit. Other areas covered in this course are Application controls, which will teach the participant to understand what automated controls are and what the different categories are. Participants will learn how to test automated controls, how to identify what 'value add' to the audit is and how to sell it to the audsit team. A session on CAATS advanced is include in this course. Participants will be proficient in advanced scripting and automation of routine testing. We will provide guidance to supervisors and managers on how to effectively review CAATs engagements"	Participants will be taught to identify and manage the procedures for testing IT controls and evaluate the impact of IT deficiencies on the audit process.		"Annually, depending on number of delegates.  "	iTeam	Classroom based	(4) IT EA Basics	updated	
+12	IT IA Advanced	UNDER CONSTRUCTION			On demand	IT IA	Classroom based			
+13	SAP GRC Access Control	To understand basics of SAP GRC Access Control.	To articulate concepts around SAP authorisation/access enviroment. Explaining the different components in SAP GRC Access Control tool.		Annually	CI-ERP Advisory 	Classroom based	"(6)  Introduction to SAP
+(10) SAP Business Process Controls Assurance"	updated	
+14	CISA	"To attain the CISA accreditation, ensuring all round ITA risk understanding"	"The CISA designation is a globally recognized certification for IS audit control, assurance and security professionals. "	www.isaca.org	"Exams are writen in June, September and December.  "	ISACA	Exam based	"2 years ITA experience, D5 level
+
+O:\IT Advisory\Public\People\Operations\5. Training Admin\2. L&D and ITA Courses\External\Isaca\CISA Policy.xls "	updated	Costs will change each year depending on the exchange rate.
+15	CGEIT	CGEIT recognizes a wide range of professionals for their knowledge and application of enterprise IT governance principles and practices	"Exams are write in June, September and December"	www.isaca.org	"Exams are writen in June, September and December.  "	ISACA	Exam based	(15)CISA	updated	Costs will change each year depending on the exchange rate.
+16	CRISC	"CRISC prepares and enables IT professionals for the unique challenges of  IT and enterprise risk management, and positions them to become strategic partners to the enterprise"	"Exams are write in June, September and December"	www.isaca.org	"Exams are writen in June, September and December.  "	ISACA	Exam based	(15)CISA	updated	Costs will change each year depending on the exchange rate.
+17	CISM	To obtain the ISACA issued accreditation	"The uniquely management-focused CISM certification promotes international security practices and recognizes the individual who manages designs, and oversees and assesses an enterprise’s information security."	www.isaca.org	"Exams are writen in June, September and December.  "	ISACA	Exam based	"from C3, variety of IPBR competencies….."	updated	Costs will change each year depending on the exchange rate.
+18	ITIL Foundation	ITIL® best practices provide a systematic and professional approach to the management of IT services. 	"Candidates can expect to gain competencies in the areas of;
+- Service Management as a practice (Comprehension)
+- Service Lifecycle (Comprehension)
+-Key Principles and Models (Comprehension)
+-Generic Concepts (Awareness)
+-Selected Processes (Awareness)
+-Selected Roles (Awareness)
+-Selected Functions (Awareness)
+-Technology and Architecture (Awareness)
+-ITIL® Qualification scheme (Awareness)"	www.isaca.org	Annually	Foster-Melliar	Classroom & Exam based	None	updated	Costs will be change per course run
+19	Cobit 5 Foundation 	Participants learn about the need for an IT control framework and how COBIT® addresses this need by providing a globally accepted IT governance and control framework.	"COBIT 5 helps enterprises of all sizes:
+-Maintain high-quality information to support business decisions 
+- Achieve strategic goals and realize business benefits through the effective and innovative use of IT 
+-Achieve operational excellence through reliable, efficient application of technology 
+-Maintain IT-related risk at an acceptable level 
+-Optimize the cost of IT services and technology
+Support compliance with relevant laws, regulations, contractual agreements and policies
+"	www.isaca.org	Sep each year	Foster-Melliar	Classroom & Exam based	None	updated	
+20	CIMA	"CIMA focuses on business and accounting knowledge. You will  financially qualified and professionally trained in business management, capable of advising on business strategy and risk management."			Exams are writen twice a year	CIMA	Exam based	None	updated	Costs depend of the number of exams the individual writes each year
+21	CIA	The CIA designation is the only globally accepted certification for internal auditors and remains the standard by which individuals demonstrate their competency and professionalism in the internal auditing field		https://na.theiia.org/certification/CIA-Certification/Pages/CIA-Certification.aspx 	Throughout the year	IIA	Exam based	24 months Internal Audit experience 	Waiting for cost details from IARCS	Loritta looking into this possibility
+22	KPMG  New Trainee Induction	 The objective of the annual induction is to introduce new trainees to KPMG. 	"Who we are, what we do and how they fit into the KPMG Family.  Run just before the fundamentals "	https://portal.ema.kworld.kpmg.com/africa/LnD/Pages/default.aspx	January each year	L&D	Classroom based	None	updated	
+23	Monthly Induction	 The objective of the monthly induction is to introduce experienced hires to KPMG. 	"Who we are, what we do and how they fit into the KPMG Family"	https://portal.ema.kworld.kpmg.com/africa/LnD/Pages/default.aspx	Monthly	L&D	Classroom based	None	updated	
+24	Advisory On Boarding	This non-technical 1/2 day course is an orientation to KPMG Advisory.	"It provides new hires to Advisory with a basic understanding of the Advisory strategy, structure, leadership roles and key contacts and tools."	https://portal.ema.kworld.kpmg.com/africa/LnD/Pages/default.aspx	Monthly	L&D	Classroom based	None	updated	
+25	Advisory Risk Management	"This course provides an introduction to KPMG Advisory Risk and Engagement Management Policies, procedures and tools."	" Staff will have an understanding of how CRM, sentinel, NBA and enagagement and risk management interlink"	https://portal.ema.kworld.kpmg.com/africa/LnD/Pages/default.aspx	throughout the year	L&D	Classroom based	None	updated	
+26	Advisory 1 - Enhancing Value for Clients	This course is designed to build core foundational skills of entry level Advisory professional.	"Participants will learn in a simulation of a typical advisory engagement to build their knowledge, skills and cultural awareness necessary to become an effective and sucessful adviser"	https://portal.ema.kworld.kpmg.com/africa/LnD/Pages/default.aspx	throughout the year	L&D	Classroom based	None	updated	
+27	Advisory 2 - Managing Engagements	The programme is intended for Advisory professionals who are starting to lead large engagements	The programme will benefit participants by developing their advisory and facilitation skills in managing Advisory engagements.	https://portal.ema.kworld.kpmg.com/africa/LnD/Pages/default.aspx	throughout the year	L&D	Classroom based	None	updated	
+28	Advisory 3 - Building Strategic Relationships	This program revisits the multiple benefits of the Trusted Adviser relationship between the KPMG professional and the client.	The program examines how to established strategic relationships and improve the skills and behaviours necessary to enhance the trusted Advisor status through practicing by way of role plays and simulations.	https://portal.ema.kworld.kpmg.com/africa/LnD/Pages/default.aspx	throughout the year	L&D	Classroom based	(36) Development Centre	updated	
+29	Advisor 4 - Facilitating Executive Decision Making	This course is focused on the development of the relevant competencies of those operating at the Director/Partner level.	"The course allows the participants to practice the key activities in which they will be involved in each stage through a case study, having first considered the approach and the inter-personal skills that may be required."	https://portal.ema.kworld.kpmg.com/africa/LnD/Pages/default.aspx	throughout the year	L&D	Classroom based	Partner	ready for presentation	
+30	Presentation Skills	This course focuses on up-skilling participants on how to make impactful presentations	"Techniques learnt include; making a positive impact, focus the presentation on the audience, structuring and delivering a presentation."	https://portal.ema.kworld.kpmg.com/africa/LnD/Pages/default.aspx	throughout the year in each office	L&D	Classroom based	from D4	updated	
+31	Business Writing Skills	This course provides training on how to write more effectively and in line with modern trends.	"This course will cover topics such as; vocabulary, tone, structuring tips, mind mapping, letter structures, memoranda, report writing, proposals and email etiquette."	https://portal.ema.kworld.kpmg.com/africa/LnD/Pages/default.aspx	throughout the year in each office	L&D	Classroom based	None	updated	
+32	Advisory Hour	The purpose of Advisory Hour is to share all relevant and current Advisory and other topics	"This includes new KPMG developments, major client projects and knwoledge sharing from various service lines"	https://portal.ema.kworld.kpmg.com/africa/LnD/Pages/default.aspx	throughout the year	L&D	Internal conference	None	updated	
+33	Partner Assessment Centres	Assess a senior manager / AD for partnership entry	This course is run before candidates are accepted to the partnership	https://portal.ema.kworld.kpmg.com/africa/LnD/Pages/default.aspx	Annually	L&D	Internal Assessment	"(34) Development Centre, Senior Manager or AD, Business case, By invitation"	updated	
+34	Development Centres	To identify development areas for promotion to AD or partnership	The focus on the course is to identify development areas which one will require to work on in order to prepare an individual for further promotion within the firm.	https://portal.ema.kworld.kpmg.com/africa/LnD/Pages/default.aspx	twice a year	L&D	Internal Assessment	"Senior Manager
+(30) Presentation Skills 
+(36) Helping people Buy
+(31) Business Writing
+(35) Development Makes the Difference"	updated	
+35	Development makes the Difference	This is to prepare Performance Managers for successfully managing the performance development of their counselee .	This is done through discussions and practice around required skills and behaviours.	https://portal.ema.kworld.kpmg.com/africa/LnD/Pages/default.aspx	throughout the year	L&D	Classroom based	None	updated	
+36	Helping People Buy	This course will provide techniques to assist with selling of services to clients.	This is done through 12 specifically designed modules which focus on common problem areas of selling	https://portal.ema.kworld.kpmg.com/africa/LnD/Pages/default.aspx	throughout the year	L&D	Classroom based	None	updated	
+37	New Managers Milestone Event	Provide new managers with soft skills needed for their new role	"The course is designed to assist the new managers with the people skills, risk management they will require in their new roles as managers.  Experienced hires are also encouraged to attend asap after joininng"	https://portal.ema.kworld.kpmg.com/africa/LnD/Pages/default.aspx	May & Dec each year	L&D	Classroom based	None	updated	
+38	New Senior Manager Milestone Event	The focus of this course is to celebrate the success of being promoted to SM and to highlight the skills required for a person at this level.	"This event is to ensure that SM are highly motivated, engaged and enthusiastic about their new role and their future with the firm."	https://portal.ema.kworld.kpmg.com/africa/LnD/Pages/default.aspx	Nov each year	L&D	Classroom based	None	updated	
+39	New AD Milestone Event	"This one-day career milestone event focuses on celebrating the promotion to  AD, and to provide a networking opportunity"	"This includes a conversation about our strategy and other topics of interest, followed by a networking opportunity with senior partners."	https://portal.ema.kworld.kpmg.com/africa/LnD/Pages/default.aspx	Annually	L&D	Classroom based	None	updated	
+40	Global New Partners Meeting	To provide new partners with a global networking opportunity	An international experience	https://portal.ema.kworld.kpmg.com/africa/LnD/Pages/default.aspx	Annually	L&D	Internal conference	None	No costs avaible	
+41	Fee Negotiation Skills Workshop	"A 1 day seminar devoted to professionals who encounter a client changellenge to fees or, who faces a competitor who seeks to undercut their fees and take away business."	This day is designed to provide you with precise skills - a tried-and -tested system to boost your margins and respond to the client's fee and billing challenge	https://portal.ema.kworld.kpmg.com/africa/LnD/Pages/default.aspx	throughout the year	L&D	Classroom based	None	updated	
+42	New Partner Induction	This 1 day workshop provides networking opportunity for new partners	This one day workshop covers aspects specific to the role of a partner	https://portal.ema.kworld.kpmg.com/africa/LnD/Pages/default.aspx	Annually	L&D	Classroom based	None	updated	
+43	Technical Updates	"Create an awareness of latest developments in, and practical application issues related to, auditing and financial reporting"	"The focus of the course is to keep attendeees informed of changes in regulatory environment, accounting and auditing standards"		throughout the year	DPP	Classroom based	None	updated	
+44	IFRS Staff Updates				Throughout the year	DPP	Classroom based	None	Waiting for details from DPP	
+45	Public Sector Training	"Introduction to the public sector, including the structure and functioning of the public sector and of public entities, as well as guiding principles contained in legislation such as the Constitution, the Public Finance Management Act, the Municipal Finance Management Act, the Municipal Structures Act and the Municipal Systems Act"	"To serve as an introductory training session for individuals from Audit, Tax and Advisory providing a general overview and a broad understanding of the public sector, the way it functions and its complexities."		throughout the year	DPP	Classroom based	None	Waiting for details from DPP	
+46	Harvard Manage Mentor	To provide e-learning modules on a range of  soft skills topics 		http://kpmg.myhmm.org/hmm/home.html 	As needed	L&D	e-learning	None	updated	
+47	Intuition - FS Specific	FS Specific e-learning modules		 http://kpmglearn.intuition.com 	As needed	L&D	e-learning	None	ready for presentation	
+48	KITE	Accounting e-learning modules			As needed	L&D	e-learning	None	Waiting for the link from Ricky	
+49	Cloud Awareness	The modules in an introduction to Cloud computinf	"This one hour eLearning module covers: 
+- What is Cloud computing 
+- Why is it important to ourselves and our clients
+- What is the market place today 
+- What is KPMG’s cross-functional role in Cloud computing "	TBA	As needed	L&D	e-Learning	None	Waiting for the link from Ricky	
+50	Framework for Testing and Effectiveness on Controls	This one hour eLearning module looks at the principles for testing internal controls.  	"The content builds upon the Process, Risk and Controls module and covers the techniques for testing the various types of internal controls. "	TBA	As needed	L&D	e-learning	None	Waiting for the link from Ricky	
+51	"Processes, Risk and Controls"	This one hour WBT course is part of the foundation skills program. The emphasis in this course is on the identification of risks and the corresponding mitigating controls. 	"The course includes analysis of processes, risk and controls using concepts and process examples. This course is typically aimed at practitioners with no prior internal audit experience, who will be involved in risk and controls assessments and/or performance improvement engagements. "	TBA	As needed	L&D	e-learning	None	Waiting for the link from Ricky	
+52	Base Processes: Fixed Assets	This course is designed to provide Advisory professionals with the skills required to better understand the Fixed Assets process and utilize the Fixed Assets Process Transformation Toolkit. 	"As result of this training, participants should gain knowledge of the overall Fixed Assets process and sub-processes and the details of each sub-process. KPIs, IT requirements, common issues, better practices, and risks and controls within the process will be explained. After taking this course, the participants should be better able to observe and identify the Fixed Assets process on a client site. "	TBA	As needed	L&D	e-learning	None	Waiting for the link from Ricky	
+53	Base Processes: Order to Cash	This course is designed to provide Advisory professionals with the skills required to better understand the Order to Cash (O2C) process and utilize the Order to Cash toolkit. 	"As a result of this training, participants should gain knowledge of the Order to Cash process, the sub-processes and the details of each sub-process. Controls and risks within the process will also be explained. After taking this course, the participants should be better able to observe and identify the process on a client site. "	TBA	As needed	L&D	e-learning	None	Waiting for the link from Ricky	
+54	Base Processes: Payroll	This 3-hour web-based course is designed to provide Advisory professionals with the skills required to better understand the Payroll process and utilize the Payroll Process Transformation Toolkit. 	"As a result of this training, participants should gain knowledge of the overall Payroll process and sub-processes. KPIs, IT requirements, common issues, better practices, and risks and controls within the process will be explained. After taking this course, the participants should be better able to observe and identify the Payroll process on a client site "	TBA	As needed	L&D	e-learning	None	Waiting for the link from Ricky	
+55	Base Processes: Record to Report	This 3-hour web-based course is designed to provide Advisory professionals with the skills required to better understand the Record to Report Process. 	"By the end of this course, you should be able to:   - Describe how the process of Record to Report fits into the Business Cycle  - Define the processing areas within Record to Report  - Identify improvement opportunities for your clients across the dimensions (organization, process, controls and technology). "	TBA	As needed	L&D	e-learning	None	Waiting for the link from Ricky	
+56	Base Processes: Purchase to Pay	This course is designed to provide Advisory professionals with the skills required to better understand the Purchase to Pay (P2P) process and utilize the Purchase to Pay toolkit. 	"As a result of this training, participants should gain knowledge of the Purchase to Pay process, the sub-processes and the details of each sub-process. Controls and risks within the process will also be explained. After taking this course, the participants should be better able to observe and identify the process on a client site. "	TBA	As needed	L&D	e-learning	None	Waiting for the link from Ricky	
+57	Project Management	This one hour eLearning provides an overview of the Project Management methodology and the key techniques. 	" It provides a discussion of how the tools are applied.  Each phase of the methodology is linked to the nine workstreams. Participants learn about the role of the project management.  It considers how to anticipate, mitigate and manage project risks. "	TBA	As needed	L&D	e-learning	None	Waiting for the link from Ricky	
+58	Introduction to Sustainability	"Using practical examples, this course will provide learners with an overview of general sustainability concepts, the sustainability market, sustainability reporting and terminology. "	"This module will discuss the business implications, company responses and drivers of corporate sustainability and how companies implement sustainability. Finally, the module will explain corporate sustainability reporting and assurance. "	TBA	As needed	L&D	e-learning	None	Waiting for the link from Ricky	
+59	MBA	UNDER CONSTRUCTION			By request	UNISA	Self Study	from C2	under consideration	
+60	Hacknet	"Hacknet is the annual international KPMG conference on information security, focusing on Security & Technology. Hacknet is the opportunity to share knowledge and experience, as well as to re-established connections between hacknetters of the past as well as the newcomers at KPMG. "	"By the end of this course, you should:
+·     Have better insight in the latest developments and tools to support clients with respect to information security
+·     Have a better insight in security capabilities of the international team"		Annually	KPMG Global	Classroom based	None	Waiting for costs	
+61	AD assessment centre	This centre forms part of the AD adminission process	Assessment in the form of roleplays	https://portal.ema.kworld.kpmg.com/africa/LnD/Pages/default.aspx	As needed	L&D	Classroom based	None	updated	
+62	CISSP	CISSP® certification is a globally recognized standard of achievement that confirms an individual's knowledge in the field of information security	"This exam covers critical topics in security today, including risk management, cloud computing, mobile security, application development security and more."	https://www.isc2.org/CISSP/Default.aspx 	By request	TBA	Exam based	5 years work experience in the security field. Refer to ITA policy regarding external accredications	updated	
+63	CIPP	Achieving a CIPP is a significant achievement that requires understanding of broad and specific regional or sectoral privacy concepts	"The broad global concepts are demonstrated by passing the CIPP Certification Foundation examination, which covers the following areas:
+ - Common principles and practices
+ - Information security
+ - Online privacy
+"	https://www.privacyassociation.org/certification/cipp_certification_programs 	By request	TBA	Exam based	Refer to ITA policy regarding external accredications	ready for presentation	
+64	CGEIT Basics	UNDER CONSTRUCTION		www.isaca.org	Annually	ISACA	Exam based	UNDER CONSTRUCTION	UNDER CONSTRUCTION	
+65	VAL IT	UNDER CONSTRUCTION			As needed	GAP	Classroom based	UNDER CONSTRUCTION	UNDER CONSTRUCTION	
+66	Risk IT	UNDER CONSTRUCTION			As needed	GAP	Classroom based	UNDER CONSTRUCTION	UNDER CONSTRUCTION	
+67	90 Day Programme	"The programme is self study that will give you exposure to 6 disciplines of IT Governance.  It covers contemporary theory, industry frameworks & KPMG tools and methodologies."	"Exposure to 6 disciplines of IT Governance.  It covers contemporary theory, industry frameworks & KPMG tools and methodologies."		As needed	GAP	Self Study	None	updated	
+68	QlikView	To gain a basic understanding of the QlikView tool enabling the user to visualise data	This course will introduce the participant to the QlikView tool and KPMG methodologies around developing visualisation models in QlikView. The course is the pre-requisite for external QlikView developer training	www.qlikview.com	twice a year	D&A	Classroom based	pre training (online)	updated	
+69	SQL training	Introduction to the SQL programming language used to manipulate data for extraction and analysis	"This course will introduce the participants to SQL and will focus on Create, Read, Update and Delete functions as well as basic joins."		Annually	D&A	Classroom & Exam based	none	updated	
+70	Facts2Value	Introduction to the F2V tool used on the SAP system	This course will introduce the participant to the F2V tool and KPMG methodologies used around extracting and manipulating data for use in F2V		Annually	CI-ERP Advisory / D&A	Classroom based	none	updated	
+71	IT Attestation training	UNDER CONSTRUCTION			As needed	IT Attestation	Classroom based	UNDER CONSTRUCTION	Fatima chatting to DPP	
+72	IPBR Advanced	UNDER CONSTRUCTION			Annually	IPBR	Classroom based	UNDER CONSTRUCTION	UNDER CONSTRUCTION	
+73	SKU Conference	UNDER CONSTRUCTION			Annually	IPBR	Classroom based	UNDER CONSTRUCTION	Jason Gottschalk to provide details	
+74	RSA Conference	UNDER CONSTRUCTION			Annually	IPBR	Classroom based	UNDER CONSTRUCTION	Jason Gottschalk to provide details	
+75	Essential Project Management Skills	"This two day course is designed to improve project management skills and knowledge for all Advisory staff responsible for running projects. These projects could be internal KPMG member firm projects or client projects. The workshop is not intended for very experienced project managers. Typically the participants are individuals who are starting to manage aspects, or the totality, of an engagement. The course focuses upon the technical and behavioural skills required for projects to consistently meet the project objectives while observing the triple constraints."	"By the end of this course, participants should be able to: Identify the roles and responsibilities in managing projects, Describe the project lifecycle, phases and stages of a project as well as know how to execute the project manager’s role and responsibilities through all stages of a project lifecycle and apply a project planning methodology and other project management tools / techniques and processes"	https://portal.ema.kworld.kpmg.com/africa/LnD/Pages/default.aspx	As needed	L&D	Classroom based	None	updated	
+76	Accounting for Non Accountants	"This course is designed to provide non-CA advisory professionals with a basic understanding of accounting and auditing to assist them in undertaking advisory engagements. As a result of this training, participants will increase their knowledge on the accounting basics, such as debits, credits, financial statements and their components, the flow of transactions, accounting terminology and auditing basics."	"Articulate the concepts of the International Financial Reporting Standards (IFRS).
+-Identify and define the steps for preparing a financial statement and identify its components.
+-Discuss general ledger, sub-ledger accounts and journal entries.
+-Identify significant accounts and classes of transactions as well as recognize the relationship between assertions and significant accounts"	https://portal.ema.kworld.kpmg.com/africa/LnD/Pages/default.aspx	throughout the year	L&D	classroom based	None	updated	
+77	Discover your Inner Leader	"Learn about different leadership sty;es and how to lead yourself, your team and KPMG."	"This course will look at various ways we can improve our self awareness to become a better for yourself and for KPMG. The course will expose you to aspects of NLP, EQ, Influencing and Leadership related to the following four main areas:
+- Myself
+- My team
+- My client
+- KPMG"	https://portal.ema.kworld.kpmg.com/africa/LnD/Pages/default.aspx	Throughout the year	L&D	Classroom based	None	updated	
+78	Investment in Excellence	"Learning through discussions, activities and reflection"	"The program is divided into 3 phases:
+1. Explore and unpack your potential and how your mind works.
+2. We will unpack our purpose, the importance and management of hapiness, relilience and success
+3. We unpack how to maximize our impact on the community and company. The different stages of development, and the organizational Culture"	https://portal.ema.kworld.kpmg.com/africa/LnD/Pages/default.aspx 	throughout the year	L&d	Classroom based	None	updated	
+79	Core Consulting Skills - staff	This program is designed to provide Management Consulting professionals with an interactive experience that aims to improve the tactical consulting skills that are essential in managing and conducting successful consulting engagements	"By the end of this course participants should better able to:
+- Describe the MC Strategy, Value Delivery Frameork and Business Case Value Gateways.
+- Describe the phases of Fact Based Consulting (FBC)
+- Develop hypotheses, gather and analyse data, and validate the hypotheses using FBC approach
+- Schedule the engagament using project management tools.
+Amongst other things."	https://portal.ema.kworld.kpmg.com/africa/LnD/Pages/default.aspx	throughout the year	L&D	Classroom based	None	updated	
+80	Core Consulting Skills - manager	This program is designed to provide Management Consulting professionals with an interactive experience that aims to improve the tactical consulting skills that are essential in managing and conducting successful consulting engagements	"By the end of this course participants should better able to:
+- Describe the MC Strategy, Value Delivery Frameork and Business Case Value Gateways.
+- Describe the phases of Fact Based Consulting (FBC)
+- Develop hypotheses, gather and analyse data, and validate the hypotheses using FBC approach
+- Schedule the engagament using project management tools.
+Amongst other things."	https://portal.ema.kworld.kpmg.com/africa/LnD/Pages/default.aspx	throughout the year	L&D	Classroom based	None	updated	
+81	Facilitating Executive Decision Making	"This course is the fourth in the series of Advisory Skills programs and is focused upon the development of the relevant competencies of those operating at the Director or recently appointed (within two years) Partner level. The program is designed to be complementary to other learning events for its target audience.
+"	"By the end of this course, participants will be able to:
+Recognize the importance of managing board level relationships in advisory projects to ensure appropriate outcomes from discussions
+Conduct effective C-level interviews involving those who are potential outside their level of expertise with confidence
+Recognize the importance of change management activities at the board level and be able to develop and execute appropriate strategies
+Facilitate C-level discussions to appropriate outcomes congruent with both client and engagement objectives
+"	https://portal.ema.kworld.kpmg.com/africa/LnD/Pages/default.aspx	Once or twice a year (based on demand)	L&D	Classroom based	None	updated	
+82	Support Staff Fundamental Skills	This 2 day course wiil allow participants to develop their office skills such as professionalism and conflict managements	This course will enable participants to understand emotional intelligence and identify areas of development in their path to improving their emotional intelligence.	https://portal.ema.kworld.kpmg.com/africa/LnD/Pages/default.aspx	Twice a year	L&D	Classroom based	None	updated	
+83	Generic Train-the-Trainer	This course is for selected candidates only. Each year a small batch of staff are selected to become accredited trainers and thus assist Learning & Development in rolling out courses. This course up-skills them for that role.	"Accreditation to be a KPMG trainer.
+"	https://portal.ema.kworld.kpmg.com/africa/LnD/Pages/default.aspx	Sep each year	L&D	Classroom based	(30) Presentation Skills	updated	
+84	Experienced Facilitators Accreditation Program	Participants who successfully complete the programme will become a KPMG Accredited trainer. Once accredited participants will have the opportunity to co-present with L&D on several courses and also use this value adding skill to facilitate and deliver training to our clients.	"Accreditation to be a KPMG trainer.
+"	https://portal.ema.kworld.kpmg.com/africa/LnD/Pages/default.aspx	Nov each year	L&D	Blended (Classroom & eLearning)	"eLearning pre-course
+(30) Presentation Skills"	updated	
+85	Applied Project Planning	"The course is for project managers leading large teams on large projects. This course focuses the participant’s attention on key “applied” technical and behavioural related Project Management issues and challenges that are likely to be encountered on complex projects. The encountered challenges are supported by the relevant project management tools/techniques to assist the participants in successfully addressing these challenges.  The course also focuses on reinforcing the need to work interdependently – ensure the individual workstreams are functioning effectively as well as working together to ensure the overall project is functioning effectively.
+"	"Apply advanced project management techniques to initially estimate and then to manage scope, schedule, resources and costs (e.g. Earned Value and burn rate analyses)
+apply communication, conflict resolution and stakeholder analysis techniques to manage: deliverables; client communication across multiple locations, work streams, stakeholders, etc.; project risk and response planning; and project conflicts
+explain and contrast internal KPMG engagement management requirements with external project management requirements
+understand and apply the KPMG program and project planning methodology and other project management tools/techniques and processes
+"	https://portal.ema.kworld.kpmg.com/africa/LnD/Pages/default.aspx	Throughout the year	L&D	Classroom based	(75) Essential Project Management Skills	updated	
+86	Coaching Essentials	"The purpose of this workshop is to help individuals improve their coaching skills enabling them to incorporate coaching into their everyday business practice.  They will do this by learning three models that support different aspects of a coaching conversation, by taking several opportunities to practice coaching, and by working on a real-life scenario they are currently struggling with.
+
+The workshop is highly interactive; participants are expected to work throughout the session on fictitious scenarios as well as their own.  Furthermore, the workshop’s emphasis on discovery through experience is designed to evoke an emotional response in participants, resulting in a powerful learning experience that enables participants to identify opportunities for development.
+"	"In this workshop participants will learn:
+Behaviours and attributes of someone who coaches effectively
+The importance of coaching and its impact on KPMG’s high performance culture
+KPMG’s models for coaching and feedback 
+Principles of active listening 
+ 
+As a result, you will be able to:
+Conduct meaningful and effective coaching conversations
+Respond to common coaching challenges
+"	https://portal.ema.kworld.kpmg.com/africa/LnD/Pages/default.aspx	Throughout the year	L&D	Classroom based	None	updated	
+87	Investment in Excellence	"Investment In Excellence gives participants (leaders, managers and staff) a set of thinking skills to challengetheir perceptions of themselves, their colleagues, and the organisation. It enables them to identify and addressthe barriers to their own success, and significantly improves their effectiveness as individuals and as teammembers - maximising their potential and enhancing their performance results. The collective new thinking skillsacquired enables the organisation to move towards its vision culture methodically and expeditiously.An organisation's culture either supports the achievement of POTENTIAL or limits it.Investment In Excellence provides powerful insights on opening people's minds to innovation and promotesstrong individual accountability. When applied to the organisation, it offers a common language andmethodology to build a dynamic, focused and aligned culture."		https://portal.ema.kworld.kpmg.com/africa/LnD/Pages/default.aspx	On demand	L&D	Classroom based	None	updated	
+88	ITRACA for Engement Managers	"The objective of this course is to equip attendees to effectively scope, execute and manage an ITRACA engagements"	"The course will cover:
+- ITRACA Overview
+- Managing the engagement
+- Different levels of the ITRACA
+- Risk profiling
+- Assessing controls
+- Testing controls
+- Reporting and generating dashborad
+- Running workshops"		"Annually, depending on number of delegates.  "	IT IA	Classroom based	None	updated	
+89	FITIAM (Fundamentals in IT IA Mnagement)	The objective of this course is to equip attendees to effectively manage (end to end) an internal audit engagement.	"The course will cover:
+- Recap on IT Internal Audit Basics
+- Internal Audit Methodology
+- IT Risk Assessment Framework
+- Enterprise IT Risk Assessment
+- Devel;op the IT Internal Audit Plan
+- Execution and Reporting (overview)
+- Engagement Delivery: Secure the work
+- Engagement Delivery : Planning
+- Engagement Delivery: Execution
+- Engagement Delivery: Close
+- Selling IT Internal Audit"		"Annually, depending on number of delegates.  "	IT IA	Classroom based	None	updated	

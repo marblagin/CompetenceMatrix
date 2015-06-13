@@ -8,8 +8,7 @@ package Classes;
  *
  * @author Llewellyn Craddock
  */
-public class CostPerPerson {
-    private int competenceReferenceNo;
+public class CostPerPerson extends CompetenceMatrix{
     private int internal;
     private int cash;
     private int disbursement;
@@ -29,8 +28,8 @@ public class CostPerPerson {
      * @param workBackApplicable
      * @param workBack
      */
-    public CostPerPerson(int competenceReferenceNo, int internal, int cash, int disbursement, int opportunity, int total, String workBackApplicable, String workBack) {
-        this.competenceReferenceNo = competenceReferenceNo;
+    public CostPerPerson(int internal, int cash, int disbursement, int opportunity, int total, String workBackApplicable, String workBack, int competenceReferenceNo) {
+        super(competenceReferenceNo);
         this.internal = internal;
         this.cash = cash;
         this.disbursement = disbursement;
@@ -39,7 +38,6 @@ public class CostPerPerson {
         this.workBackApplicable = workBackApplicable;
         this.workBack = workBack;
     }
-
     /**
      *
      * @return

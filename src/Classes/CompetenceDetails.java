@@ -8,8 +8,7 @@ package Classes;
  *
  * @author Llewellyn Craddock
  */
-public class CompetenceDetails {
-    private int competenceReferenceNo;
+public class CompetenceDetails  extends CompetenceMatrix{
     private String shortName;
     private String objective;
     private String hyperlink;
@@ -33,8 +32,8 @@ public class CompetenceDetails {
      * @param status
      * @param reviewActionNotes
      */
-    public CompetenceDetails(int competenceReferenceNo, String shortName, String objective, String hyperlink, String timing, String whoProvides, String type, String dependencies, String status, String reviewActionNotes) {
-        this.competenceReferenceNo = competenceReferenceNo;
+    public CompetenceDetails(String shortName, String objective, String hyperlink, String timing, String whoProvides, String type, String dependencies, String status, String reviewActionNotes, int competenceReferenceNo) {
+        super(competenceReferenceNo);
         this.shortName = shortName;
         this.objective = objective;
         this.hyperlink = hyperlink;

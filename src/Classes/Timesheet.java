@@ -8,8 +8,7 @@ package Classes;
  *
  * @author Llewellyn Craddock
  */
-public class Timesheet {
-    private int competenceReferenceNo;
+public class Timesheet  extends CompetenceMatrix{
     private String code;
     private double hours;
 
@@ -19,8 +18,8 @@ public class Timesheet {
      * @param code
      * @param hours
      */
-    public Timesheet(int competenceReferenceNo, String code, double hours) {
-        this.competenceReferenceNo = competenceReferenceNo;
+    public Timesheet(String code, double hours, int competenceReferenceNo) {
+        super(competenceReferenceNo);
         this.code = code;
         this.hours = hours;
     }

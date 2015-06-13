@@ -8,8 +8,7 @@ package Classes;
  *
  * @author Llewellyn Craddock
  */
-public class CompetenceOwnership {
-    private int competenceReferenceNo;
+public class CompetenceOwnership extends CompetenceMatrix{
     private String partner;
     private String champion;
     private String details;
@@ -21,8 +20,8 @@ public class CompetenceOwnership {
      * @param champion
      * @param details
      */
-    public CompetenceOwnership(int competenceReferenceNo, String partner, String champion, String details) {
-        this.competenceReferenceNo = competenceReferenceNo;
+    public CompetenceOwnership(String partner, String champion, String details, int competenceReferenceNo) {
+        super(competenceReferenceNo);
         this.partner = partner;
         this.champion = champion;
         this.details = details;
