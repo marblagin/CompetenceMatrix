@@ -21,6 +21,8 @@ public class Main {
         mf.setVisible(true);
         SearchFrame sf = new SearchFrame ();
         sf.setVisible(false);
+        AddCompetenceFrame addComp = new AddCompetenceFrame();
+        addComp.setVisible(false);
     }
 
 }
