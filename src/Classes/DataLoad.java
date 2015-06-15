@@ -37,7 +37,7 @@ public class DataLoad {
                 String softTechnical = scLine.next();
                 String degrees = scLine.next();
                 String grade = scLine.next();
-                app[counter] = new Applicability(coreCareer, promotion, softTechnical, degrees, grade, counter);
+                app[counter] = new Applicability(coreCareer, promotion, softTechnical, degrees, grade, compNum);
                 scFile.close();
             }
         } catch (FileNotFoundException e) {
@@ -66,7 +66,7 @@ public class DataLoad {
                 String dependencies = scLine.next();
                 String status = scLine.next();
                 String reviewActionNotes = scLine.next();
-                det[counter] = new CompetenceDetails(shortName, objective, hyperlink, timing, whoProvides, type, dependencies, status, reviewActionNotes, counter);
+                det[counter] = new CompetenceDetails(shortName, objective, hyperlink, timing, whoProvides, type, dependencies, status, reviewActionNotes, compNum);
                 scFile.close();
             }
         } catch (FileNotFoundException e) {
@@ -90,7 +90,7 @@ public class DataLoad {
                 String partner = scLine.next();
                 String champion = scLine.next();
                 String details = scLine.next();
-                own[counter] = new CompetenceOwnership(partner, champion, details, counter);
+                own[counter] = new CompetenceOwnership(partner, champion, details, compNum);
                 scFile.close();
             }
         } catch (FileNotFoundException e) {
@@ -118,7 +118,7 @@ public class DataLoad {
                 int total = scLine.nextInt();
                 String workBackApplicable = scFile.next();
                 String workBack = scLine.next();
-                cost[counter] = new CostPerPerson(internal, cash, disbursement, opportunity, total, workBackApplicable, workBack, counter);
+                cost[counter] = new CostPerPerson(internal, cash, disbursement, opportunity, total, workBackApplicable, workBack, compNum);
                 scFile.close();
             }
         } catch (FileNotFoundException e) {
@@ -141,7 +141,7 @@ public class DataLoad {
                 int compNum = scLine.nextInt();
                 String code = scLine.next();
                 double hours = scLine.nextDouble();
-                time [counter] = new Timesheet(code, hours, counter);
+                time [counter] = new Timesheet(code, hours, compNum);
                 scFile.close();
             }
         } catch (FileNotFoundException e) {
