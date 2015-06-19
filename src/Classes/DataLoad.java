@@ -26,8 +26,7 @@ public class DataLoad {
         Applicability[] app = new Applicability[200];
         int counter = 0;
         File file = new File("Applicability of Competence");
-        try {
-            Scanner scFile = new Scanner(file);
+        try (Scanner scFile = new Scanner(file)) {
             while (scFile.hasNext()) {
                 String line = scFile.nextLine();
                 Scanner scLine = new Scanner(line).useDelimiter("/t");
@@ -38,12 +37,14 @@ public class DataLoad {
                 String degrees = scLine.next();
                 String grade = scLine.next();
                 app[counter] = new Applicability(coreCareer, promotion, softTechnical, degrees, grade, compNum);
-                scFile.close();
+                counter++;
             }
         } catch (FileNotFoundException e) {
             Debug.Log("The specified file was not found");
         }
+
         numberOfRows = counter;
+
         return app;
     }
 
@@ -67,7 +68,7 @@ public class DataLoad {
                 String status = scLine.next();
                 String reviewActionNotes = scLine.next();
                 det[counter] = new CompetenceDetails(shortName, objective, hyperlink, timing, whoProvides, type, dependencies, status, reviewActionNotes, compNum);
-                scFile.close();
+                counter++;
             }
         } catch (FileNotFoundException e) {
             Debug.Log("The specified file was not found");
@@ -91,7 +92,7 @@ public class DataLoad {
                 String champion = scLine.next();
                 String details = scLine.next();
                 own[counter] = new CompetenceOwnership(partner, champion, details, compNum);
-                scFile.close();
+                counter++;
             }
         } catch (FileNotFoundException e) {
             Debug.Log("The specified file was not found");
@@ -119,7 +120,7 @@ public class DataLoad {
                 String workBackApplicable = scFile.next();
                 String workBack = scLine.next();
                 cost[counter] = new CostPerPerson(internal, cash, disbursement, opportunity, total, workBackApplicable, workBack, compNum);
-                scFile.close();
+                counter++;
             }
         } catch (FileNotFoundException e) {
             Debug.Log("The specified file was not found");
@@ -141,8 +142,8 @@ public class DataLoad {
                 int compNum = scLine.nextInt();
                 String code = scLine.next();
                 double hours = scLine.nextDouble();
-                time [counter] = new Timesheet(code, hours, compNum);
-                scFile.close();
+                time[counter] = new Timesheet(code, hours, compNum);
+                counter++;
             }
         } catch (FileNotFoundException e) {
             Debug.Log("The specified file was not found");
