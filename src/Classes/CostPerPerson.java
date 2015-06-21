@@ -9,11 +9,11 @@ package Classes;
  * @author Llewellyn Craddock
  */
 public class CostPerPerson extends CompetenceMatrix{
-    private int internal;
-    private int cash;
-    private int disbursement;
-    private int opportunity;
-    private int total;
+    private String internal;
+    private String cash;
+    private String disbursement;
+    private String opportunity;
+    private String total;
     private String workBackApplicable;
     private String workBack;
 
@@ -28,7 +28,7 @@ public class CostPerPerson extends CompetenceMatrix{
      * @param workBackApplicable
      * @param workBack
      */
-    public CostPerPerson(int internal, int cash, int disbursement, int opportunity, int total, String workBackApplicable, String workBack, int competenceReferenceNo) {
+    public CostPerPerson(String internal, String cash, String disbursement, String opportunity, String total, String workBackApplicable, String workBack, int competenceReferenceNo) {
         super(competenceReferenceNo);
         this.internal = internal;
         this.cash = cash;
@@ -38,85 +38,53 @@ public class CostPerPerson extends CompetenceMatrix{
         this.workBackApplicable = workBackApplicable;
         this.workBack = workBack;
     }
+
+    
     /**
      *
      * @return
      */
-    public int getInternal() {
+    public String getInternal() {
         return internal;
     }
 
-    /**
-     *
-     * @param internal
-     */
-    public void setInternal(int internal) {
+    public void setInternal(String internal) {
         this.internal = internal;
     }
 
-    /**
-     *
-     * @return
-     */
-    public int getCash() {
+    public String getCash() {
         return cash;
     }
 
-    /**
-     *
-     * @param cash
-     */
-    public void setCash(int cash) {
+    public void setCash(String cash) {
         this.cash = cash;
     }
 
-    /**
-     *
-     * @return
-     */
-    public int getDisbursement() {
+    public String getDisbursement() {
         return disbursement;
     }
 
-    /**
-     *
-     * @param disbursement
-     */
-    public void setDisbursement(int disbursement) {
+    public void setDisbursement(String disbursement) {
         this.disbursement = disbursement;
     }
 
-    /**
-     *
-     * @return
-     */
-    public int getOpportunity() {
+    public String getOpportunity() {
         return opportunity;
     }
 
-    /**
-     *
-     * @param opportunity
-     */
-    public void setOpportunity(int opportunity) {
+    public void setOpportunity(String opportunity) {
         this.opportunity = opportunity;
     }
 
-    /**
-     *
-     * @return
-     */
-    public int getTotal() {
+    public String getTotal() {
         return total;
     }
 
-    /**
-     *
-     * @param total
-     */
-    public void setTotal(int total) {
+    public void setTotal(String total) {
         this.total = total;
     }
+
+   
 
     /**
      *

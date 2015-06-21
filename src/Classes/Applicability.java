@@ -12,6 +12,7 @@ public class Applicability extends CompetenceMatrix{
 
     private String coreCareer;
     private String promotion;
+    private String applicable;
     private String softTechnical;
     private String degrees;
     private String grade;
@@ -25,13 +26,22 @@ public class Applicability extends CompetenceMatrix{
      * @param Degrees
      * @param Grade
      */
-    public Applicability(String coreCareer, String promotion, String softTechnical, String degrees, String grade, int competenceReferenceNo) {
+    public Applicability(String coreCareer, String promotion, String applicable, String softTechnical, String degrees, String grade, int competenceReferenceNo) {
         super(competenceReferenceNo);
         this.coreCareer = coreCareer;
         this.promotion = promotion;
+        this.applicable = applicable;
         this.softTechnical = softTechnical;
         this.degrees = degrees;
         this.grade = grade;
+    }
+
+    public String getApplicable() {
+        return applicable;
+    }
+
+    public void setApplicable(String applicable) {
+        this.applicable = applicable;
     }
    
     /**

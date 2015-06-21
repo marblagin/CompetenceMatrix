@@ -10,7 +10,7 @@ package Classes;
  */
 public class Timesheet  extends CompetenceMatrix{
     private String code;
-    private double hours;
+    private String hours;
 
     /**
      *
@@ -18,7 +18,7 @@ public class Timesheet  extends CompetenceMatrix{
      * @param code
      * @param hours
      */
-    public Timesheet(String code, double hours, int competenceReferenceNo) {
+    public Timesheet(String code, String hours, int competenceReferenceNo) {
         super(competenceReferenceNo);
         this.code = code;
         this.hours = hours;
@@ -44,7 +44,7 @@ public class Timesheet  extends CompetenceMatrix{
      *
      * @return
      */
-    public double getHours() {
+    public String getHours() {
         return hours;
     }
 
@@ -52,7 +52,7 @@ public class Timesheet  extends CompetenceMatrix{
      *
      * @param hours
      */
-    public void setHours(double hours) {
+    public void setHours(String hours) {
         this.hours = hours;
     }
     

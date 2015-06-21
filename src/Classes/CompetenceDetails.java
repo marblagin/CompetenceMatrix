@@ -11,6 +11,7 @@ package Classes;
 public class CompetenceDetails  extends CompetenceMatrix{
     private String shortName;
     private String objective;
+    private String details;
     private String hyperlink;
     private String timing;
     private String whoProvides;
@@ -32,10 +33,11 @@ public class CompetenceDetails  extends CompetenceMatrix{
      * @param status
      * @param reviewActionNotes
      */
-    public CompetenceDetails(String shortName, String objective, String hyperlink, String timing, String whoProvides, String type, String dependencies, String status, String reviewActionNotes, int competenceReferenceNo) {
+    public CompetenceDetails(String shortName, String objective, String details, String hyperlink, String timing, String whoProvides, String type, String dependencies, String status, String reviewActionNotes, int competenceReferenceNo) {
         super(competenceReferenceNo);
         this.shortName = shortName;
         this.objective = objective;
+        this.details = details;
         this.hyperlink = hyperlink;
         this.timing = timing;
         this.whoProvides = whoProvides;
@@ -43,6 +45,14 @@ public class CompetenceDetails  extends CompetenceMatrix{
         this.dependencies = dependencies;
         this.status = status;
         this.reviewActionNotes = reviewActionNotes;
+    }
+
+    public String getDetails() {
+        return details;
+    }
+
+    public void setDetails(String details) {
+        this.details = details;
     }
 
     /**

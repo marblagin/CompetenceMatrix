@@ -4,6 +4,13 @@
  */
 package GUI;
 
+import Classes.*;
+import Util.Debug;
+import java.io.FileNotFoundException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Llewellyn Craddock
@@ -16,9 +23,108 @@ public class MainFrame extends javax.swing.JFrame {
     public MainFrame() {
         initComponents();
     }
-    
-    public void RefreshTable (){
-        
+
+    public void RefreshTable() throws FileNotFoundException {
+
+        DataLoad data = new DataLoad();
+        DefaultTableModel table;
+        Debug.Log("Selected Index = " + String.valueOf(SelectTableCombo.getSelectedIndex()));
+        switch (SelectTableCombo.getSelectedIndex()) {
+            case 0:
+                CompetenceDetails[] det;
+                det = data.LoadDetails();
+                table = new DefaultTableModel(data.LoadDetailsHeadings(), 0);
+                for (int i = 0; i < data.getNumberOfRows(); i++) {
+                    String[] row = {
+                        String.valueOf(det[i].getCompetenceReferenceNo()),
+                        det[i].getShortName(),
+                        det[i].getObjective(),
+                        det[i].getDetails(),
+                        det[i].getHyperlink(),
+                        det[i].getTiming(),
+                        det[i].getWhoProvides(),
+                        det[i].getType(),
+                        det[i].getDependencies(),
+                        det[i].getStatus(),
+                        det[i].getReviewActionNotes()
+                    };
+                    table.addRow(row);
+                }
+                Table.setModel(table);
+                NumberOfRows.setText("Number of Rows: " + String.valueOf(data.getNumberOfRows()));
+                break;
+            case 1:
+                CompetenceOwnership[] own;
+                own = data.LoadOwnership();
+                table = new DefaultTableModel(data.LoadOwnershipHeadings(), 0);
+                for (int i = 0; i < data.getNumberOfRows(); i++) {
+                    String[] row = {
+                        String.valueOf(own[i].getCompetenceReferenceNo()),
+                        own[i].getPartner(),
+                        own[i].getChampion(),
+                        own[i].getDetails(),
+                    };
+                    table.addRow(row);
+                }
+                Table.setModel(table);
+                NumberOfRows.setText("Number of Rows: " + String.valueOf(data.getNumberOfRows()));
+                break;
+            case 2:
+                Applicability[] app;
+                app = data.LoadApplicability();
+                table = new DefaultTableModel(data.LoadApplicabilityHeadings(), 0);
+                for (int i = 0; i < data.getNumberOfRows(); i++) {
+                    String[] row = {
+                        String.valueOf(app[i].getCompetenceReferenceNo()),
+                        app[i].getCoreCareer(),
+                        app[i].getPromotion(),
+                        app[i].getApplicable(),
+                        app[i].getSoftTechnical(),
+                        app[i].getDegrees(),
+                        app[i].getGrade()
+                    };
+                    table.addRow(row);
+                }
+                Table.setModel(table);
+                NumberOfRows.setText("Number of Rows: " + String.valueOf(data.getNumberOfRows()));
+                break;
+            case 3:
+                Timesheet[] time;
+                time = data.LoadTimesheet();
+                table = new DefaultTableModel(data.LoadTimesheetHeadings(), 0);
+                for (int i = 0; i < data.getNumberOfRows(); i++) {
+                    String[] row = {
+                        String.valueOf(time[i].getCompetenceReferenceNo()),
+                        time[i].getCode(),
+                        time[i].getHours(),
+                    };
+                    table.addRow(row);
+                }
+                Table.setModel(table);
+                NumberOfRows.setText("Number of Rows: " + String.valueOf(data.getNumberOfRows()));
+                break;
+            case 4:
+                CostPerPerson[] cost;
+                cost = data.LoadCost();
+                table = new DefaultTableModel(data.LoadCostHeadings(), 0);
+                for (int i = 0; i < data.getNumberOfRows(); i++) {
+                    String[] row = {
+                        String.valueOf(cost[i].getCompetenceReferenceNo()),
+                        cost[i].getInternal(),
+                        cost[i].getCash(),
+                        cost[i].getDisbursement(),
+                        cost[i].getOpportunity(),
+                        cost[i].getTotal(),
+                        cost[i].getWorkBackApplicable(),
+                        cost[i].getWorkBack()
+                    };
+                    table.addRow(row);
+                }
+                Table.setModel(table);
+                NumberOfRows.setText("Number of Rows: " + String.valueOf(data.getNumberOfRows()));
+                break;
+
+        }
     }
 
     /**
@@ -119,6 +225,11 @@ public class MainFrame extends javax.swing.JFrame {
 
         SelectTableCombo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         SelectTableCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Competence Details", "Comeptence Ownership", "Applicability of competence", "Timesheet", "Cost per person" }));
+        SelectTableCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SelectTableComboActionPerformed(evt);
+            }
+        });
 
         NumberOfRows.setText("Number of Rows:");
 
@@ -248,7 +359,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
         this.setFocusableWindowState(false);
-        SearchFrame sf = new SearchFrame ();
+        SearchFrame sf = new SearchFrame();
         sf.setVisible(true);
     }//GEN-LAST:event_btnSearchActionPerformed
 
@@ -267,10 +378,17 @@ public class MainFrame extends javax.swing.JFrame {
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        AddCompetenceFrame acf = new AddCompetenceFrame ();
+        AddCompetenceFrame acf = new AddCompetenceFrame();
         acf.setVisible(true);
     }//GEN-LAST:event_btnAddActionPerformed
 
+    private void SelectTableComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectTableComboActionPerformed
+        try {
+            this.RefreshTable();
+        } catch (FileNotFoundException ex) {
+            Debug.Log("File was not found");
+        }
+    }//GEN-LAST:event_SelectTableComboActionPerformed
     /**
      * @param args the command line arguments
      */
