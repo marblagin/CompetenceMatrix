@@ -160,12 +160,12 @@ public class DataLoad {
                 String line = scFile.nextLine();
                 Scanner scLine = new Scanner(line).useDelimiter("\t");
                 int compNum = scLine.nextInt();
-                String internal = scLine.next();
-                String cash = scLine.next();
-                String disbursement = scLine.next();
-                String opportunity = scLine.next();
-                String total = scLine.next();
-                String workBackApplicable = scFile.next();
+                int internal = scLine.nextInt();
+                int cash = scLine.nextInt();
+                int disbursement = scLine.nextInt();
+                int opportunity = scLine.nextInt();
+                int total = scLine.nextInt();
+                String workBackApplicable = scLine.next();
                 String workBack = scLine.next();
                 cost[counter] = new CostPerPerson(internal, cash, disbursement, opportunity, total, workBackApplicable, workBack, compNum);
                 counter++;

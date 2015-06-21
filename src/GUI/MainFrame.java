@@ -110,11 +110,11 @@ public class MainFrame extends javax.swing.JFrame {
                 for (int i = 0; i < data.getNumberOfRows(); i++) {
                     String[] row = {
                         String.valueOf(cost[i].getCompetenceReferenceNo()),
-                        cost[i].getInternal(),
-                        cost[i].getCash(),
-                        cost[i].getDisbursement(),
-                        cost[i].getOpportunity(),
-                        cost[i].getTotal(),
+                        String.valueOf(cost[i].getInternal()),
+                        String.valueOf(cost[i].getCash()),
+                        String.valueOf(cost[i].getDisbursement()),
+                        String.valueOf(cost[i].getOpportunity()),
+                        String.valueOf(cost[i].getTotal()),
                         cost[i].getWorkBackApplicable(),
                         cost[i].getWorkBack()
                     };

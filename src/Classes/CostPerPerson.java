@@ -9,11 +9,11 @@ package Classes;
  * @author Llewellyn Craddock
  */
 public class CostPerPerson extends CompetenceMatrix{
-    private String internal;
-    private String cash;
-    private String disbursement;
-    private String opportunity;
-    private String total;
+    private int internal;
+    private int cash;
+    private int disbursement;
+    private int opportunity;
+    private int total;
     private String workBackApplicable;
     private String workBack;
 
@@ -28,7 +28,7 @@ public class CostPerPerson extends CompetenceMatrix{
      * @param workBackApplicable
      * @param workBack
      */
-    public CostPerPerson(String internal, String cash, String disbursement, String opportunity, String total, String workBackApplicable, String workBack, int competenceReferenceNo) {
+    public CostPerPerson(int internal, int cash, int disbursement, int opportunity, int total, String workBackApplicable, String workBack, int competenceReferenceNo) {
         super(competenceReferenceNo);
         this.internal = internal;
         this.cash = cash;
@@ -40,49 +40,53 @@ public class CostPerPerson extends CompetenceMatrix{
     }
 
     
+
+    
     /**
      *
      * @return
      */
-    public String getInternal() {
+    public int getInternal() {
         return internal;
     }
 
-    public void setInternal(String internal) {
+    public void setInternal(int internal) {
         this.internal = internal;
     }
 
-    public String getCash() {
+    public int getCash() {
         return cash;
     }
 
-    public void setCash(String cash) {
+    public void setCash(int cash) {
         this.cash = cash;
     }
 
-    public String getDisbursement() {
+    public int getDisbursement() {
         return disbursement;
     }
 
-    public void setDisbursement(String disbursement) {
+    public void setDisbursement(int disbursement) {
         this.disbursement = disbursement;
     }
 
-    public String getOpportunity() {
+    public int getOpportunity() {
         return opportunity;
     }
 
-    public void setOpportunity(String opportunity) {
+    public void setOpportunity(int opportunity) {
         this.opportunity = opportunity;
     }
 
-    public String getTotal() {
+    public int getTotal() {
         return total;
     }
 
-    public void setTotal(String total) {
+    public void setTotal(int total) {
         this.total = total;
     }
+
+    
 
    
 
