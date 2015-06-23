@@ -5,8 +5,14 @@
 package Classes;
 
 import Util.Debug;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Scanner;
 
 /**
@@ -15,6 +21,7 @@ import java.util.Scanner;
  */
 public class DataLoad {
 
+    public static DataLoad data = new DataLoad();
     private static int numberOfRows;
 
     public int getNumberOfRows() {
@@ -68,10 +75,9 @@ public class DataLoad {
         CompetenceDetails[] det = new CompetenceDetails[200];
         int counter = 0;
         try {
-            File file = new File("Competence Details.txt");
-            Scanner scFile = new Scanner(file);
-            while (scFile.hasNext()) {
-                String line = scFile.nextLine();
+            BufferedReader br = new BufferedReader(new FileReader("Competence Details.txt"),84600);
+            String line = br.readLine();
+            while (line != null) {
                 Scanner scLine = new Scanner(line).useDelimiter("\t");
                 int compNum = scLine.nextInt();
                 String shortName = scLine.next();
@@ -86,11 +92,12 @@ public class DataLoad {
                 String reviewActionNotes = scLine.next();
                 det[counter] = new CompetenceDetails(shortName, objective, details, hyperlink, timing, whoProvides, type, dependencies, status, reviewActionNotes, compNum);
                 counter++;
+                line = br.readLine();
             }
-            scFile.close();
+            br.close();
             Debug.Log("File found and loaded");
-        } catch (FileNotFoundException e) {
-            Debug.Log("The specified file was not found");
+        } catch (IOException e) {
+            Debug.LogException(e);
         }
         numberOfRows = counter;
 

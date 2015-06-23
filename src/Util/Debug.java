@@ -17,4 +17,9 @@ public class Debug {
     {
         System.out.println("[Debug]" + content);
     }
+    public static void LogException(Exception e)
+    {
+        System.out.println("--[Exception]" + e.getMessage());
+        e.printStackTrace();
+    }
 }

@@ -25,16 +25,14 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     public void RefreshTable() throws FileNotFoundException {
-
-        DataLoad data = new DataLoad();
         DefaultTableModel table;
         Debug.Log("Selected Index = " + String.valueOf(SelectTableCombo.getSelectedIndex()));
         switch (SelectTableCombo.getSelectedIndex()) {
             case 0:
                 CompetenceDetails[] det;
-                det = data.LoadDetails();
-                table = new DefaultTableModel(data.LoadDetailsHeadings(), 0);
-                for (int i = 0; i < data.getNumberOfRows(); i++) {
+                det = DataLoad.data.LoadDetails();
+                table = new DefaultTableModel(DataLoad.data.LoadDetailsHeadings(), 0);
+                for (int i = 0; i < DataLoad.data.getNumberOfRows(); i++) {
                     String[] row = {
                         String.valueOf(det[i].getCompetenceReferenceNo()),
                         det[i].getShortName(),
@@ -51,13 +49,13 @@ public class MainFrame extends javax.swing.JFrame {
                     table.addRow(row);
                 }
                 Table.setModel(table);
-                NumberOfRows.setText("Number of Rows: " + String.valueOf(data.getNumberOfRows()));
+                NumberOfRows.setText("Number of Rows: " + String.valueOf(DataLoad.data.getNumberOfRows()));
                 break;
             case 1:
                 CompetenceOwnership[] own;
-                own = data.LoadOwnership();
-                table = new DefaultTableModel(data.LoadOwnershipHeadings(), 0);
-                for (int i = 0; i < data.getNumberOfRows(); i++) {
+                own = DataLoad.data.LoadOwnership();
+                table = new DefaultTableModel(DataLoad.data.LoadOwnershipHeadings(), 0);
+                for (int i = 0; i < DataLoad.data.getNumberOfRows(); i++) {
                     String[] row = {
                         String.valueOf(own[i].getCompetenceReferenceNo()),
                         own[i].getPartner(),
@@ -67,13 +65,13 @@ public class MainFrame extends javax.swing.JFrame {
                     table.addRow(row);
                 }
                 Table.setModel(table);
-                NumberOfRows.setText("Number of Rows: " + String.valueOf(data.getNumberOfRows()));
+                NumberOfRows.setText("Number of Rows: " + String.valueOf(DataLoad.data.getNumberOfRows()));
                 break;
             case 2:
                 Applicability[] app;
-                app = data.LoadApplicability();
-                table = new DefaultTableModel(data.LoadApplicabilityHeadings(), 0);
-                for (int i = 0; i < data.getNumberOfRows(); i++) {
+                app = DataLoad.data.LoadApplicability();
+                table = new DefaultTableModel(DataLoad.data.LoadApplicabilityHeadings(), 0);
+                for (int i = 0; i < DataLoad.data.getNumberOfRows(); i++) {
                     String[] row = {
                         String.valueOf(app[i].getCompetenceReferenceNo()),
                         app[i].getCoreCareer(),
@@ -86,13 +84,13 @@ public class MainFrame extends javax.swing.JFrame {
                     table.addRow(row);
                 }
                 Table.setModel(table);
-                NumberOfRows.setText("Number of Rows: " + String.valueOf(data.getNumberOfRows()));
+                NumberOfRows.setText("Number of Rows: " + String.valueOf(DataLoad.data.getNumberOfRows()));
                 break;
             case 3:
                 Timesheet[] time;
-                time = data.LoadTimesheet();
-                table = new DefaultTableModel(data.LoadTimesheetHeadings(), 0);
-                for (int i = 0; i < data.getNumberOfRows(); i++) {
+                time = DataLoad.data.LoadTimesheet();
+                table = new DefaultTableModel(DataLoad.data.LoadTimesheetHeadings(), 0);
+                for (int i = 0; i < DataLoad.data.getNumberOfRows(); i++) {
                     String[] row = {
                         String.valueOf(time[i].getCompetenceReferenceNo()),
                         time[i].getCode(),
@@ -101,13 +99,13 @@ public class MainFrame extends javax.swing.JFrame {
                     table.addRow(row);
                 }
                 Table.setModel(table);
-                NumberOfRows.setText("Number of Rows: " + String.valueOf(data.getNumberOfRows()));
+                NumberOfRows.setText("Number of Rows: " + String.valueOf(DataLoad.data.getNumberOfRows()));
                 break;
             case 4:
                 CostPerPerson[] cost;
-                cost = data.LoadCost();
-                table = new DefaultTableModel(data.LoadCostHeadings(), 0);
-                for (int i = 0; i < data.getNumberOfRows(); i++) {
+                cost = DataLoad.data.LoadCost();
+                table = new DefaultTableModel(DataLoad.data.LoadCostHeadings(), 0);
+                for (int i = 0; i < DataLoad.data.getNumberOfRows(); i++) {
                     String[] row = {
                         String.valueOf(cost[i].getCompetenceReferenceNo()),
                         String.valueOf(cost[i].getInternal()),
@@ -121,7 +119,7 @@ public class MainFrame extends javax.swing.JFrame {
                     table.addRow(row);
                 }
                 Table.setModel(table);
-                NumberOfRows.setText("Number of Rows: " + String.valueOf(data.getNumberOfRows()));
+                NumberOfRows.setText("Number of Rows: " + String.valueOf(DataLoad.data.getNumberOfRows()));
                 break;
 
         }
