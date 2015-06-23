@@ -10,9 +10,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.Scanner;
 
 /**
@@ -28,14 +25,14 @@ public class DataLoad {
         return numberOfRows;
     }
 
-    public Applicability[] LoadApplicability() throws FileNotFoundException {
+    public Applicability[] LoadApplicability() {
 
         Applicability[] app = new Applicability[200];
         int counter = 0;
-        File file = new File("Applicability of Competence.txt");
-        try (Scanner scFile = new Scanner(file)) {
-            while (scFile.hasNext()) {
-                String line = scFile.nextLine();
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("Applicability of competence.txt"), 84600);
+            String line = br.readLine();
+            while (line != null) {
                 Scanner scLine = new Scanner(line).useDelimiter("\t");
                 int compNum = scLine.nextInt();
                 String coreCareer = scLine.next();
@@ -46,11 +43,12 @@ public class DataLoad {
                 String grade = scLine.next();
                 app[counter] = new Applicability(coreCareer, promotion, applicable, softTechnical, degrees, grade, compNum);
                 counter++;
+                line = br.readLine();
             }
-            scFile.close();
+            br.close();
             Debug.Log("File found and loaded");
-        } catch (FileNotFoundException e) {
-            Debug.Log("The specified file was not found");
+        } catch (IOException e) {
+            Debug.LogException(e);
         }
 
         numberOfRows = counter;
@@ -75,7 +73,7 @@ public class DataLoad {
         CompetenceDetails[] det = new CompetenceDetails[200];
         int counter = 0;
         try {
-            BufferedReader br = new BufferedReader(new FileReader("Competence Details.txt"),84600);
+            BufferedReader br = new BufferedReader(new FileReader("Competence Details.txt"), 84600);
             String line = br.readLine();
             while (line != null) {
                 Scanner scLine = new Scanner(line).useDelimiter("\t");
@@ -124,10 +122,9 @@ public class DataLoad {
         CompetenceOwnership[] own = new CompetenceOwnership[200];
         int counter = 0;
         try {
-            File file = new File("Competence Ownership.txt");
-            Scanner scFile = new Scanner(file);
-            while (scFile.hasNext()) {
-                String line = scFile.nextLine();
+            BufferedReader br = new BufferedReader(new FileReader("Competence Ownership.txt"), 84600);
+            String line = br.readLine();
+            while (line != null) {
                 Scanner scLine = new Scanner(line).useDelimiter("\t");
                 int compNum = scLine.nextInt();
                 String partner = scLine.next();
@@ -135,12 +132,13 @@ public class DataLoad {
                 String details = scLine.next();
                 own[counter] = new CompetenceOwnership(partner, champion, details, compNum);
                 counter++;
+                line = br.readLine();
                 //Debug.Log("Counter is "+ (counter+1));
             }
-            scFile.close();
+            br.close();
             Debug.Log("File found and loaded");
-        } catch (FileNotFoundException e) {
-            Debug.Log("The specified file was not found");
+        } catch (IOException e) {
+            Debug.LogException(e);
         }
         numberOfRows = counter;
 
@@ -160,10 +158,9 @@ public class DataLoad {
         CostPerPerson[] cost = new CostPerPerson[200];
         int counter = 0;
         try {
-            File file = new File("Cost per person.txt");
-            Scanner scFile = new Scanner(file);
-            while (scFile.hasNext()) {
-                String line = scFile.nextLine();
+            BufferedReader br = new BufferedReader(new FileReader("Cost per person.txt"), 84600);
+            String line = br.readLine();
+            while (line != null) {
                 Scanner scLine = new Scanner(line).useDelimiter("\t");
                 int compNum = scLine.nextInt();
                 int internal = scLine.nextInt();
@@ -175,12 +172,13 @@ public class DataLoad {
                 String workBack = scLine.next();
                 cost[counter] = new CostPerPerson(internal, cash, disbursement, opportunity, total, workBackApplicable, workBack, compNum);
                 counter++;
-                Debug.Log("Counter is " + (counter + 1));
+                line = br.readLine();
+                //Debug.Log("Counter is " + (counter + 1));
             }
-            scFile.close();
+            br.close();
             Debug.Log("File found and loaded");
-        } catch (FileNotFoundException e) {
-            Debug.Log("The specified file was not found");
+        } catch (IOException e) {
+            Debug.LogException(e);
         }
         numberOfRows = counter;
 
@@ -204,21 +202,22 @@ public class DataLoad {
         Timesheet[] time = new Timesheet[200];
         int counter = 0;
         try {
-            File file = new File("Timesheet.txt");
-            Scanner scFile = new Scanner(file);
-            while (scFile.hasNext()) {
-                String line = scFile.nextLine();
+            BufferedReader br = new BufferedReader(new FileReader("Timesheet.txt"), 84600);
+            String line = br.readLine();
+            while (line != null) {
                 Scanner scLine = new Scanner(line).useDelimiter("\t");
                 int compNum = scLine.nextInt();
                 String code = scLine.next();
                 String hours = scLine.next();
                 time[counter] = new Timesheet(code, hours, compNum);
                 counter++;
+                //Debug.Log("Counter is " + (counter + 1));
+                line = br.readLine();
             }
-            scFile.close();
+            br.close();
             Debug.Log("File found and loaded");
-        } catch (FileNotFoundException e) {
-            Debug.Log("The specified file was not found");
+        } catch (IOException e) {
+            Debug.LogException(e);
         }
         numberOfRows = counter;
 

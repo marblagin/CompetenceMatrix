@@ -19,7 +19,7 @@ public class Debug {
     }
     public static void LogException(Exception e)
     {
-        System.out.println("--[Exception]" + e.getMessage());
+        System.out.println("[Exception]" + e.getMessage());
         e.printStackTrace();
     }
 }
