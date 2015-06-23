@@ -9,14 +9,13 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-
 /**
  *
  * @author Llewellyn Craddock
  */
 public class DataLoad {
 
-    private int numberOfRows;
+    private static int numberOfRows;
 
     public int getNumberOfRows() {
         return numberOfRows;
@@ -68,8 +67,8 @@ public class DataLoad {
     public CompetenceDetails[] LoadDetails() {
         CompetenceDetails[] det = new CompetenceDetails[200];
         int counter = 0;
-        File file = new File("Competence Details.txt");
         try {
+            File file = new File("Competence Details.txt");
             Scanner scFile = new Scanner(file);
             while (scFile.hasNext()) {
                 String line = scFile.nextLine();
@@ -117,8 +116,8 @@ public class DataLoad {
     public CompetenceOwnership[] LoadOwnership() {
         CompetenceOwnership[] own = new CompetenceOwnership[200];
         int counter = 0;
-        File file = new File("Competence Ownership.txt");
         try {
+            File file = new File("Competence Ownership.txt");
             Scanner scFile = new Scanner(file);
             while (scFile.hasNext()) {
                 String line = scFile.nextLine();
@@ -153,8 +152,8 @@ public class DataLoad {
     public CostPerPerson[] LoadCost() {
         CostPerPerson[] cost = new CostPerPerson[200];
         int counter = 0;
-        File file = new File("Cost per person.txt");
         try {
+            File file = new File("Cost per person.txt");
             Scanner scFile = new Scanner(file);
             while (scFile.hasNext()) {
                 String line = scFile.nextLine();
@@ -169,7 +168,7 @@ public class DataLoad {
                 String workBack = scLine.next();
                 cost[counter] = new CostPerPerson(internal, cash, disbursement, opportunity, total, workBackApplicable, workBack, compNum);
                 counter++;
-                Debug.Log("Counter is "+ (counter+1));
+                Debug.Log("Counter is " + (counter + 1));
             }
             scFile.close();
             Debug.Log("File found and loaded");
@@ -180,9 +179,9 @@ public class DataLoad {
 
         return cost;
     }
-    
-    public String [] LoadCostHeadings (){
-        String [] out = {
+
+    public String[] LoadCostHeadings() {
+        String[] out = {
             "Competence Reference Number",
             "Internal L&D costs",
             "Cash costs",
@@ -190,17 +189,15 @@ public class DataLoad {
             "Opportunity cost PP(hrs * scale)",
             "Total cost pp",
             "Work back period applicable?",
-            "Work back period (month)",
-            
-        };
+            "Work back period (month)",};
         return out;
     }
 
     public Timesheet[] LoadTimesheet() {
         Timesheet[] time = new Timesheet[200];
         int counter = 0;
-        File file = new File("Timesheet.txt");
         try {
+            File file = new File("Timesheet.txt");
             Scanner scFile = new Scanner(file);
             while (scFile.hasNext()) {
                 String line = scFile.nextLine();
@@ -220,12 +217,13 @@ public class DataLoad {
 
         return time;
     }
-    public String [] LoadTimesheetHeadings (){
-        String [] out = {
+
+    public String[] LoadTimesheetHeadings() {
+        String[] out = {
             "Competence Reference Number",
             "Timesheet code",
-            "Timesheet hours allocated"          
+            "Timesheet hours allocated"
         };
         return out;
-    } 
+    }
 }
