@@ -7,8 +7,8 @@ package GUI;
 import Classes.*;
 import Util.Debug;
 import java.io.FileNotFoundException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.io.IOException;
+import javax.swing.JFileChooser;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -22,12 +22,18 @@ public class MainFrame extends javax.swing.JFrame {
      */
     public MainFrame() {
         initComponents();
+        try {
+            RefreshTable(0);
+        } catch (IOException ex) {
+            Debug.LogException(ex);
+        }
+        
     }
 
-    public void RefreshTable() throws FileNotFoundException {
+    public void RefreshTable(int Index) throws FileNotFoundException {
         DefaultTableModel table;
         Debug.Log("Selected Index = " + String.valueOf(SelectTableCombo.getSelectedIndex()));
-        switch (SelectTableCombo.getSelectedIndex()) {
+        switch (Index) {
             case 0:
                 CompetenceDetails[] det;
                 det = DataLoad.data.LoadDetails();
@@ -147,13 +153,21 @@ public class MainFrame extends javax.swing.JFrame {
         EnableSearch = new javax.swing.JCheckBox();
         MenuBar = new javax.swing.JMenuBar();
         MenuFile = new javax.swing.JMenu();
+        MenuFileChooser = new javax.swing.JMenuItem();
         MenuItemExit = new javax.swing.JMenuItem();
         MenuEdit = new javax.swing.JMenu();
         MenuItemEdit = new javax.swing.JMenuItem();
+        MenuTable = new javax.swing.JMenu();
+        ComDet = new javax.swing.JMenuItem();
+        ComOwn = new javax.swing.JMenuItem();
+        App = new javax.swing.JMenuItem();
+        Time = new javax.swing.JMenuItem();
+        Cost = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Competence Matrix Editor");
-        setPreferredSize(new java.awt.Dimension(1230, 860));
+        setName("MainFrame"); // NOI18N
+        setPreferredSize(new java.awt.Dimension(1020, 700));
 
         Table.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Table.setModel(new javax.swing.table.DefaultTableModel(
@@ -259,6 +273,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         btnAdd.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnAdd.setText("Add Competence");
+        btnAdd.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddActionPerformed(evt);
@@ -274,6 +289,14 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         MenuFile.setText("File");
+
+        MenuFileChooser.setText("Edit Table Files");
+        MenuFileChooser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuFileChooserActionPerformed(evt);
+            }
+        });
+        MenuFile.add(MenuFileChooser);
 
         MenuItemExit.setText("Exit");
         MenuItemExit.addActionListener(new java.awt.event.ActionListener() {
@@ -292,6 +315,50 @@ public class MainFrame extends javax.swing.JFrame {
 
         MenuBar.add(MenuEdit);
 
+        MenuTable.setText("Tables");
+
+        ComDet.setText("Competence Details");
+        ComDet.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComDetActionPerformed(evt);
+            }
+        });
+        MenuTable.add(ComDet);
+
+        ComOwn.setText("Competence Ownership");
+        ComOwn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComOwnActionPerformed(evt);
+            }
+        });
+        MenuTable.add(ComOwn);
+
+        App.setText("Applicability of Competence");
+        App.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AppActionPerformed(evt);
+            }
+        });
+        MenuTable.add(App);
+
+        Time.setText("Timesheet");
+        Time.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TimeActionPerformed(evt);
+            }
+        });
+        MenuTable.add(Time);
+
+        Cost.setText("Cost per person");
+        Cost.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CostActionPerformed(evt);
+            }
+        });
+        MenuTable.add(Cost);
+
+        MenuBar.add(MenuTable);
+
         setJMenuBar(MenuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -299,50 +366,48 @@ public class MainFrame extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(SelectTabelLabel)
+                    .addComponent(SelectTableCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(SelectTabelLabel)
-                            .addComponent(SelectTableCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(NumberOfRows))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(TableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 794, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-                            .addComponent(btnAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(EnableSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(EnableEditing, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(4, 4, 4))))
+                            .addComponent(NumberOfRows)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(btnSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnEdit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(EnableSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(EnableEditing, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(14, Short.MAX_VALUE))
             .addComponent(ToolBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addComponent(ToolBar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
                 .addComponent(SelectTabelLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
                 .addComponent(SelectTableCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(9, 9, 9)
                         .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(EnableSearch)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(EnableEditing)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(NumberOfRows)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(EnableSearch)
+                        .addGap(7, 7, 7)
+                        .addComponent(EnableEditing)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(NumberOfRows))
+                    .addComponent(TableScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 568, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -355,7 +420,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
-        this.setFocusableWindowState(false);
+        this.setFocusable(false);
         SearchFrame sf = new SearchFrame();
         sf.setVisible(true);
     }//GEN-LAST:event_btnSearchActionPerformed
@@ -381,27 +446,85 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void SelectTableComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectTableComboActionPerformed
         try {
-            this.RefreshTable();
-        } catch (FileNotFoundException ex) {
-            Debug.Log("File was not found");
+            this.RefreshTable(SelectTableCombo.getSelectedIndex());
+        } catch (IOException ex) {
+            Debug.LogException(ex);
         }
     }//GEN-LAST:event_SelectTableComboActionPerformed
+
+    private void ComOwnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComOwnActionPerformed
+        // TODO add your handling code here:
+        try {
+            this.RefreshTable(1);
+        } catch (IOException ex) {
+            Debug.LogException(ex);
+        }
+    }//GEN-LAST:event_ComOwnActionPerformed
+
+    private void ComDetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComDetActionPerformed
+        // TODO add your handling code here:
+        try {
+            this.RefreshTable(0);
+        } catch (IOException ex) {
+            Debug.LogException(ex);
+        }
+    }//GEN-LAST:event_ComDetActionPerformed
+
+    private void AppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AppActionPerformed
+        // TODO add your handling code here:
+        try {
+            this.RefreshTable(2);
+        } catch (IOException ex) {
+            Debug.LogException(ex);
+        }
+    }//GEN-LAST:event_AppActionPerformed
+
+    private void TimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TimeActionPerformed
+        // TODO add your handling code here:
+        try {
+            this.RefreshTable(3);
+        } catch (IOException ex) {
+            Debug.LogException(ex);
+        }
+    }//GEN-LAST:event_TimeActionPerformed
+
+    private void CostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CostActionPerformed
+        // TODO add your handling code here:
+        try {
+            this.RefreshTable(4);
+        } catch (IOException ex) {
+            Debug.LogException(ex);
+        }
+    }//GEN-LAST:event_CostActionPerformed
+
+    private void MenuFileChooserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuFileChooserActionPerformed
+        // TODO add your handling code here:
+        JFileChooser jfc = new JFileChooser();
+        jfc.setVisible(true);
+    }//GEN-LAST:event_MenuFileChooserActionPerformed
     /**
      * @param args the command line arguments
      */
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem App;
+    private javax.swing.JMenuItem ComDet;
+    private javax.swing.JMenuItem ComOwn;
+    private javax.swing.JMenuItem Cost;
     private javax.swing.JCheckBox EnableEditing;
     private javax.swing.JCheckBox EnableSearch;
     private javax.swing.JMenuBar MenuBar;
     private javax.swing.JMenu MenuEdit;
     private javax.swing.JMenu MenuFile;
+    private javax.swing.JMenuItem MenuFileChooser;
     private javax.swing.JMenuItem MenuItemEdit;
     private javax.swing.JMenuItem MenuItemExit;
+    private javax.swing.JMenu MenuTable;
     private javax.swing.JLabel NumberOfRows;
     private javax.swing.JLabel SelectTabelLabel;
     private javax.swing.JComboBox SelectTableCombo;
     private javax.swing.JTable Table;
     private javax.swing.JScrollPane TableScrollPane;
+    private javax.swing.JMenuItem Time;
     private javax.swing.JToolBar ToolBar;
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnEdit;
