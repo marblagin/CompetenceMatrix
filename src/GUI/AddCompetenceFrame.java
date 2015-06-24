@@ -315,10 +315,6 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
         DataLoad data = new DataLoad();
-        String [] Arr = this.ConstructArray();
-        for (int i = 0; i<Arr.length; i++){
-            System.out.println(Arr[i]);
-        }
         //data.StoreData(this.ConstructArray());
         this.setVisible(false);
     }//GEN-LAST:event_btnAddActionPerformed

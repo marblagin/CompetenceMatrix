@@ -6,6 +6,7 @@ package Classes;
 
 import Util.Debug;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -140,7 +141,7 @@ public class DataLoad {
                 CompetenceNumbers[counter] = compNum;
                 counter++;
                 line = br.readLine();
-                //Debug.Log("Counter is "+ (counter+1));
+                //Debug.Log("Completed Competence Number is "+ (counter));
             }
             br.close();
             Debug.Log("File found and loaded");
@@ -183,7 +184,7 @@ public class DataLoad {
                 CompetenceNumbers[counter] = compNum;
                 counter++;
                 line = br.readLine();
-                //Debug.Log("Counter is " + (counter + 1));
+                //Debug.Log("Counter is " + (counter));
             }
             br.close();
             Debug.Log("File found and loaded");
@@ -223,7 +224,7 @@ public class DataLoad {
                 time[counter] = new Timesheet(code, hours, compNum);
                 CompetenceNumbers[counter] = compNum;
                 counter++;
-                //Debug.Log("Counter is " + (counter + 1));
+                //Debug.Log("Counter is " + (counter));
                 line = br.readLine();
             }
             br.close();
@@ -264,30 +265,38 @@ public class DataLoad {
 
     public void StoreData(String[] lines) {
         FileWriter fw;
-        PrintWriter pw;
+        BufferedWriter bw;
         try {
 
             fw = new FileWriter("Competence Details.txt");
-            pw = new PrintWriter(fw);
-            pw.println(lines[0]);
-            Debug.Log("Data stored in Competence Details.txt");
-            fw = new FileWriter("Competence Onwership.txt");
-            pw = new PrintWriter(fw);
-            pw.println(lines[1]);
-            Debug.Log("Data stored in Competence Onwership.txt");
-            fw = new FileWriter("Applicability of competence.txt");
-            pw = new PrintWriter(fw);
-            pw.println(lines[2]);
-            Debug.Log("Data stored in Applicability of competence.txt");
-            fw = new FileWriter("Timesheet.txt");
-            pw = new PrintWriter(fw);
-            pw.println(lines[3]);
-            Debug.Log("Data stored in Timesheet.txt");
-            fw = new FileWriter("Cost per person.txt");
-            pw = new PrintWriter(fw);
-            pw.println(lines[4]);
-            Debug.Log("Data stored in Cost per person.txt");
-            pw.close();
+            bw = new BufferedWriter(fw);
+            //bw.newLine();
+            //bw.write(lines[0]);
+            // pw = new PrintWriter(fw);
+            //pw.println(lines[0]);
+
+            //Debug.Log("Data stored in Competence Details.txt");
+            //fw = new FileWriter("Competence Ownership.txt");
+            //pw = new PrintWriter(fw);
+            // pw.println(lines[1]);
+
+            //Debug.Log("Data stored in Competence Ownership.txt");
+            //fw = new FileWriter("Applicability of competence.txt");
+            //pw = new PrintWriter(fw);
+            //pw.println(lines[2]);
+
+            //Debug.Log("Data stored in Applicability of competence.txt");
+            //fw = new FileWriter("Timesheet.txt");
+            // pw = new PrintWriter(fw);
+            // pw.println(lines[3]);
+
+            //Debug.Log("Data stored in Timesheet.txt");
+            //fw = new FileWriter("Cost per person.txt");
+            //pw = new PrintWriter(fw);
+            // pw.println(lines[4]);
+
+            //Debug.Log("Data stored in Cost per person.txt");
+            //pw.close();
 
         } catch (IOException ex) {
             Debug.LogException(ex);
