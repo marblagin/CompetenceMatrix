@@ -6,6 +6,7 @@ package GUI;
 
 import Classes.*;
 import Util.Debug;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import javax.swing.JFileChooser;
@@ -145,7 +146,7 @@ public class MainFrame extends javax.swing.JFrame {
         SelectTabelLabel = new javax.swing.JLabel();
         SelectTableCombo = new javax.swing.JComboBox();
         ToolBar = new javax.swing.JToolBar();
-        jPanel1 = new javax.swing.JPanel();
+        btnPanel = new javax.swing.JPanel();
         btnAdd = new javax.swing.JButton();
         btnEdit = new javax.swing.JButton();
         EnableSearch = new javax.swing.JCheckBox();
@@ -287,19 +288,19 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout btnPanelLayout = new javax.swing.GroupLayout(btnPanel);
+        btnPanel.setLayout(btnPanelLayout);
+        btnPanelLayout.setHorizontalGroup(
+            btnPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(btnEdit)
             .addComponent(EnableEditing, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(EnableSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        btnPanelLayout.setVerticalGroup(
+            btnPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnPanelLayout.createSequentialGroup()
                 .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -401,7 +402,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(NumberOfRows)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btnPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
             .addComponent(ToolBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -415,10 +416,10 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(SelectTableCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TableScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 568, Short.MAX_VALUE)
+                    .addComponent(TableScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 571, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 293, Short.MAX_VALUE)
                         .addComponent(NumberOfRows)))
                 .addContainerGap())
         );
@@ -512,8 +513,9 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void MenuFileChooserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuFileChooserActionPerformed
         // TODO add your handling code here:
-        JFileChooser jfc = new JFileChooser();
+        JFileChooser jfc = new JFileChooser(new File("/src/").getParent());
         jfc.setVisible(true);
+        int ret = jfc.showOpenDialog(null);
     }//GEN-LAST:event_MenuFileChooserActionPerformed
     /**
      * @param args the command line arguments
@@ -541,7 +543,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JToolBar ToolBar;
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnEdit;
+    private javax.swing.JPanel btnPanel;
     private javax.swing.JButton btnSearch;
-    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
