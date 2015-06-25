@@ -7,6 +7,7 @@ package Classes;
 import Util.Debug;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -262,23 +263,23 @@ public class DataLoad {
 
         return tableArr;
     }
-
+    public static String competenceTextFile = "Competence Details.txt";
     public void StoreData(String[] lines) {
         FileWriter fw;
-        BufferedWriter bw;
+        PrintWriter pw;
         try {
 
-            fw = new FileWriter("Competence Details.txt");
-            bw = new BufferedWriter(fw);
-            //bw.newLine();
-            //bw.write(lines[0]);
-            // pw = new PrintWriter(fw);
-            //pw.println(lines[0]);
-
-            //Debug.Log("Data stored in Competence Details.txt");
+            fw = new FileWriter(competenceTextFile,true);
+            pw = new PrintWriter(fw);
+            for(char c : lines[0].toCharArray())
+            {
+                Debug.Log("Writing :" + c);
+                pw.append(c);
+            }
+            Debug.Log("Data stored in Competence Details.txt");
             //fw = new FileWriter("Competence Ownership.txt");
             //pw = new PrintWriter(fw);
-            // pw.println(lines[1]);
+            //pw.println(lines[1]);
 
             //Debug.Log("Data stored in Competence Ownership.txt");
             //fw = new FileWriter("Applicability of competence.txt");

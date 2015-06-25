@@ -70,7 +70,7 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
         for (int j = 0; j < numCol; j++) {
             tableData[j] = String.valueOf(dtm.getValueAt(0, j));
         }
-
+        Debug.Log("Printing TableData::");
         return tableData;
     }
 
@@ -93,7 +93,15 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
         
         line = this.getTableData(CostTable);
         lineArr[4] = this.ConstructLine(line);
-
+        for (int i = 0; i<lineArr.length; i++){
+            if(lineArr[i] == null)
+            {
+                Debug.Log("Changing Null to NA");
+                lineArr[i] = "NA";
+            }
+            Debug.Log(lineArr[i]);
+        }
+        
         return lineArr;
     }
 
@@ -126,7 +134,6 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
         CostTable = new javax.swing.JTable();
         UniqueNumberLabel = new javax.swing.JLabel();
 
-        setResizable(false);
         setType(java.awt.Window.Type.UTILITY);
 
         CompetenceDetailTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -315,7 +322,7 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
         DataLoad data = new DataLoad();
-        //data.StoreData(this.ConstructArray());
+        data.StoreData(this.ConstructArray());
         this.setVisible(false);
     }//GEN-LAST:event_btnAddActionPerformed
     /**

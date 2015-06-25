@@ -1,0 +1,89 @@
+1	Mark Craddock	"Concetta Ciccone, Mayank Naik"	Naseema Rangila
+2	Graham Blain	Ruan van Rooyen	Andrew Buckle
+3	Eugene Pfister	Mayank Naik	NA
+4	Graham Blain	Lize Swanepoel	Andrew Buckle
+5	Eugene Pfister	Mayank Naik	Loritta Kudumba
+6	Gerald Kasimu	Marnell Kleynhans	NA 
+7	NA	NA 	NA
+8	Mark Craddock	Naseema Rangila	Concetta Ciccone
+9	Graham Teare	Mineshree Narsai	NA
+10	Gerald Kasimu	Marnell Kleynhans	NA
+11	Graham Blain	Lize Swanepoel	Andrew Buckle
+12	Eugene Pfister	Loritta Kudumba	Mayank Naiker
+13	Gerald Kasimu	Marnell Kleynhans	Sane Zuke
+14	Mark Craddock	Concetta Ciccone	NA
+15	Eugene Pfister	NA	NA
+16	Eugene Pfister	NA	NA
+17	Graham Teare	Mineshree Narsai	NA
+18	Eugene Pfister	Graeme Te Brake	NA
+19	Eugene Pfister	Graeme Te Brake	NA
+20	Brent Cairney	Jeral Toi	NA
+21	Eugene Pfister	Loritta Kudumba	NA
+22	Mark Craddock	Concetta Ciccone	NA
+23	Mark Craddock	Concetta Ciccone	Ben Gillies
+24	Mark Craddock	Concetta Ciccone	Ben Gillies
+25	Mark Craddock	Concetta Ciccone	Ben Gillies
+26	Mark Craddock	Concetta Ciccone	Karen Kruger
+27	Mark Craddock	Concetta Ciccone	MC van Niekerk
+28	Mark Craddock	Concetta Ciccone	Ben Gillies
+29	Mark Craddock	Concetta Ciccone	Ben Gillies
+30	Mark Craddock	Concetta Ciccone	Maryke Scheun
+31	Mark Craddock	Concetta Ciccone	Karen Kruger
+32	Mark Craddock	Concetta Ciccone	Karen Kruger
+33	Mark Craddock	Bhavna Moorley	Reeve Scheel
+34	Mark Craddock	Concetta Ciccone	Reeve Scheel
+35	Mark Craddock	Concetta Ciccone	TBA
+36	Mark Craddock	Concetta Ciccone	MC van Niekerk
+37	Mark Craddock	Concetta Ciccone	Ashleigh Alistoun
+38	Mark Craddock	Concetta Ciccone	Ben Gillies
+39	Mark Craddock	Concetta Ciccone	Joanett Pienaar
+40	Mark Craddock	Concetta Ciccone	Heidi Volschenk
+41	Mark Craddock	Concetta Ciccone	Heidi Volschenk
+42	Mark Craddock	Concetta Ciccone	Heidi Volschenk
+43	Graham Blain	Lize Swanepoel	Comelia Monnakhotla
+44	Graham Blain	Lize Swanepoel	NA
+45	Frik Coetzer	Carien Swart	NA
+46	Mark Craddock	Concetta Ciccone	Naseema Rangila
+47	Mark Craddock	Concetta Ciccone	Naseema Rangila
+48	Mark Craddock	Concetta Ciccone	Naseema Rangila
+49	Frank Rizzo	Concetta Ciccone	Naseema Rangila
+50	Gerald Kasimu	Concetta Ciccone	Naseema Rangila
+51	Gerald Kasimu	Concetta Ciccone	Naseema Rangila
+52	Gerald Kasimu	Concetta Ciccone	Naseema Rangila
+53	Gerald Kasimu	Concetta Ciccone	Naseema Rangila
+54	Gerald Kasimu	Concetta Ciccone	Naseema Rangila
+55	Gerald Kasimu	Concetta Ciccone	Naseema Rangila
+56	Gerald Kasimu	Concetta Ciccone	Naseema Rangila
+57	Gerald Kasimu	Concetta Ciccone	Naseema Rangila
+58	Graham Blain	Concetta Ciccone	Naseema Rangila
+59	Mark Craddock	Concetta Ciccone	NA
+60	Graham Teare	Jason Gottschalk	NA
+61	Mark Craddock	Bhavna Moorley	Concetta Ciccone
+62	Graham Teare	Mineshree Narsai	Concetta Ciccone
+63	Graham Teare	Mineshree Narsai	Concetta Ciccone
+64	Sean Schmidt	TBA	NA
+65	Sean Schmidt	TBA	NA
+66	TBA	TBA	NA
+67	Eugene Pfister	Graeme Te Brake	Concetta Ciccone
+68	Frank Rizzo	Karin Kruger	NA
+69	Frank Rizzo	Karin Kruger	NA
+70	Karin Kruger	Eugene Buitendach	NA
+71	Graham Teare	TBA	NA
+72	Graham Teare	Mineshree Narsai	NA
+73	Graham Teare	Jason Gottschalk	NA
+74	Graham teare	Jason Gottschalk	NA
+75	Mark Craddock	Concetta Ciccone	Charli Himonga
+76	Mark Craddock	Concetta Ciccone	Tumelo Mtsweni
+77	Mark Craddock	Concetta Ciccone	Karen Kruger
+78	Mark Craddock	Concetta Ciccone	Heidi Volschenk
+79	Mark Craddock	Concetta Ciccone	MC van Niekerk
+80	Mark Craddock	Concetta Ciccone	MC van Niekerk
+81	Mark Craddock	Concetta Ciccone	Ben Gillies
+82	Mark Craddock	Concetta Ciccone	Karen Kruger
+83	Mark Craddock	Concetta Ciccone	Tyron Barnard
+84	Mark Craddock	Concetta Ciccone	Tyron Barnard
+85	Mark Craddock	Concetta Ciccone	Ben Gillies
+86	Mark Craddock	Concetta Ciccone	NA
+87	Mark Craddock	Concetta Ciccone	Heidi Volschenk
+88	Eugene Pfister	Mayank Naik	NA
+89	Eugene Pfister	Mayank Naik	NA
