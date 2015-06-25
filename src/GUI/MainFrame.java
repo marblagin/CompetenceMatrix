@@ -229,7 +229,9 @@ public class MainFrame extends javax.swing.JFrame {
 
             }
         ));
+        Table.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
         Table.setRowHeight(50);
+        Table.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         Table.setSurrendersFocusOnKeystroke(true);
         TableScrollPane.setViewportView(Table);
 
@@ -453,7 +455,6 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
         AddCompetenceFrame acf = new AddCompetenceFrame();
         acf.setVisible(true);
     }//GEN-LAST:event_btnAddActionPerformed
