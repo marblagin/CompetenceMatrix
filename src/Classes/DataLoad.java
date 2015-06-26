@@ -27,7 +27,7 @@ public class DataLoad {
     private static int[] CompetenceNumbers;
     public static String Detailstxt = "Competence Details.txt";
     public static String Ownershiptxt = "Competence Ownership.txt";
-    public static String Applicablitytxt = "Applicablity of competence.txt";
+    public static String Applicablitytxt = "Applicability of competence.txt";
     public static String Timetxt = "Timesheet.txt";
     public static String Costtxt = "Cost per person.txt";
 
