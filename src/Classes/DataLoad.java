@@ -102,7 +102,7 @@ public class DataLoad {
                 String reviewActionNotes = scLine.next();
                 det[counter] = new CompetenceDetails(shortName, objective, details, hyperlink, timing, whoProvides, type, dependencies, status, reviewActionNotes, compNum);
                 CompetenceNumbers[counter] = compNum;
-                Debug.Log("Completed Competence Number is "+ (counter));
+                //Debug.Log("Completed Competence Number is "+ (counter));
                 counter++;
                 line = br.readLine();
             }

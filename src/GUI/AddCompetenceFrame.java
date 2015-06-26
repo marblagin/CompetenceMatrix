@@ -6,6 +6,7 @@ package GUI;
 
 import Classes.DataLoad;
 import Util.Debug;
+import java.io.FileNotFoundException;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -323,6 +324,12 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         DataLoad data = new DataLoad();
         data.StoreData(this.ConstructArray());
+        MainFrame mf = new MainFrame();
+        try {
+            mf.RefreshTable(0);
+        } catch (FileNotFoundException ex) {
+            Debug.LogException(ex);
+        }
         this.setVisible(false);
     }//GEN-LAST:event_btnAddActionPerformed
     /**

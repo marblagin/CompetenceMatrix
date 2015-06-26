@@ -148,7 +148,7 @@ public class MainFrame extends javax.swing.JFrame {
         ToolBar = new javax.swing.JToolBar();
         btnPanel = new javax.swing.JPanel();
         btnAdd = new javax.swing.JButton();
-        btnEdit = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
         EnableSearch = new javax.swing.JCheckBox();
         EnableEditing = new javax.swing.JCheckBox();
         btnSearch = new javax.swing.JButton();
@@ -257,12 +257,12 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        btnEdit.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        btnEdit.setText("Edit Selected Competence");
-        btnEdit.setEnabled(false);
-        btnEdit.addActionListener(new java.awt.event.ActionListener() {
+        btnDelete.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnDelete.setText("Delete Selected Competence");
+        btnDelete.setEnabled(false);
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditActionPerformed(evt);
+                btnDeleteActionPerformed(evt);
             }
         });
 
@@ -294,11 +294,19 @@ public class MainFrame extends javax.swing.JFrame {
         btnPanel.setLayout(btnPanelLayout);
         btnPanelLayout.setHorizontalGroup(
             btnPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(btnEdit)
-            .addComponent(EnableEditing, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(EnableSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(btnPanelLayout.createSequentialGroup()
+                .addGroup(btnPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(EnableEditing, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+                    .addComponent(EnableSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(btnPanelLayout.createSequentialGroup()
+                .addGroup(btnPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(btnPanelLayout.createSequentialGroup()
+                        .addComponent(btnDelete)
+                        .addGap(0, 5, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         btnPanelLayout.setVerticalGroup(
             btnPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -307,7 +315,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(EnableEditing)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -400,7 +408,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(SelectTableCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(SelectTabelLabel)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(TableScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 794, Short.MAX_VALUE)
+                        .addComponent(TableScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 779, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(NumberOfRows)
@@ -441,9 +449,9 @@ public class MainFrame extends javax.swing.JFrame {
         sf.setVisible(true);
     }//GEN-LAST:event_btnSearchActionPerformed
 
-    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnEditActionPerformed
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void EnableSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnableSearchActionPerformed
         // TODO add your handling code here:
@@ -543,7 +551,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem Time;
     private javax.swing.JToolBar ToolBar;
     private javax.swing.JButton btnAdd;
-    private javax.swing.JButton btnEdit;
+    private javax.swing.JButton btnDelete;
     private javax.swing.JPanel btnPanel;
     private javax.swing.JButton btnSearch;
     // End of variables declaration//GEN-END:variables
