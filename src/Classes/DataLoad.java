@@ -8,6 +8,7 @@ import Util.Debug;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -24,6 +25,11 @@ public class DataLoad {
     public static DataLoad data = new DataLoad();
     private static int numberOfRows;
     private static int[] CompetenceNumbers;
+    public static String Detailstxt = "Competence Details.txt";
+    public static String Ownershiptxt = "Competence Ownership.txt";
+    public static String Applicablitytxt = "Applicablity of competence.txt";
+    public static String Timetxt = "Timesheet.txt";
+    public static String Costtxt = "Cost per person.txt";
 
     public int getNumberOfRows() {
         return numberOfRows;
@@ -34,7 +40,7 @@ public class DataLoad {
         Applicability[] app = new Applicability[200];
         int counter = 0;
         try {
-            BufferedReader br = new BufferedReader(new FileReader("Applicability of competence.txt"), 84600);
+            BufferedReader br = new BufferedReader(new FileReader(Applicablitytxt), 84600);
             String line = br.readLine();
             while (line != null) {
                 Scanner scLine = new Scanner(line).useDelimiter("\t");
@@ -79,7 +85,7 @@ public class DataLoad {
         CompetenceDetails[] det = new CompetenceDetails[200];
         int counter = 0;
         try {
-            BufferedReader br = new BufferedReader(new FileReader("Competence Details.txt"), 84600);
+            BufferedReader br = new BufferedReader(new FileReader(Detailstxt), 84600);
             String line = br.readLine();
             while (line != null) {
                 Scanner scLine = new Scanner(line).useDelimiter("\t");
@@ -96,6 +102,7 @@ public class DataLoad {
                 String reviewActionNotes = scLine.next();
                 det[counter] = new CompetenceDetails(shortName, objective, details, hyperlink, timing, whoProvides, type, dependencies, status, reviewActionNotes, compNum);
                 CompetenceNumbers[counter] = compNum;
+                Debug.Log("Completed Competence Number is "+ (counter));
                 counter++;
                 line = br.readLine();
             }
@@ -130,7 +137,7 @@ public class DataLoad {
         CompetenceOwnership[] own = new CompetenceOwnership[200];
         int counter = 0;
         try {
-            BufferedReader br = new BufferedReader(new FileReader("Competence Ownership.txt"), 84600);
+            BufferedReader br = new BufferedReader(new FileReader(Ownershiptxt), 84600);
             String line = br.readLine();
             while (line != null) {
                 Scanner scLine = new Scanner(line).useDelimiter("\t");
@@ -169,7 +176,7 @@ public class DataLoad {
         CostPerPerson[] cost = new CostPerPerson[200];
         int counter = 0;
         try {
-            BufferedReader br = new BufferedReader(new FileReader("Cost per person.txt"), 84600);
+            BufferedReader br = new BufferedReader(new FileReader(Costtxt), 84600);
             String line = br.readLine();
             while (line != null) {
                 Scanner scLine = new Scanner(line).useDelimiter("\t");
@@ -215,7 +222,7 @@ public class DataLoad {
         Timesheet[] time = new Timesheet[200];
         int counter = 0;
         try {
-            BufferedReader br = new BufferedReader(new FileReader("Timesheet.txt"), 84600);
+            BufferedReader br = new BufferedReader(new FileReader(Timetxt), 84600);
             String line = br.readLine();
             while (line != null) {
                 Scanner scLine = new Scanner(line).useDelimiter("\t");
@@ -263,42 +270,42 @@ public class DataLoad {
 
         return tableArr;
     }
-    public static String competenceTextFile = "Competence Details.txt";
+
     public void StoreData(String[] lines) {
         FileWriter fw;
         PrintWriter pw;
         try {
-
-            fw = new FileWriter(competenceTextFile,true);
-            pw = new PrintWriter(fw);
+            pw = new PrintWriter(new FileOutputStream(new File(Detailstxt),true));
             for(char c : lines[0].toCharArray())
             {
-                Debug.Log("Writing :" + c);
                 pw.append(c);
             }
-            Debug.Log("Data stored in Competence Details.txt");
-            //fw = new FileWriter("Competence Ownership.txt");
-            //pw = new PrintWriter(fw);
-            //pw.println(lines[1]);
-
-            //Debug.Log("Data stored in Competence Ownership.txt");
-            //fw = new FileWriter("Applicability of competence.txt");
-            //pw = new PrintWriter(fw);
-            //pw.println(lines[2]);
-
-            //Debug.Log("Data stored in Applicability of competence.txt");
-            //fw = new FileWriter("Timesheet.txt");
-            // pw = new PrintWriter(fw);
-            // pw.println(lines[3]);
-
-            //Debug.Log("Data stored in Timesheet.txt");
-            //fw = new FileWriter("Cost per person.txt");
-            //pw = new PrintWriter(fw);
-            // pw.println(lines[4]);
-
-            //Debug.Log("Data stored in Cost per person.txt");
-            //pw.close();
-
+            pw.flush(); pw.close();
+            pw = new PrintWriter(new FileOutputStream(new File(Ownershiptxt),true));
+            for(char c : lines[1].toCharArray())
+            {
+                pw.append(c);
+            }
+            pw.flush(); pw.close();
+            pw = new PrintWriter(new FileOutputStream(new File(Applicablitytxt),true));
+            for(char c : lines[2].toCharArray())
+            {
+                pw.append(c);
+            }
+            pw.flush(); pw.close();
+            pw = new PrintWriter(new FileOutputStream(new File(Timetxt),true));
+            for(char c : lines[3].toCharArray())
+            {
+                pw.append(c);
+            }
+            pw.flush(); pw.close();
+            pw = new PrintWriter(new FileOutputStream(new File(Costtxt),true));
+            for(char c : lines[4].toCharArray())
+            {
+                pw.append(c);
+            }
+            pw.flush(); pw.close();
+            Debug.Log("Data stored in Files");
         } catch (IOException ex) {
             Debug.LogException(ex);
         }
