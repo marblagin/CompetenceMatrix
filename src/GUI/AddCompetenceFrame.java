@@ -7,6 +7,7 @@ package GUI;
 import Classes.DataLoad;
 import Util.Debug;
 import java.io.FileNotFoundException;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -20,7 +21,7 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
      * Creates new form AddCompetenceFrame
      */
     int unique;
-    MainFrame mf = new MainFrame(0);
+    MainFrame mf;
 
     /**
      *
@@ -28,6 +29,7 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
     public AddCompetenceFrame() {
         initComponents();
         this.InitializeTables();
+        mf = new MainFrame(0);
         mf.setExtendedState(MainFrame.MAXIMIZED_BOTH);
         mf.setEnabled(false);
         mf.setVisible(true);
@@ -100,6 +102,28 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
         return result;
     }
 
+    private String ConstructLineCost(String[] line) {
+        String result = "";
+        for (int i = 0; i < line.length; i++) {
+            if (i == (line.length - 1)) {
+                if ("null".equals(line[i])) {
+                    result += "0";
+                } else {
+                    result += line[i];
+                }
+            } else {
+                if ("null".equals(line[i])) {
+                    result += "0" + "\t";
+                } else {
+                    result += line[i] + "\t";
+                }
+            }
+
+        }
+        Debug.Log(result);
+        return result;
+    }
+
     private String[] getTableData(JTable table) {
         DefaultTableModel dtm = (DefaultTableModel) table.getModel();
         int numCol = dtm.getColumnCount();
@@ -107,8 +131,28 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
         for (int j = 0; j < numCol; j++) {
             tableData[j] = String.valueOf(dtm.getValueAt(0, j));
         }
-        Debug.Log("Printing TableData::");
+        Debug.Log("Printing TableData:");
         return tableData;
+    }
+
+    private String[] getTableDataCost(JTable table) {
+        DefaultTableModel dtm = (DefaultTableModel) table.getModel();
+        int numCol = dtm.getColumnCount();
+        String[] tableData = new String[numCol];
+        for (int j = 0; j < numCol - 1; j++) {
+            tableData[j] = String.valueOf(dtm.getValueAt(0, j));
+        }
+        Debug.Log("Printing TableData:");
+        return tableData;
+    }
+
+    private boolean isInteger(String s) {
+        try {
+            Integer.parseInt(s);
+        } catch (NumberFormatException | NullPointerException e) {
+            return false;
+        }
+        return true;
     }
 
     private String[] ConstructArray() {
@@ -128,8 +172,9 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
         line = this.getTableData(TimesheetTable);
         lineArr[3] = this.ConstructLine(line);
 
-        line = this.getTableData(CostTable);
-        lineArr[4] = this.ConstructLine(line);
+        line = this.getTableDataCost(CostTable);
+        lineArr[4] = this.ConstructLineCost(line);
+
         for (int i = 0; i < lineArr.length; i++) {
             if (lineArr[i] == null) {
                 Debug.Log("Changing Null to NA");
@@ -382,6 +427,7 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
         DataLoad.StoreData(this.ConstructArray());
+        mf.Sort(0);
         try {
             mf.RefreshTable(0);
         } catch (FileNotFoundException ex) {

@@ -290,13 +290,13 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <Component id="btnAdd" min="-2" pref="50" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnSearch" min="-2" pref="50" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnDelete1" min="-2" pref="50" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnDelete" min="-2" pref="50" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" pref="19" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="SortCombo" min="-2" max="-2" attributes="0"/>
@@ -349,8 +349,8 @@
                 <StringItem index="0" value="None"/>
                 <StringItem index="1" value="Reference Number (Ascending)"/>
                 <StringItem index="2" value="Reference Number (Descending)"/>
-                <StringItem index="3" value="Total cost (Ascending)"/>
-                <StringItem index="4" value="TotalCost (Descending)"/>
+                <StringItem index="3" value="Total Cost (Ascending)"/>
+                <StringItem index="4" value="Total Cost (Descending)"/>
               </StringArray>
             </Property>
           </Properties>

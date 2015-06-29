@@ -8,6 +8,8 @@ import Classes.*;
 import Util.Debug;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -133,14 +135,14 @@ public class MainFrame extends javax.swing.JFrame {
                     table.addRow(row);
                 }
                 Table.setModel(table);
-                NumberOfRows.setText("Number of Rows: " + String.valueOf(DataLoad.data.getNumberOfRows()));
+                NumberOfRows.setText("Number of Rows: " + String.valueOf(DataLoad.data.getNumberOfRows()));               
                 break;
 
         }
+        
     }
 
     private void Delete() {
-        int index = SelectTableCombo.getSelectedIndex();
         int i = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete the Competence Matrix: " + selectedCompetence + " from all five tables");
         if (i == 0) {
             Debug.Log("Deleting competence: " + selectedCompetence);
@@ -152,10 +154,10 @@ public class MainFrame extends javax.swing.JFrame {
             Debug.Log("Cancelling deletion of competence: " + selectedCompetence);
             //cancel
         }
-        SelectTableCombo.setSelectedIndex(index);
+        this.Sort(0);
     }
 
-    private void Sort(int index) {
+    public void Sort(int index) {
         CompetenceMatrix[][] arr;
         switch (index) {
             case 0:
@@ -359,7 +361,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel1.setText("Sort by:");
 
         SortCombo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        SortCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None", "Reference Number (Ascending)", "Reference Number (Descending)", "Total cost (Ascending)", "TotalCost (Descending)" }));
+        SortCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None", "Reference Number (Ascending)", "Reference Number (Descending)", "Total Cost (Ascending)", "Total Cost (Descending)" }));
         SortCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SortComboActionPerformed(evt);
@@ -403,13 +405,13 @@ public class MainFrame extends javax.swing.JFrame {
             btnPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnPanelLayout.createSequentialGroup()
                 .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnDelete1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(11, 11, 11)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(SortCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
