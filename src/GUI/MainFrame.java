@@ -22,14 +22,16 @@ public class MainFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainFrame
      */
-    CompetenceDetails[] det;
-    CompetenceOwnership[] own;
-    Applicability[] app;
-    CostPerPerson[] cost;
-    Timesheet[] time;
+    CompetenceDetails[] det = DataLoad.data.LoadDetails();
+    ;
+    CompetenceOwnership[] own = DataLoad.data.LoadOwnership();
+    Applicability[] app = DataLoad.data.LoadApplicability();
+    CostPerPerson[] cost = DataLoad.data.LoadCost();
+    Timesheet[] time = DataLoad.data.LoadTimesheet();
     DataLoad data = new DataLoad();
     int selectedRow;
     int selectedCompetence;
+    int selectedSort;
 
     public MainFrame(int index) {
         initComponents();
@@ -42,11 +44,11 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     public void RefreshTable(int Index) throws FileNotFoundException {
+        Debug.Log("Tables refreshing");
         DefaultTableModel table;
         Debug.Log("Selected Index = " + String.valueOf(SelectTableCombo.getSelectedIndex()));
         switch (Index) {
             case 0:
-                det = DataLoad.data.LoadDetails();
                 table = new DefaultTableModel(DataLoad.data.LoadDetailsHeadings(), 0);
                 for (int i = 0; i < DataLoad.data.getNumberOfRows(); i++) {
                     String[] row = {
@@ -68,7 +70,6 @@ public class MainFrame extends javax.swing.JFrame {
                 NumberOfRows.setText("Number of Rows: " + String.valueOf(DataLoad.data.getNumberOfRows()));
                 break;
             case 1:
-                own = DataLoad.data.LoadOwnership();
                 table = new DefaultTableModel(DataLoad.data.LoadOwnershipHeadings(), 0);
                 for (int i = 0; i < DataLoad.data.getNumberOfRows(); i++) {
                     String[] row = {
@@ -82,7 +83,6 @@ public class MainFrame extends javax.swing.JFrame {
                 NumberOfRows.setText("Number of Rows: " + String.valueOf(DataLoad.data.getNumberOfRows()));
                 break;
             case 2:
-                app = DataLoad.data.LoadApplicability();
                 table = new DefaultTableModel(DataLoad.data.LoadApplicabilityHeadings(), 0);
                 for (int i = 0; i < DataLoad.data.getNumberOfRows(); i++) {
                     String[] row = {
@@ -100,7 +100,6 @@ public class MainFrame extends javax.swing.JFrame {
                 NumberOfRows.setText("Number of Rows: " + String.valueOf(DataLoad.data.getNumberOfRows()));
                 break;
             case 3:
-                time = DataLoad.data.LoadTimesheet();
                 table = new DefaultTableModel(DataLoad.data.LoadTimesheetHeadings(), 0);
                 for (int i = 0; i < DataLoad.data.getNumberOfRows(); i++) {
                     String[] row = {
@@ -113,7 +112,6 @@ public class MainFrame extends javax.swing.JFrame {
                 NumberOfRows.setText("Number of Rows: " + String.valueOf(DataLoad.data.getNumberOfRows()));
                 break;
             case 4:
-                cost = DataLoad.data.LoadCost();
                 table = new DefaultTableModel(DataLoad.data.LoadCostHeadings(), 0);
                 for (int i = 0; i < DataLoad.data.getNumberOfRows(); i++) {
                     String[] row = {
@@ -151,6 +149,56 @@ public class MainFrame extends javax.swing.JFrame {
         SelectTableCombo.setSelectedIndex(index);
     }
 
+    private void Sort(int index) {
+        CompetenceMatrix[][] arr;
+        switch (index) {
+            case 0:
+                det = DataLoad.data.LoadDetails();
+                own = DataLoad.data.LoadOwnership();
+                app = DataLoad.data.LoadApplicability();
+                cost = DataLoad.data.LoadCost();
+                time = DataLoad.data.LoadTimesheet();
+                break;
+            case 1:
+                arr = SearchEngine.SortByCompNumASC(det, own, app, cost, time);
+                det = (CompetenceDetails[]) arr[0];
+                own = (CompetenceOwnership[]) arr[1];
+                app = (Applicability[]) arr[2];
+                time = (Timesheet[]) arr[3];
+                cost = (CostPerPerson[]) arr[4];
+                break;
+            case 2:
+                arr = SearchEngine.SortByCompNumDESC(det, own, app, cost, time);
+                det = (CompetenceDetails[]) arr[0];
+                own = (CompetenceOwnership[]) arr[1];
+                app = (Applicability[]) arr[2];
+                time = (Timesheet[]) arr[3];
+                cost = (CostPerPerson[]) arr[4];
+                break;
+            case 3:
+                arr = SearchEngine.SortByTotalASC(det, own, app, cost, time);
+                det = (CompetenceDetails[]) arr[0];
+                own = (CompetenceOwnership[]) arr[1];
+                app = (Applicability[]) arr[2];
+                time = (Timesheet[]) arr[3];
+                cost = (CostPerPerson[]) arr[4];
+                break;
+            case 4:
+                arr = SearchEngine.SortByTotalDESC(det, own, app, cost, time);
+                det = (CompetenceDetails[]) arr[0];
+                own = (CompetenceOwnership[]) arr[1];
+                app = (Applicability[]) arr[2];
+                time = (Timesheet[]) arr[3];
+                cost = (CostPerPerson[]) arr[4];
+                break;
+        }
+        try {
+            this.RefreshTable(SelectTableCombo.getSelectedIndex());
+        } catch (FileNotFoundException ex) {
+            Debug.LogException(ex);
+        }
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -168,7 +216,7 @@ public class MainFrame extends javax.swing.JFrame {
         btnAdd = new javax.swing.JButton();
         btnSearch = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
+        SortCombo = new javax.swing.JComboBox();
         btnDelete1 = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         NumberOfRows = new javax.swing.JLabel();
@@ -299,8 +347,13 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel1.setText("Sort by:");
 
-        jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        SortCombo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        SortCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None", "Reference Number (Ascending)", "Reference Number (Descending)", "Total cost (Ascending)", "TotalCost (Descending)" }));
+        SortCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SortComboActionPerformed(evt);
+            }
+        });
 
         btnDelete1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnDelete1.setText("Refresh Tables");
@@ -326,13 +379,13 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(btnPanelLayout.createSequentialGroup()
                 .addGroup(btnPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAdd, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
+                    .addComponent(btnAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnDelete1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(btnPanelLayout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(SortCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         btnPanelLayout.setVerticalGroup(
@@ -348,7 +401,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(SortCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -444,7 +497,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(SelectTableCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(SelectTabelLabel)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(TableScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 774, Short.MAX_VALUE)
+                        .addComponent(TableScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 773, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -592,6 +645,12 @@ public class MainFrame extends javax.swing.JFrame {
             Debug.LogException(ex);
         }
     }//GEN-LAST:event_btnDelete1ActionPerformed
+
+    private void SortComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SortComboActionPerformed
+        // TODO add your handling code here:
+        selectedSort = SortCombo.getSelectedIndex();
+        this.Sort(selectedSort);
+    }//GEN-LAST:event_SortComboActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -610,6 +669,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel NumberOfRows;
     private javax.swing.JLabel SelectTabelLabel;
     private javax.swing.JComboBox SelectTableCombo;
+    private javax.swing.JComboBox SortCombo;
     private javax.swing.JTable Table;
     private javax.swing.JScrollPane TableScrollPane;
     private javax.swing.JMenuItem Time;
@@ -618,7 +678,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnDelete1;
     private javax.swing.JPanel btnPanel;
     private javax.swing.JButton btnSearch;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
