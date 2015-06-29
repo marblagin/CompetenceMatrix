@@ -22,6 +22,9 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
     int unique;
     MainFrame mf = new MainFrame(0);
 
+    /**
+     *
+     */
     public AddCompetenceFrame() {
         initComponents();
         this.InitializeTables();

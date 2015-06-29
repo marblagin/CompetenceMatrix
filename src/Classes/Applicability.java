@@ -19,12 +19,13 @@ public class Applicability extends CompetenceMatrix{
 
     /**
      *
-     * @param CompetenceReferenceNo
-     * @param CoreCareer
-     * @param Promotion
-     * @param SoftTechnical
-     * @param Degrees
-     * @param Grade
+     * @param coreCareer 
+     * @param promotion 
+     * @param applicable 
+     * @param softTechnical 
+     * @param grade
+     * @param degrees 
+     * @param competenceReferenceNo  
      */
     public Applicability(String coreCareer, String promotion, String applicable, String softTechnical, String degrees, String grade, int competenceReferenceNo) {
         super(competenceReferenceNo);
@@ -36,10 +37,18 @@ public class Applicability extends CompetenceMatrix{
         this.grade = grade;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getApplicable() {
         return applicable;
     }
 
+    /**
+     *
+     * @param applicable
+     */
     public void setApplicable(String applicable) {
         this.applicable = applicable;
     }

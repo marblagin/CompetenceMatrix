@@ -25,19 +25,45 @@ import javax.swing.table.DefaultTableModel;
  */
 public class DataLoad {
 
+    /**
+     *
+     */
     public static DataLoad data = new DataLoad();
     private static int numberOfRows;
     private static int[] CompetenceNumbers;
+    /**
+     *
+     */
     public static String Detailstxt = "Competence Details.txt";
+    /**
+     *
+     */
     public static String Ownershiptxt = "Competence Ownership.txt";
+    /**
+     *
+     */
     public static String Applicablitytxt = "Applicability of competence.txt";
+    /**
+     *
+     */
     public static String Timetxt = "Timesheet.txt";
+    /**
+     *
+     */
     public static String Costtxt = "Cost per person.txt";
 
+    /**
+     *
+     * @return
+     */
     public int getNumberOfRows() {
         return numberOfRows;
     }
 
+    /**
+     *
+     * @return
+     */
     public Applicability[] LoadApplicability() {
         CompetenceNumbers = new int[200];
         Applicability[] app = new Applicability[200];
@@ -70,6 +96,10 @@ public class DataLoad {
         return app;
     }
 
+    /**
+     *
+     * @return
+     */
     public String[] LoadApplicabilityHeadings() {
         String[] out = {
             "Competence Reference Number",
@@ -83,6 +113,10 @@ public class DataLoad {
         return out;
     }
 
+    /**
+     *
+     * @return
+     */
     public CompetenceDetails[] LoadDetails() {
         CompetenceNumbers = new int[200];
         CompetenceDetails[] det = new CompetenceDetails[200];
@@ -119,6 +153,10 @@ public class DataLoad {
         return det;
     }
 
+    /**
+     *
+     * @return
+     */
     public String[] LoadDetailsHeadings() {
         String[] out = {
             "Competence Reference Number",
@@ -135,6 +173,10 @@ public class DataLoad {
         return out;
     }
 
+    /**
+     *
+     * @return
+     */
     public CompetenceOwnership[] LoadOwnership() {
         CompetenceNumbers = new int[200];
         CompetenceOwnership[] own = new CompetenceOwnership[200];
@@ -164,6 +206,10 @@ public class DataLoad {
         return own;
     }
 
+    /**
+     *
+     * @return
+     */
     public String[] LoadOwnershipHeadings() {
         String[] out = {
             "Competence Reference Number",
@@ -174,6 +220,10 @@ public class DataLoad {
         return out;
     }
 
+    /**
+     *
+     * @return
+     */
     public CostPerPerson[] LoadCost() {
         CompetenceNumbers = new int[200];
         CostPerPerson[] cost = new CostPerPerson[200];
@@ -207,6 +257,10 @@ public class DataLoad {
         return cost;
     }
 
+    /**
+     *
+     * @return
+     */
     public String[] LoadCostHeadings() {
         String[] out = {
             "Competence Reference Number",
@@ -220,6 +274,10 @@ public class DataLoad {
         return out;
     }
 
+    /**
+     *
+     * @return
+     */
     public Timesheet[] LoadTimesheet() {
         CompetenceNumbers = new int[200];
         Timesheet[] time = new Timesheet[200];
@@ -248,6 +306,10 @@ public class DataLoad {
         return time;
     }
 
+    /**
+     *
+     * @return
+     */
     public String[] LoadTimesheetHeadings() {
         String[] out = {
             "Competence Reference Number",
@@ -257,6 +319,10 @@ public class DataLoad {
         return out;
     }
 
+    /**
+     *
+     * @return
+     */
     public DefaultTableModel[] GenerateTableModel() {
         DefaultTableModel[] tableArr = new DefaultTableModel[5];
 
@@ -274,6 +340,10 @@ public class DataLoad {
         return tableArr;
     }
 
+    /**
+     *
+     * @param lines
+     */
     public static void StoreData(String[] lines) {
         FileWriter fw;
         PrintWriter pw;
@@ -319,6 +389,10 @@ public class DataLoad {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public int getUniqueCompetenceNumber() {
         int result = 1;
         int counter = 0;
@@ -330,6 +404,10 @@ public class DataLoad {
         return result;
     }
 
+    /**
+     *
+     * @param CompNum
+     */
     public void RemoveCompetence(int CompNum) {
 
         CompetenceDetails[] det = this.LoadDetails();

@@ -11,14 +11,26 @@ package Classes;
 public class CompetenceMatrix {
     private int competenceReferenceNo;
 
+    /**
+     *
+     * @param competenceReferenceNo
+     */
     public CompetenceMatrix(int competenceReferenceNo) {
         this.competenceReferenceNo = competenceReferenceNo;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getCompetenceReferenceNo() {
         return competenceReferenceNo;
     }
 
+    /**
+     *
+     * @param competenceReferenceNo
+     */
     public void setCompetenceReferenceNo(int competenceReferenceNo) {
         this.competenceReferenceNo = competenceReferenceNo;
     }

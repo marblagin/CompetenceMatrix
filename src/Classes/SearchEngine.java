@@ -9,6 +9,15 @@ package Classes;
  */
 public class SearchEngine {
 
+    /**
+     *
+     * @param det
+     * @param own
+     * @param app
+     * @param cost
+     * @param time
+     * @return
+     */
     public static CompetenceMatrix[][] SortByCompNumASC(CompetenceDetails[] det, CompetenceOwnership[] own, Applicability[] app, CostPerPerson[] cost, Timesheet[] time) {
         CompetenceMatrix[][] arr = new CompetenceMatrix[5][200];
         for (int i = 0; i < 5; i++) {
@@ -78,6 +87,15 @@ public class SearchEngine {
         return arr;
     }
 
+    /**
+     *
+     * @param det
+     * @param own
+     * @param app
+     * @param cost
+     * @param time
+     * @return
+     */
     public static CompetenceMatrix[][] SortByCompNumDESC(CompetenceDetails[] det, CompetenceOwnership[] own, Applicability[] app, CostPerPerson[] cost, Timesheet[] time) {
         CompetenceMatrix[][] arr = new CompetenceMatrix[5][200];
         for (int i = 0; i < 5; i++) {
@@ -147,6 +165,15 @@ public class SearchEngine {
         return arr;
     }
 
+    /**
+     *
+     * @param det
+     * @param own
+     * @param app
+     * @param cost
+     * @param time
+     * @return
+     */
     public static CompetenceMatrix[][] SortByTotalASC(CompetenceDetails[] det, CompetenceOwnership[] own, Applicability[] app, CostPerPerson[] cost, Timesheet[] time) {
         CompetenceMatrix[][] arr = new CompetenceMatrix[5][200];
 
@@ -186,6 +213,15 @@ public class SearchEngine {
         return arr;
     }
 
+    /**
+     *
+     * @param det
+     * @param own
+     * @param app
+     * @param cost
+     * @param time
+     * @return
+     */
     public static CompetenceMatrix[][] SortByTotalDESC(CompetenceDetails[] det, CompetenceOwnership[] own, Applicability[] app, CostPerPerson[] cost, Timesheet[] time) {
         CompetenceMatrix[][] arr = new CompetenceMatrix[5][200];
 

@@ -48,38 +48,74 @@ public class CostPerPerson extends CompetenceMatrix {
         return internal;
     }
 
+    /**
+     *
+     * @param internal
+     */
     public void setInternal(int internal) {
         this.internal = internal;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getCash() {
         return cash;
     }
 
+    /**
+     *
+     * @param cash
+     */
     public void setCash(int cash) {
         this.cash = cash;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getDisbursement() {
         return disbursement;
     }
 
+    /**
+     *
+     * @param disbursement
+     */
     public void setDisbursement(int disbursement) {
         this.disbursement = disbursement;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getOpportunity() {
         return opportunity;
     }
 
+    /**
+     *
+     * @param opportunity
+     */
     public void setOpportunity(int opportunity) {
         this.opportunity = opportunity;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getTotal() {
         return total;
     }
 
+    /**
+     *
+     * @param total
+     */
     public void setTotal(int total) {
         this.total = total;
     }

@@ -25,6 +25,7 @@ public class CompetenceDetails extends CompetenceMatrix {
      *
      * @param competenceReferenceNo
      * @param shortName
+     * @param details 
      * @param objective
      * @param hyperlink
      * @param timing
@@ -48,10 +49,18 @@ public class CompetenceDetails extends CompetenceMatrix {
         this.reviewActionNotes = reviewActionNotes;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getDetails() {
         return details;
     }
 
+    /**
+     *
+     * @param details
+     */
     public void setDetails(String details) {
         this.details = details;
     }

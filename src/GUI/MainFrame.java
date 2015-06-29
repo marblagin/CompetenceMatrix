@@ -8,8 +8,6 @@ import Classes.*;
 import Util.Debug;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -33,6 +31,10 @@ public class MainFrame extends javax.swing.JFrame {
     int selectedCompetence;
     int selectedSort;
 
+    /**
+     *
+     * @param index
+     */
     public MainFrame(int index) {
         initComponents();
         try {
@@ -43,6 +45,11 @@ public class MainFrame extends javax.swing.JFrame {
 
     }
 
+    /**
+     *
+     * @param Index
+     * @throws FileNotFoundException
+     */
     public void RefreshTable(int Index) throws FileNotFoundException {
         Debug.Log("Tables refreshing");
         DefaultTableModel table;
