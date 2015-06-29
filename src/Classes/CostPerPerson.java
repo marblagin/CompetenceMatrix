@@ -8,7 +8,8 @@ package Classes;
  *
  * @author Llewellyn Craddock
  */
-public class CostPerPerson extends CompetenceMatrix{
+public class CostPerPerson extends CompetenceMatrix {
+
     private int internal;
     private int cash;
     private int disbursement;
@@ -39,9 +40,6 @@ public class CostPerPerson extends CompetenceMatrix{
         this.workBack = workBack;
     }
 
-    
-
-    
     /**
      *
      * @return
@@ -86,10 +84,6 @@ public class CostPerPerson extends CompetenceMatrix{
         this.total = total;
     }
 
-    
-
-   
-
     /**
      *
      * @return
@@ -121,5 +115,20 @@ public class CostPerPerson extends CompetenceMatrix{
     public void setWorkBack(String workBack) {
         this.workBack = workBack;
     }
-    
+
+    @Override
+    public String toString() {
+        String out = "";
+        out += String.valueOf(super.getCompetenceReferenceNo()) + "\t"
+                + String.valueOf(internal)+ "\t"
+                + String.valueOf(cash)+ "\t"
+                + String.valueOf(disbursement)+ "\t"
+                + String.valueOf(opportunity)+ "\t"
+                + String.valueOf(total)+ "\t"
+                + workBackApplicable+ "\t"
+                + workBack;
+
+        return out;
+
+    }
 }

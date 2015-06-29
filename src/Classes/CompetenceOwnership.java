@@ -8,7 +8,8 @@ package Classes;
  *
  * @author Llewellyn Craddock
  */
-public class CompetenceOwnership extends CompetenceMatrix{
+public class CompetenceOwnership extends CompetenceMatrix {
+
     private String partner;
     private String champion;
     private String details;
@@ -74,5 +75,14 @@ public class CompetenceOwnership extends CompetenceMatrix{
     public void setDetails(String details) {
         this.details = details;
     }
-    
+
+    @Override
+    public String toString() {
+        String out = "";
+        out += String.valueOf(super.getCompetenceReferenceNo()) + "\t"
+                + partner +"\t"
+                + champion + "\t"
+                + details;
+        return out;
+    }
 }

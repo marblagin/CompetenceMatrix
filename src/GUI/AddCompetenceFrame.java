@@ -19,9 +19,15 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
     /**
      * Creates new form AddCompetenceFrame
      */
+    int unique;
+    MainFrame mf = new MainFrame(0);
+
     public AddCompetenceFrame() {
         initComponents();
         this.InitializeTables();
+        mf.setExtendedState(MainFrame.MAXIMIZED_BOTH);
+        mf.setEnabled(false);
+        mf.setVisible(true);
     }
 
     private void InitializeTables() {
@@ -29,36 +35,63 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
         DataLoad data = new DataLoad();
         DefaultTableModel[] Arr;
         Arr = data.GenerateTableModel();
-        int unique = data.getUniqueCompetenceNumber();
-        Debug.Log("Unique number is "+ unique);
+        unique = data.getUniqueCompetenceNumber();
+        Debug.Log("Unique number is " + unique);
 
         CompetenceDetailTable.setModel(Arr[0]);
         CompetenceDetailTable.setValueAt(unique, 0, 0);
-        
+        String defaultText = "NA";
+        for (int i = 1; i < CompetenceDetailTable.getColumnCount(); i++) {
+            CompetenceDetailTable.setValueAt(defaultText, 0, i);
+        }
+
         CompetenceOwnershipTable.setModel(Arr[1]);
         CompetenceOwnershipTable.setValueAt(unique, 0, 0);
-        
+        for (int i = 1; i < CompetenceOwnershipTable.getColumnCount(); i++) {
+            CompetenceOwnershipTable.setValueAt(defaultText, 0, i);
+        }
+
         AppCompetenceTable.setModel(Arr[2]);
         AppCompetenceTable.setValueAt(unique, 0, 0);
-        
+        for (int i = 1; i < AppCompetenceTable.getColumnCount(); i++) {
+            AppCompetenceTable.setValueAt(defaultText, 0, i);
+        }
+
         TimesheetTable.setModel(Arr[3]);
         TimesheetTable.setValueAt(unique, 0, 0);
-        
+        for (int i = 1; i < TimesheetTable.getColumnCount(); i++) {
+            TimesheetTable.setValueAt(defaultText, 0, i);
+        }
+
         CostTable.setModel(Arr[4]);
         CostTable.setValueAt(unique, 0, 0);
-        
+        int defaultNum = 0;
+        for (int i = 1; i < CostTable.getColumnCount() - 1; i++) {
+            CostTable.setValueAt(defaultNum, 0, i);
+        }
+        CostTable.setValueAt("N/A", 0, CostTable.getColumnCount() - 1);
+
         UniqueNumberLabel.setText("Your Unique Competence Matrix Number is: " + unique);
-        
+
     }
 
     private String ConstructLine(String[] line) {
         String result = "";
         for (int i = 0; i < line.length; i++) {
-            if ("null".equals(line[i])) {
-                result += "NA" + "\t";
+            if (i == (line.length - 1)) {
+                if ("null".equals(line[i])) {
+                    result += "NA";
+                } else {
+                    result += line[i];
+                }
             } else {
-                result += line[i] + "\t";
+                if ("null".equals(line[i])) {
+                    result += "NA" + "\t";
+                } else {
+                    result += line[i] + "\t";
+                }
             }
+
         }
         Debug.Log(result);
         return result;
@@ -82,27 +115,26 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
 
         line = this.getTableData(CompetenceDetailTable);
         lineArr[0] = this.ConstructLine(line);
-        
+
         line = this.getTableData(CompetenceOwnershipTable);
         lineArr[1] = this.ConstructLine(line);
-        
+
         line = this.getTableData(AppCompetenceTable);
         lineArr[2] = this.ConstructLine(line);
-        
+
         line = this.getTableData(TimesheetTable);
         lineArr[3] = this.ConstructLine(line);
-        
+
         line = this.getTableData(CostTable);
         lineArr[4] = this.ConstructLine(line);
-        for (int i = 0; i<lineArr.length; i++){
-            if(lineArr[i] == null)
-            {
+        for (int i = 0; i < lineArr.length; i++) {
+            if (lineArr[i] == null) {
                 Debug.Log("Changing Null to NA");
                 lineArr[i] = "NA";
             }
             Debug.Log(lineArr[i]);
         }
-        
+
         return lineArr;
     }
 
@@ -149,6 +181,11 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
         CompetenceDetailTable.setEditingColumn(1);
         CompetenceDetailTable.setEditingRow(1);
         CompetenceDetailTable.setRowHeight(60);
+        CompetenceDetailTable.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                CompetenceDetailTableKeyPressed(evt);
+            }
+        });
         CompetenceDetailPanel.setViewportView(CompetenceDetailTable);
 
         HeadLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -281,7 +318,7 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(HeadLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(CompetenceDetailLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -304,7 +341,7 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
                 .addComponent(CostLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(CostPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdd)
                     .addComponent(btnBack))
@@ -318,20 +355,31 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
+        try {
+            mf.RefreshTable(0);
+        } catch (FileNotFoundException ex) {
+            Debug.LogException(ex);
+        }
+        mf.setEnabled(true);
+        mf.setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-        DataLoad data = new DataLoad();
-        data.StoreData(this.ConstructArray());
-        MainFrame mf = new MainFrame();
+        DataLoad.StoreData(this.ConstructArray());
         try {
             mf.RefreshTable(0);
         } catch (FileNotFoundException ex) {
             Debug.LogException(ex);
         }
         this.setVisible(false);
+        mf.setEnabled(true);
+        mf.setVisible(true);
     }//GEN-LAST:event_btnAddActionPerformed
+
+    private void CompetenceDetailTableKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CompetenceDetailTableKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CompetenceDetailTableKeyPressed
     /**
      * @param args the command line arguments
      */

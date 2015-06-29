@@ -6,10 +6,9 @@ package GUI;
 
 import Classes.*;
 import Util.Debug;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -21,14 +20,23 @@ public class MainFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainFrame
      */
-    public MainFrame() {
+    CompetenceDetails[] det;
+    CompetenceOwnership[] own;
+    Applicability[] app;
+    CostPerPerson[] cost;
+    Timesheet[] time;
+    DataLoad data = new DataLoad();
+    int selectedRow;
+    int selectedCompetence;
+
+    public MainFrame(int index) {
         initComponents();
         try {
-            RefreshTable(0);
+            RefreshTable(index);
         } catch (IOException ex) {
             Debug.LogException(ex);
         }
-        
+
     }
 
     public void RefreshTable(int Index) throws FileNotFoundException {
@@ -36,7 +44,6 @@ public class MainFrame extends javax.swing.JFrame {
         Debug.Log("Selected Index = " + String.valueOf(SelectTableCombo.getSelectedIndex()));
         switch (Index) {
             case 0:
-                CompetenceDetails[] det;
                 det = DataLoad.data.LoadDetails();
                 table = new DefaultTableModel(DataLoad.data.LoadDetailsHeadings(), 0);
                 for (int i = 0; i < DataLoad.data.getNumberOfRows(); i++) {
@@ -59,7 +66,6 @@ public class MainFrame extends javax.swing.JFrame {
                 NumberOfRows.setText("Number of Rows: " + String.valueOf(DataLoad.data.getNumberOfRows()));
                 break;
             case 1:
-                CompetenceOwnership[] own;
                 own = DataLoad.data.LoadOwnership();
                 table = new DefaultTableModel(DataLoad.data.LoadOwnershipHeadings(), 0);
                 for (int i = 0; i < DataLoad.data.getNumberOfRows(); i++) {
@@ -67,15 +73,13 @@ public class MainFrame extends javax.swing.JFrame {
                         String.valueOf(own[i].getCompetenceReferenceNo()),
                         own[i].getPartner(),
                         own[i].getChampion(),
-                        own[i].getDetails(),
-                    };
+                        own[i].getDetails(),};
                     table.addRow(row);
                 }
                 Table.setModel(table);
                 NumberOfRows.setText("Number of Rows: " + String.valueOf(DataLoad.data.getNumberOfRows()));
                 break;
             case 2:
-                Applicability[] app;
                 app = DataLoad.data.LoadApplicability();
                 table = new DefaultTableModel(DataLoad.data.LoadApplicabilityHeadings(), 0);
                 for (int i = 0; i < DataLoad.data.getNumberOfRows(); i++) {
@@ -94,22 +98,19 @@ public class MainFrame extends javax.swing.JFrame {
                 NumberOfRows.setText("Number of Rows: " + String.valueOf(DataLoad.data.getNumberOfRows()));
                 break;
             case 3:
-                Timesheet[] time;
                 time = DataLoad.data.LoadTimesheet();
                 table = new DefaultTableModel(DataLoad.data.LoadTimesheetHeadings(), 0);
                 for (int i = 0; i < DataLoad.data.getNumberOfRows(); i++) {
                     String[] row = {
                         String.valueOf(time[i].getCompetenceReferenceNo()),
                         time[i].getCode(),
-                        time[i].getHours(),
-                    };
+                        time[i].getHours(),};
                     table.addRow(row);
                 }
                 Table.setModel(table);
                 NumberOfRows.setText("Number of Rows: " + String.valueOf(DataLoad.data.getNumberOfRows()));
                 break;
             case 4:
-                CostPerPerson[] cost;
                 cost = DataLoad.data.LoadCost();
                 table = new DefaultTableModel(DataLoad.data.LoadCostHeadings(), 0);
                 for (int i = 0; i < DataLoad.data.getNumberOfRows(); i++) {
@@ -145,7 +146,6 @@ public class MainFrame extends javax.swing.JFrame {
         Table = new javax.swing.JTable();
         SelectTabelLabel = new javax.swing.JLabel();
         SelectTableCombo = new javax.swing.JComboBox();
-        ToolBar = new javax.swing.JToolBar();
         btnPanel = new javax.swing.JPanel();
         btnAdd = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
@@ -155,7 +155,6 @@ public class MainFrame extends javax.swing.JFrame {
         NumberOfRows = new javax.swing.JLabel();
         MenuBar = new javax.swing.JMenuBar();
         MenuFile = new javax.swing.JMenu();
-        MenuFileChooser = new javax.swing.JMenuItem();
         MenuItemExit = new javax.swing.JMenuItem();
         MenuEdit = new javax.swing.JMenu();
         MenuItemEdit = new javax.swing.JMenuItem();
@@ -170,6 +169,12 @@ public class MainFrame extends javax.swing.JFrame {
         setTitle("Competence Matrix Editor");
         setName("MainFrame"); // NOI18N
         setPreferredSize(new java.awt.Dimension(1020, 700));
+
+        TableScrollPane.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TableScrollPaneMouseClicked(evt);
+            }
+        });
 
         Table.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Table.setModel(new javax.swing.table.DefaultTableModel(
@@ -233,6 +238,14 @@ public class MainFrame extends javax.swing.JFrame {
         Table.setRowHeight(50);
         Table.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         Table.setSurrendersFocusOnKeystroke(true);
+        Table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TableMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                TableMousePressed(evt);
+            }
+        });
         TableScrollPane.setViewportView(Table);
 
         SelectTabelLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -245,8 +258,6 @@ public class MainFrame extends javax.swing.JFrame {
                 SelectTableComboActionPerformed(evt);
             }
         });
-
-        ToolBar.setRollover(true);
 
         btnAdd.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnAdd.setText("Add Competence");
@@ -327,14 +338,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         MenuFile.setText("File");
 
-        MenuFileChooser.setText("Edit Table Files");
-        MenuFileChooser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MenuFileChooserActionPerformed(evt);
-            }
-        });
-        MenuFile.add(MenuFileChooser);
-
         MenuItemExit.setText("Exit");
         MenuItemExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -414,23 +417,23 @@ public class MainFrame extends javax.swing.JFrame {
                             .addComponent(NumberOfRows)
                             .addComponent(btnPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
-            .addComponent(ToolBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(ToolBar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
+                .addContainerGap()
                 .addComponent(SelectTabelLabel)
-                .addGap(6, 6, 6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(SelectTableCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TableScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 571, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
                         .addComponent(btnPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 293, Short.MAX_VALUE)
-                        .addComponent(NumberOfRows)))
+                        .addComponent(NumberOfRows))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(TableScrollPane)))
                 .addContainerGap())
         );
 
@@ -451,6 +454,19 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
+        int index = SelectTableCombo.getSelectedIndex();
+        int i = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete the Competence Matrix: " + selectedCompetence + " from all five tables");
+        if (i == 0) {
+            Debug.Log("Deleting competence: " + selectedCompetence);
+            data.RemoveCompetence(selectedCompetence);
+        } else if (i == 1) {
+            Debug.Log("Not deleting competence: " + selectedCompetence);
+            //dont delete
+        } else if (i == 2) {
+            Debug.Log("Cancelling deletion of competence: " + selectedCompetence);
+            //cancel
+        }
+        SelectTableCombo.setSelectedIndex(index);
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void EnableSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnableSearchActionPerformed
@@ -463,6 +479,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
+        this.dispose();
         AddCompetenceFrame acf = new AddCompetenceFrame();
         acf.setVisible(true);
     }//GEN-LAST:event_btnAddActionPerformed
@@ -482,6 +499,7 @@ public class MainFrame extends javax.swing.JFrame {
         } catch (IOException ex) {
             Debug.LogException(ex);
         }
+        SelectTableCombo.setSelectedIndex(1);
     }//GEN-LAST:event_ComOwnActionPerformed
 
     private void ComDetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComDetActionPerformed
@@ -491,6 +509,7 @@ public class MainFrame extends javax.swing.JFrame {
         } catch (IOException ex) {
             Debug.LogException(ex);
         }
+        SelectTableCombo.setSelectedIndex(0);
     }//GEN-LAST:event_ComDetActionPerformed
 
     private void AppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AppActionPerformed
@@ -500,6 +519,7 @@ public class MainFrame extends javax.swing.JFrame {
         } catch (IOException ex) {
             Debug.LogException(ex);
         }
+        SelectTableCombo.setSelectedIndex(2);
     }//GEN-LAST:event_AppActionPerformed
 
     private void TimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TimeActionPerformed
@@ -509,6 +529,7 @@ public class MainFrame extends javax.swing.JFrame {
         } catch (IOException ex) {
             Debug.LogException(ex);
         }
+        SelectTableCombo.setSelectedIndex(3);
     }//GEN-LAST:event_TimeActionPerformed
 
     private void CostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CostActionPerformed
@@ -518,14 +539,24 @@ public class MainFrame extends javax.swing.JFrame {
         } catch (IOException ex) {
             Debug.LogException(ex);
         }
+        SelectTableCombo.setSelectedIndex(4);
     }//GEN-LAST:event_CostActionPerformed
 
-    private void MenuFileChooserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuFileChooserActionPerformed
+    private void TableScrollPaneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableScrollPaneMouseClicked
         // TODO add your handling code here:
-        JFileChooser jfc = new JFileChooser(new File("/src/").getParent());
-        jfc.setVisible(true);
-        int ret = jfc.showOpenDialog(null);
-    }//GEN-LAST:event_MenuFileChooserActionPerformed
+    }//GEN-LAST:event_TableScrollPaneMouseClicked
+
+    private void TableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TableMouseClicked
+
+    private void TableMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableMousePressed
+        // TODO add your handling code here:
+        selectedRow = Table.getSelectedRow();
+        selectedCompetence = det[selectedRow].getCompetenceReferenceNo();
+        Debug.Log("Selected row is " + selectedRow + " and the competence num is " + selectedCompetence);
+        btnDelete.setEnabled(true);
+    }//GEN-LAST:event_TableMousePressed
     /**
      * @param args the command line arguments
      */
@@ -539,7 +570,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenuBar MenuBar;
     private javax.swing.JMenu MenuEdit;
     private javax.swing.JMenu MenuFile;
-    private javax.swing.JMenuItem MenuFileChooser;
     private javax.swing.JMenuItem MenuItemEdit;
     private javax.swing.JMenuItem MenuItemExit;
     private javax.swing.JMenu MenuTable;
@@ -549,7 +579,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTable Table;
     private javax.swing.JScrollPane TableScrollPane;
     private javax.swing.JMenuItem Time;
-    private javax.swing.JToolBar ToolBar;
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnDelete;
     private javax.swing.JPanel btnPanel;

@@ -8,7 +8,8 @@ package Classes;
  *
  * @author Llewellyn Craddock
  */
-public class Timesheet  extends CompetenceMatrix{
+public class Timesheet extends CompetenceMatrix {
+
     private String code;
     private String hours;
 
@@ -55,5 +56,13 @@ public class Timesheet  extends CompetenceMatrix{
     public void setHours(String hours) {
         this.hours = hours;
     }
-    
+
+    @Override
+    public String toString() {
+        String out = "";
+        out += String.valueOf(super.getCompetenceReferenceNo())+"\t"
+                 +code+ "\t"
+                 +hours;
+        return out;
+    }
 }

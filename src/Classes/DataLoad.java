@@ -13,6 +13,9 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Scanner;
 import javax.swing.table.DefaultTableModel;
 
@@ -57,7 +60,7 @@ public class DataLoad {
                 line = br.readLine();
             }
             br.close();
-            Debug.Log("File found and loaded");
+            Debug.Log("Applicability File found and loaded");
         } catch (IOException e) {
             Debug.LogException(e);
         }
@@ -107,7 +110,7 @@ public class DataLoad {
                 line = br.readLine();
             }
             br.close();
-            Debug.Log("File found and loaded");
+            Debug.Log("Details File found and loaded");
         } catch (IOException e) {
             Debug.LogException(e);
         }
@@ -152,7 +155,7 @@ public class DataLoad {
                 //Debug.Log("Completed Competence Number is "+ (counter));
             }
             br.close();
-            Debug.Log("File found and loaded");
+            Debug.Log("Ownership File found and loaded");
         } catch (IOException e) {
             Debug.LogException(e);
         }
@@ -195,7 +198,7 @@ public class DataLoad {
                 //Debug.Log("Counter is " + (counter));
             }
             br.close();
-            Debug.Log("File found and loaded");
+            Debug.Log("Cost File found and loaded");
         } catch (IOException e) {
             Debug.LogException(e);
         }
@@ -236,7 +239,7 @@ public class DataLoad {
                 line = br.readLine();
             }
             br.close();
-            Debug.Log("File found and loaded");
+            Debug.Log("Timesheet File found and loaded");
         } catch (IOException e) {
             Debug.LogException(e);
         }
@@ -271,40 +274,45 @@ public class DataLoad {
         return tableArr;
     }
 
-    public void StoreData(String[] lines) {
+    public static void StoreData(String[] lines) {
         FileWriter fw;
         PrintWriter pw;
         try {
-            pw = new PrintWriter(new FileOutputStream(new File(Detailstxt),true));
-            for(char c : lines[0].toCharArray())
-            {
+            pw = new PrintWriter(new FileOutputStream(new File(Detailstxt), true));
+            for (char c : lines[0].toCharArray()) {
                 pw.append(c);
             }
-            pw.flush(); pw.close();
-            pw = new PrintWriter(new FileOutputStream(new File(Ownershiptxt),true));
-            for(char c : lines[1].toCharArray())
-            {
+            pw.append("\r\n");
+            pw.flush();
+            pw.close();
+            pw = new PrintWriter(new FileOutputStream(new File(Ownershiptxt), true));
+            for (char c : lines[1].toCharArray()) {
                 pw.append(c);
             }
-            pw.flush(); pw.close();
-            pw = new PrintWriter(new FileOutputStream(new File(Applicablitytxt),true));
-            for(char c : lines[2].toCharArray())
-            {
+            pw.append("\r\n");
+            pw.flush();
+            pw.close();
+            pw = new PrintWriter(new FileOutputStream(new File(Applicablitytxt), true));
+            for (char c : lines[2].toCharArray()) {
                 pw.append(c);
             }
-            pw.flush(); pw.close();
-            pw = new PrintWriter(new FileOutputStream(new File(Timetxt),true));
-            for(char c : lines[3].toCharArray())
-            {
+            pw.append("\r\n");
+            pw.flush();
+            pw.close();
+            pw = new PrintWriter(new FileOutputStream(new File(Timetxt), true));
+            for (char c : lines[3].toCharArray()) {
                 pw.append(c);
             }
-            pw.flush(); pw.close();
-            pw = new PrintWriter(new FileOutputStream(new File(Costtxt),true));
-            for(char c : lines[4].toCharArray())
-            {
+            pw.append("\r\n");
+            pw.flush();
+            pw.close();
+            pw = new PrintWriter(new FileOutputStream(new File(Costtxt), true));
+            for (char c : lines[4].toCharArray()) {
                 pw.append(c);
             }
-            pw.flush(); pw.close();
+            pw.append("\r\n");
+            pw.flush();
+            pw.close();
             Debug.Log("Data stored in Files");
         } catch (IOException ex) {
             Debug.LogException(ex);
@@ -320,5 +328,228 @@ public class DataLoad {
         }
 
         return result;
+    }
+
+    public void RemoveCompetence(int CompNum) {
+
+        CompetenceDetails[] det = this.LoadDetails();
+        CompetenceOwnership[] own = this.LoadOwnership();
+        Applicability[] app = this.LoadApplicability();
+        CostPerPerson[] cost = this.LoadCost();
+        Timesheet[] time = this.LoadTimesheet();
+
+        //Competence Details:
+        String lineToRemove = "";
+        for (int i = 0; i < numberOfRows; i++) {
+            if (det[i].getCompetenceReferenceNo() == CompNum) {
+                lineToRemove = det[i].toString();
+                Debug.Log("lineToRemove is: " + lineToRemove);
+
+            }
+        }
+        String currentLine;
+        try {
+            File tempFile = new File("myTempFile.txt");
+            Debug.Log("Found files and beginning writing...");
+            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+            BufferedReader reader = new BufferedReader(new FileReader(Detailstxt));
+            while ((currentLine = reader.readLine()) != null) {
+                //Debug.Log("currentLine is: " + currentLine);
+                if (currentLine.equals(lineToRemove)) {
+                    Debug.Log("lineToRemove and currentLine are equal...");
+                } else {
+                    writer.write(currentLine + "\r\n");
+                }
+            }
+            writer.close();
+            reader.close();
+            File origanalFile = new File(Detailstxt);
+            String txtpath = origanalFile.getPath();
+            Path path = Paths.get(txtpath);
+            try {
+                Files.delete(path);
+                Debug.Log("File was successfully deleted");
+            } catch (Exception e) {
+                Debug.Log("File failed to delete");
+            }
+            boolean successfulRename = tempFile.renameTo(new File (Detailstxt));
+            if (successfulRename) {
+                Debug.Log("Renaming successful...");
+            }
+
+        } catch (IOException ex) {
+            Debug.LogException(ex);
+        }
+        
+        //Competence Ownership:
+        
+        lineToRemove = "";
+        for (int i = 0; i < numberOfRows; i++) {
+            if (own[i].getCompetenceReferenceNo() == CompNum) {
+                lineToRemove = own[i].toString();
+                Debug.Log("lineToRemove is: " + lineToRemove);
+
+            }
+        }
+        try {
+            File tempFile = new File("myTempFile.txt");
+            Debug.Log("Created temp file and beginning writing...");
+            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+            BufferedReader reader = new BufferedReader(new FileReader(Ownershiptxt));
+            while ((currentLine = reader.readLine()) != null) {
+                //Debug.Log("currentLine is: " + currentLine);
+                if (currentLine.equals(lineToRemove)) {
+                    Debug.Log("lineToRemove and currentLine are equal...");
+                } else {
+                    writer.write(currentLine + "\r\n");
+                }
+            }
+            writer.close();
+            reader.close();
+            File origanalFile = new File(Ownershiptxt);
+            String txtpath = origanalFile.getPath();
+            Path path = Paths.get(txtpath);
+            try {
+                Files.delete(path);
+                Debug.Log("File was successfully deleted");
+            } catch (Exception e) {
+                Debug.Log("File failed to delete");
+            }
+            boolean successfulRename = tempFile.renameTo(new File (Ownershiptxt));
+            if (successfulRename) {
+                Debug.Log("Renaming successful...");
+            }
+
+        } catch (IOException ex) {
+            Debug.LogException(ex);
+        }
+        
+        //Applicabiity of Competence:
+        
+        lineToRemove = "";
+        for (int i = 0; i < numberOfRows; i++) {
+            if (app[i].getCompetenceReferenceNo() == CompNum) {
+                lineToRemove = app[i].toString();
+                Debug.Log("lineToRemove is: " + lineToRemove);
+
+            }
+        }
+        try {
+            File tempFile = new File("myTempFile.txt");
+            Debug.Log("Created temp file and beginning writing...");
+            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+            BufferedReader reader = new BufferedReader(new FileReader(Applicablitytxt));
+            while ((currentLine = reader.readLine()) != null) {
+                //Debug.Log("currentLine is: " + currentLine);
+                if (currentLine.equals(lineToRemove)) {
+                    Debug.Log("lineToRemove and currentLine are equal");
+                } else {
+                    writer.write(currentLine + "\r\n");
+                }
+            }
+            writer.close();
+            reader.close();
+            File origanalFile = new File(Applicablitytxt);
+            String txtpath = origanalFile.getPath();
+            Path path = Paths.get(txtpath);
+            try {
+                Files.delete(path);
+                Debug.Log("File was successfully deleted");
+            } catch (Exception e) {
+                Debug.Log("File failed to delete");
+            }
+            boolean successfulRename = tempFile.renameTo(new File (Applicablitytxt));
+            if (successfulRename) {
+                Debug.Log("Renaming successful...");
+            }
+
+        } catch (IOException ex) {
+            Debug.LogException(ex);
+        }
+        
+        //Timesheet:
+        
+        lineToRemove = "";
+        for (int i = 0; i < numberOfRows; i++) {
+            if (time[i].getCompetenceReferenceNo() == CompNum) {
+                lineToRemove = time[i].toString();
+                Debug.Log("lineToRemove is: " + lineToRemove);
+
+            }
+        }
+        try {
+            File tempFile = new File("myTempFile.txt");
+            Debug.Log("Created temp file and beginning writing...");
+            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+            BufferedReader reader = new BufferedReader(new FileReader(Timetxt));
+            while ((currentLine = reader.readLine()) != null) {
+                //Debug.Log("currentLine is: " + currentLine);
+                if (currentLine.equals(lineToRemove)) {
+                    Debug.Log("lineToRemove and currentLine are equal");
+                } else {
+                    writer.write(currentLine + "\r\n");
+                }
+            }
+            writer.close();
+            reader.close();
+            File origanalFile = new File(Timetxt);
+            String txtpath = origanalFile.getPath();
+            Path path = Paths.get(txtpath);
+            try {
+                Files.delete(path);
+                Debug.Log("File was successfully deleted");
+            } catch (Exception e) {
+                Debug.Log("File failed to delete");
+            }
+            boolean successfulRename = tempFile.renameTo(new File (Timetxt));
+            if (successfulRename) {
+                Debug.Log("Renaming successful...");
+            }
+
+        } catch (IOException ex) {
+            Debug.LogException(ex);
+        }
+        
+        //Cost:
+        
+        lineToRemove = "";
+        for (int i = 0; i < numberOfRows; i++) {
+            if (cost[i].getCompetenceReferenceNo() == CompNum) {
+                lineToRemove = cost[i].toString();
+                Debug.Log("lineToRemove is: " + lineToRemove);
+            }
+        }
+        try {
+            File tempFile = new File("myTempFile.txt");
+            Debug.Log("Created temp file and beginning writing...");
+            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+            BufferedReader reader = new BufferedReader(new FileReader(Costtxt));
+            while ((currentLine = reader.readLine()) != null) {
+                //Debug.Log("currentLine is: " + currentLine);
+                if (currentLine.equals(lineToRemove)) {
+                    Debug.Log("lineToRemove and currentLine are equal");
+                } else {
+                    writer.write(currentLine + "\r\n");
+                }
+            }
+            writer.close();
+            reader.close();
+            File origanalFile = new File(Costtxt);
+            String txtpath = origanalFile.getPath();
+            Path path = Paths.get(txtpath);
+            try {
+                Files.delete(path);
+                Debug.Log("File was successfully deleted");
+            } catch (Exception e) {
+                Debug.Log("File failed to delete");
+            }
+            boolean successfulRename = tempFile.renameTo(new File (Costtxt));
+            if (successfulRename) {
+                Debug.Log("Renaming successful...");
+            }
+
+        } catch (IOException ex) {
+            Debug.LogException(ex);
+        }
     }
 }

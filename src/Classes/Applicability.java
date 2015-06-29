@@ -123,4 +123,16 @@ public class Applicability extends CompetenceMatrix{
     public void setGrade(String grade) {
         this.grade = grade;
     }
+    @Override
+    public String toString (){
+        String out = "";
+        out+= String.valueOf(super.getCompetenceReferenceNo())+"\t"
+                 +coreCareer+"\t"
+                 +promotion +"\t"
+                 +applicable +"\t"
+                 +softTechnical +"\t"
+                 +degrees +"\t"
+                 +grade ;
+        return out;
+    }
 }

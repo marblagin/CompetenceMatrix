@@ -8,7 +8,8 @@ package Classes;
  *
  * @author Llewellyn Craddock
  */
-public class CompetenceDetails  extends CompetenceMatrix{
+public class CompetenceDetails extends CompetenceMatrix {
+
     private String shortName;
     private String objective;
     private String details;
@@ -198,5 +199,21 @@ public class CompetenceDetails  extends CompetenceMatrix{
     public void setReviewActionNotes(String reviewActionNotes) {
         this.reviewActionNotes = reviewActionNotes;
     }
-    
+
+    @Override
+    public String toString() {
+        String out = "";
+        out += String.valueOf(super.getCompetenceReferenceNo()) + "\t"
+                + shortName +"\t"
+                + objective +"\t"
+                + details +"\t"
+                + hyperlink +"\t"
+                + timing +"\t"
+                + whoProvides +"\t"
+                + type +"\t"
+                + dependencies +"\t"
+                + status +"\t"
+                + reviewActionNotes;
+        return out;
+    }
 }

@@ -17,13 +17,10 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        MainFrame mf = new MainFrame ();
+        MainFrame mf = new MainFrame (0);
         mf.setExtendedState(MainFrame.MAXIMIZED_BOTH);
         mf.setVisible(true);
-        SearchFrame sf = new SearchFrame ();
-        sf.setVisible(false);
-        AddCompetenceFrame addComp = new AddCompetenceFrame();
-        addComp.setVisible(false);
+
     }
 
 }
