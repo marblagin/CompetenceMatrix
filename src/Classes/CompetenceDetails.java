@@ -59,26 +59,10 @@ public class CompetenceDetails extends CompetenceMatrix {
 
     /**
      *
-     * @param details
-     */
-    public void setDetails(String details) {
-        this.details = details;
-    }
-
-    /**
-     *
      * @return
      */
     public String getShortName() {
         return shortName;
-    }
-
-    /**
-     *
-     * @param shortName
-     */
-    public void setShortName(String shortName) {
-        this.shortName = shortName;
     }
 
     /**
@@ -91,26 +75,10 @@ public class CompetenceDetails extends CompetenceMatrix {
 
     /**
      *
-     * @param objective
-     */
-    public void setObjective(String objective) {
-        this.objective = objective;
-    }
-
-    /**
-     *
      * @return
      */
     public String getHyperlink() {
         return hyperlink;
-    }
-
-    /**
-     *
-     * @param hyperlink
-     */
-    public void setHyperlink(String hyperlink) {
-        this.hyperlink = hyperlink;
     }
 
     /**
@@ -123,26 +91,10 @@ public class CompetenceDetails extends CompetenceMatrix {
 
     /**
      *
-     * @param timing
-     */
-    public void setTiming(String timing) {
-        this.timing = timing;
-    }
-
-    /**
-     *
      * @return
      */
     public String getWhoProvides() {
         return whoProvides;
-    }
-
-    /**
-     *
-     * @param whoProvides
-     */
-    public void setWhoProvides(String whoProvides) {
-        this.whoProvides = whoProvides;
     }
 
     /**
@@ -155,26 +107,10 @@ public class CompetenceDetails extends CompetenceMatrix {
 
     /**
      *
-     * @param type
-     */
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    /**
-     *
      * @return
      */
     public String getDependencies() {
         return dependencies;
-    }
-
-    /**
-     *
-     * @param dependencies
-     */
-    public void setDependencies(String dependencies) {
-        this.dependencies = dependencies;
     }
 
     /**
@@ -187,26 +123,10 @@ public class CompetenceDetails extends CompetenceMatrix {
 
     /**
      *
-     * @param status
-     */
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    /**
-     *
      * @return
      */
     public String getReviewActionNotes() {
         return reviewActionNotes;
-    }
-
-    /**
-     *
-     * @param reviewActionNotes
-     */
-    public void setReviewActionNotes(String reviewActionNotes) {
-        this.reviewActionNotes = reviewActionNotes;
     }
 
     @Override

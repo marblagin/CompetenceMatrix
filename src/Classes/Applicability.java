@@ -44,14 +44,6 @@ public class Applicability extends CompetenceMatrix{
     public String getApplicable() {
         return applicable;
     }
-
-    /**
-     *
-     * @param applicable
-     */
-    public void setApplicable(String applicable) {
-        this.applicable = applicable;
-    }
    
     /**
      *
@@ -59,14 +51,6 @@ public class Applicability extends CompetenceMatrix{
      */
     public String getCoreCareer() {
         return coreCareer;
-    }
-
-    /**
-     *
-     * @param coreCareer
-     */
-    public void setCoreCareer(String coreCareer) {
-        this.coreCareer = coreCareer;
     }
 
     /**
@@ -79,26 +63,10 @@ public class Applicability extends CompetenceMatrix{
 
     /**
      *
-     * @param promotion
-     */
-    public void setPromotion(String promotion) {
-        this.promotion = promotion;
-    }
-
-    /**
-     *
      * @return
      */
     public String getSoftTechnical() {
         return softTechnical;
-    }
-
-    /**
-     *
-     * @param softTechnical
-     */
-    public void setSoftTechnical(String softTechnical) {
-        this.softTechnical = softTechnical;
     }
 
     /**
@@ -111,26 +79,10 @@ public class Applicability extends CompetenceMatrix{
 
     /**
      *
-     * @param degrees
-     */
-    public void setDegrees(String degrees) {
-        this.degrees = degrees;
-    }
-
-    /**
-     *
      * @return
      */
     public String getGrade() {
         return grade;
-    }
-
-    /**
-     *
-     * @param grade
-     */
-    public void setGrade(String grade) {
-        this.grade = grade;
     }
     @Override
     public String toString (){

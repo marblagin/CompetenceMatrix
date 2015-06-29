@@ -21,7 +21,6 @@ public class MainFrame extends javax.swing.JFrame {
      * Creates new form MainFrame
      */
     CompetenceDetails[] det = DataLoad.data.LoadDetails();
-    ;
     CompetenceOwnership[] own = DataLoad.data.LoadOwnership();
     Applicability[] app = DataLoad.data.LoadApplicability();
     CostPerPerson[] cost = DataLoad.data.LoadCost();

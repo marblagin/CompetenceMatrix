@@ -50,26 +50,10 @@ public class CostPerPerson extends CompetenceMatrix {
 
     /**
      *
-     * @param internal
-     */
-    public void setInternal(int internal) {
-        this.internal = internal;
-    }
-
-    /**
-     *
      * @return
      */
     public int getCash() {
         return cash;
-    }
-
-    /**
-     *
-     * @param cash
-     */
-    public void setCash(int cash) {
-        this.cash = cash;
     }
 
     /**
@@ -82,26 +66,10 @@ public class CostPerPerson extends CompetenceMatrix {
 
     /**
      *
-     * @param disbursement
-     */
-    public void setDisbursement(int disbursement) {
-        this.disbursement = disbursement;
-    }
-
-    /**
-     *
      * @return
      */
     public int getOpportunity() {
         return opportunity;
-    }
-
-    /**
-     *
-     * @param opportunity
-     */
-    public void setOpportunity(int opportunity) {
-        this.opportunity = opportunity;
     }
 
     /**
@@ -114,14 +82,6 @@ public class CostPerPerson extends CompetenceMatrix {
 
     /**
      *
-     * @param total
-     */
-    public void setTotal(int total) {
-        this.total = total;
-    }
-
-    /**
-     *
      * @return
      */
     public String getWorkBackApplicable() {
@@ -130,26 +90,10 @@ public class CostPerPerson extends CompetenceMatrix {
 
     /**
      *
-     * @param workBackApplicable
-     */
-    public void setWorkBackApplicable(String workBackApplicable) {
-        this.workBackApplicable = workBackApplicable;
-    }
-
-    /**
-     *
      * @return
      */
     public String getWorkBack() {
         return workBack;
-    }
-
-    /**
-     *
-     * @param workBack
-     */
-    public void setWorkBack(String workBack) {
-        this.workBack = workBack;
     }
 
     @Override

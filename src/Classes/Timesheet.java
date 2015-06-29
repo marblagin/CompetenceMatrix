@@ -35,26 +35,10 @@ public class Timesheet extends CompetenceMatrix {
 
     /**
      *
-     * @param code
-     */
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    /**
-     *
      * @return
      */
     public String getHours() {
         return hours;
-    }
-
-    /**
-     *
-     * @param hours
-     */
-    public void setHours(String hours) {
-        this.hours = hours;
     }
 
     @Override

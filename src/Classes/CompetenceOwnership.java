@@ -38,14 +38,6 @@ public class CompetenceOwnership extends CompetenceMatrix {
 
     /**
      *
-     * @param partner
-     */
-    public void setPartner(String partner) {
-        this.partner = partner;
-    }
-
-    /**
-     *
      * @return
      */
     public String getChampion() {
@@ -54,26 +46,10 @@ public class CompetenceOwnership extends CompetenceMatrix {
 
     /**
      *
-     * @param champion
-     */
-    public void setChampion(String champion) {
-        this.champion = champion;
-    }
-
-    /**
-     *
      * @return
      */
     public String getDetails() {
         return details;
-    }
-
-    /**
-     *
-     * @param details
-     */
-    public void setDetails(String details) {
-        this.details = details;
     }
 
     @Override
