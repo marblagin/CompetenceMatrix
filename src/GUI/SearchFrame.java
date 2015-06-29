@@ -30,16 +30,13 @@ public class SearchFrame extends javax.swing.JFrame {
         HeadLabel = new javax.swing.JLabel();
         btnSearch = new javax.swing.JButton();
         CriteriaPanel = new javax.swing.JPanel();
-        SortByLabel = new javax.swing.JLabel();
-        SortByCombo = new javax.swing.JComboBox();
-        SelectTableLabel = new javax.swing.JLabel();
         ScrollTextPane = new javax.swing.JScrollPane();
         PhraseTextArea = new javax.swing.JTextArea();
         PhraseLabel = new javax.swing.JLabel();
-        SelectTabelCombo = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Search Options");
+        setResizable(false);
         setType(java.awt.Window.Type.POPUP);
 
         btnBack.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -63,15 +60,6 @@ public class SearchFrame extends javax.swing.JFrame {
 
         CriteriaPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        SortByLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        SortByLabel.setText("Sort By:");
-
-        SortByCombo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        SortByCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None", " " }));
-
-        SelectTableLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        SelectTableLabel.setText("Select Table:");
-
         ScrollTextPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         ScrollTextPane.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
@@ -82,9 +70,6 @@ public class SearchFrame extends javax.swing.JFrame {
         PhraseLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         PhraseLabel.setText("Search for word or phrase:");
 
-        SelectTabelCombo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        SelectTabelCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Competence Details", "Comeptence Ownership", "Applicability of competence", "Timesheet", "Cost per person" }));
-
         javax.swing.GroupLayout CriteriaPanelLayout = new javax.swing.GroupLayout(CriteriaPanel);
         CriteriaPanel.setLayout(CriteriaPanelLayout);
         CriteriaPanelLayout.setHorizontalGroup(
@@ -93,29 +78,17 @@ public class SearchFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(CriteriaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(PhraseLabel)
-                    .addComponent(ScrollTextPane, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SelectTableLabel)
-                    .addComponent(SortByCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SortByLabel)
-                    .addComponent(SelectTabelCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ScrollTextPane, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         CriteriaPanelLayout.setVerticalGroup(
             CriteriaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CriteriaPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(SelectTableLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(SelectTabelCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(SortByLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(SortByCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addComponent(PhraseLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ScrollTextPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ScrollTextPane, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -134,7 +107,7 @@ public class SearchFrame extends javax.swing.JFrame {
                             .addComponent(HeadLabel)
                             .addComponent(CriteriaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,11 +116,11 @@ public class SearchFrame extends javax.swing.JFrame {
                 .addComponent(HeadLabel)
                 .addGap(18, 18, 18)
                 .addComponent(CriteriaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBack)
-                    .addComponent(btnSearch))
-                .addContainerGap())
+                    .addComponent(btnSearch)
+                    .addComponent(btnBack))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -173,10 +146,6 @@ public class SearchFrame extends javax.swing.JFrame {
     private javax.swing.JLabel PhraseLabel;
     private javax.swing.JTextArea PhraseTextArea;
     private javax.swing.JScrollPane ScrollTextPane;
-    private javax.swing.JComboBox SelectTabelCombo;
-    private javax.swing.JLabel SelectTableLabel;
-    private javax.swing.JComboBox SortByCombo;
-    private javax.swing.JLabel SortByLabel;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnSearch;
     // End of variables declaration//GEN-END:variables

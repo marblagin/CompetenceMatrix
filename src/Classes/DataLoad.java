@@ -225,22 +225,22 @@ public class DataLoad {
         Timesheet[] time = new Timesheet[200];
         int counter = 0;
         try {
-            BufferedReader br = new BufferedReader(new FileReader(Timetxt), 84600);
-            String line = br.readLine();
-            while (line != null) {
-                Scanner scLine = new Scanner(line).useDelimiter("\t");
-                int compNum = scLine.nextInt();
-                String code = scLine.next();
-                String hours = scLine.next();
-                time[counter] = new Timesheet(code, hours, compNum);
-                CompetenceNumbers[counter] = compNum;
-                counter++;
-                //Debug.Log("Counter is " + (counter));
-                line = br.readLine();
+            try (BufferedReader br = new BufferedReader(new FileReader(Timetxt), 84600)) {
+                String line = br.readLine();
+                while (line != null) {
+                    Scanner scLine = new Scanner(line).useDelimiter("\t");
+                    int compNum = scLine.nextInt();
+                    String code = scLine.next();
+                    String hours = scLine.next();
+                    time[counter] = new Timesheet(code, hours, compNum);
+                    CompetenceNumbers[counter] = compNum;
+                    counter++;
+                    //Debug.Log("Counter is " + (counter));
+                    line = br.readLine();
+                }
             }
-            br.close();
             Debug.Log("Timesheet File found and loaded");
-        } catch (IOException e) {
+        }catch (IOException e) {
             Debug.LogException(e);
         }
         numberOfRows = counter;
@@ -351,17 +351,18 @@ public class DataLoad {
         try {
             File tempFile = new File("myTempFile.txt");
             Debug.Log("Found files and beginning writing...");
-            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
-            BufferedReader reader = new BufferedReader(new FileReader(Detailstxt));
-            while ((currentLine = reader.readLine()) != null) {
-                //Debug.Log("currentLine is: " + currentLine);
-                if (currentLine.equals(lineToRemove)) {
-                    Debug.Log("lineToRemove and currentLine are equal...");
-                } else {
-                    writer.write(currentLine + "\r\n");
+            BufferedReader reader;
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile))) {
+                reader = new BufferedReader(new FileReader(Detailstxt));
+                while ((currentLine = reader.readLine()) != null) {
+                    //Debug.Log("currentLine is: " + currentLine);
+                    if (currentLine.equals(lineToRemove)) {
+                        Debug.Log("lineToRemove and currentLine are equal...");
+                    } else {
+                        writer.write(currentLine + "\r\n");
+                    }
                 }
             }
-            writer.close();
             reader.close();
             File origanalFile = new File(Detailstxt);
             String txtpath = origanalFile.getPath();
@@ -394,17 +395,18 @@ public class DataLoad {
         try {
             File tempFile = new File("myTempFile.txt");
             Debug.Log("Created temp file and beginning writing...");
-            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
-            BufferedReader reader = new BufferedReader(new FileReader(Ownershiptxt));
-            while ((currentLine = reader.readLine()) != null) {
-                //Debug.Log("currentLine is: " + currentLine);
-                if (currentLine.equals(lineToRemove)) {
-                    Debug.Log("lineToRemove and currentLine are equal...");
-                } else {
-                    writer.write(currentLine + "\r\n");
+            BufferedReader reader;
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile))) {
+                reader = new BufferedReader(new FileReader(Ownershiptxt));
+                while ((currentLine = reader.readLine()) != null) {
+                    //Debug.Log("currentLine is: " + currentLine);
+                    if (currentLine.equals(lineToRemove)) {
+                        Debug.Log("lineToRemove and currentLine are equal...");
+                    } else {
+                        writer.write(currentLine + "\r\n");
+                    }
                 }
             }
-            writer.close();
             reader.close();
             File origanalFile = new File(Ownershiptxt);
             String txtpath = origanalFile.getPath();
@@ -437,17 +439,18 @@ public class DataLoad {
         try {
             File tempFile = new File("myTempFile.txt");
             Debug.Log("Created temp file and beginning writing...");
-            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
-            BufferedReader reader = new BufferedReader(new FileReader(Applicablitytxt));
-            while ((currentLine = reader.readLine()) != null) {
-                //Debug.Log("currentLine is: " + currentLine);
-                if (currentLine.equals(lineToRemove)) {
-                    Debug.Log("lineToRemove and currentLine are equal");
-                } else {
-                    writer.write(currentLine + "\r\n");
+            BufferedReader reader;
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile))) {
+                reader = new BufferedReader(new FileReader(Applicablitytxt));
+                while ((currentLine = reader.readLine()) != null) {
+                    //Debug.Log("currentLine is: " + currentLine);
+                    if (currentLine.equals(lineToRemove)) {
+                        Debug.Log("lineToRemove and currentLine are equal");
+                    } else {
+                        writer.write(currentLine + "\r\n");
+                    }
                 }
             }
-            writer.close();
             reader.close();
             File origanalFile = new File(Applicablitytxt);
             String txtpath = origanalFile.getPath();
@@ -480,17 +483,18 @@ public class DataLoad {
         try {
             File tempFile = new File("myTempFile.txt");
             Debug.Log("Created temp file and beginning writing...");
-            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
-            BufferedReader reader = new BufferedReader(new FileReader(Timetxt));
-            while ((currentLine = reader.readLine()) != null) {
-                //Debug.Log("currentLine is: " + currentLine);
-                if (currentLine.equals(lineToRemove)) {
-                    Debug.Log("lineToRemove and currentLine are equal");
-                } else {
-                    writer.write(currentLine + "\r\n");
+            BufferedReader reader;
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile))) {
+                reader = new BufferedReader(new FileReader(Timetxt));
+                while ((currentLine = reader.readLine()) != null) {
+                    //Debug.Log("currentLine is: " + currentLine);
+                    if (currentLine.equals(lineToRemove)) {
+                        Debug.Log("lineToRemove and currentLine are equal");
+                    } else {
+                        writer.write(currentLine + "\r\n");
+                    }
                 }
             }
-            writer.close();
             reader.close();
             File origanalFile = new File(Timetxt);
             String txtpath = origanalFile.getPath();
@@ -522,17 +526,18 @@ public class DataLoad {
         try {
             File tempFile = new File("myTempFile.txt");
             Debug.Log("Created temp file and beginning writing...");
-            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
-            BufferedReader reader = new BufferedReader(new FileReader(Costtxt));
-            while ((currentLine = reader.readLine()) != null) {
-                //Debug.Log("currentLine is: " + currentLine);
-                if (currentLine.equals(lineToRemove)) {
-                    Debug.Log("lineToRemove and currentLine are equal");
-                } else {
-                    writer.write(currentLine + "\r\n");
+            BufferedReader reader;
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile))) {
+                reader = new BufferedReader(new FileReader(Costtxt));
+                while ((currentLine = reader.readLine()) != null) {
+                    //Debug.Log("currentLine is: " + currentLine);
+                    if (currentLine.equals(lineToRemove)) {
+                        Debug.Log("lineToRemove and currentLine are equal");
+                    } else {
+                        writer.write(currentLine + "\r\n");
+                    }
                 }
             }
-            writer.close();
             reader.close();
             File origanalFile = new File(Costtxt);
             String txtpath = origanalFile.getPath();

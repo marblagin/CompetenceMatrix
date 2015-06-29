@@ -8,6 +8,8 @@ import Classes.*;
 import Util.Debug;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -133,6 +135,22 @@ public class MainFrame extends javax.swing.JFrame {
         }
     }
 
+    private void Delete() {
+        int index = SelectTableCombo.getSelectedIndex();
+        int i = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete the Competence Matrix: " + selectedCompetence + " from all five tables");
+        if (i == 0) {
+            Debug.Log("Deleting competence: " + selectedCompetence);
+            data.RemoveCompetence(selectedCompetence);
+        } else if (i == 1) {
+            Debug.Log("Not deleting competence: " + selectedCompetence);
+            //dont delete
+        } else if (i == 2) {
+            Debug.Log("Cancelling deletion of competence: " + selectedCompetence);
+            //cancel
+        }
+        SelectTableCombo.setSelectedIndex(index);
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -148,16 +166,18 @@ public class MainFrame extends javax.swing.JFrame {
         SelectTableCombo = new javax.swing.JComboBox();
         btnPanel = new javax.swing.JPanel();
         btnAdd = new javax.swing.JButton();
-        btnDelete = new javax.swing.JButton();
-        EnableSearch = new javax.swing.JCheckBox();
-        EnableEditing = new javax.swing.JCheckBox();
         btnSearch = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox();
+        btnDelete1 = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
         NumberOfRows = new javax.swing.JLabel();
         MenuBar = new javax.swing.JMenuBar();
         MenuFile = new javax.swing.JMenu();
         MenuItemExit = new javax.swing.JMenuItem();
         MenuEdit = new javax.swing.JMenu();
-        MenuItemEdit = new javax.swing.JMenuItem();
+        MenuAddComp = new javax.swing.JMenuItem();
+        MenuDelete = new javax.swing.JMenuItem();
         MenuTable = new javax.swing.JMenu();
         ComDet = new javax.swing.JMenuItem();
         ComOwn = new javax.swing.JMenuItem();
@@ -268,6 +288,28 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        btnSearch.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnSearch.setText("Search Options");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel1.setText("Sort by:");
+
+        jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        btnDelete1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnDelete1.setText("Refresh Tables");
+        btnDelete1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDelete1ActionPerformed(evt);
+            }
+        });
+
         btnDelete.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnDelete.setText("Delete Selected Competence");
         btnDelete.setEnabled(false);
@@ -277,46 +319,20 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        EnableSearch.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        EnableSearch.setText("Enable Search Criteria");
-        EnableSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EnableSearchActionPerformed(evt);
-            }
-        });
-
-        EnableEditing.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        EnableEditing.setText("Enable Table Editing");
-        EnableEditing.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EnableEditingActionPerformed(evt);
-            }
-        });
-
-        btnSearch.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        btnSearch.setText("Search Options");
-        btnSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSearchActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout btnPanelLayout = new javax.swing.GroupLayout(btnPanel);
         btnPanel.setLayout(btnPanelLayout);
         btnPanelLayout.setHorizontalGroup(
             btnPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnPanelLayout.createSequentialGroup()
-                .addGroup(btnPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(EnableEditing, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
-                    .addComponent(EnableSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(btnPanelLayout.createSequentialGroup()
                 .addGroup(btnPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAdd, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
+                    .addComponent(btnDelete1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(btnPanelLayout.createSequentialGroup()
-                        .addComponent(btnDelete)
-                        .addGap(0, 5, Short.MAX_VALUE)))
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         btnPanelLayout.setVerticalGroup(
@@ -325,15 +341,18 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnDelete1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(EnableEditing)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(EnableSearch)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        NumberOfRows.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         NumberOfRows.setText("Number of Rows:");
 
         MenuFile.setText("File");
@@ -350,8 +369,22 @@ public class MainFrame extends javax.swing.JFrame {
 
         MenuEdit.setText("Edit");
 
-        MenuItemEdit.setText("Enable table editing");
-        MenuEdit.add(MenuItemEdit);
+        MenuAddComp.setText("Add Competence");
+        MenuAddComp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuAddCompActionPerformed(evt);
+            }
+        });
+        MenuEdit.add(MenuAddComp);
+
+        MenuDelete.setText("Delete Selected Competence");
+        MenuDelete.setEnabled(false);
+        MenuDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuDeleteActionPerformed(evt);
+            }
+        });
+        MenuEdit.add(MenuDelete);
 
         MenuBar.add(MenuEdit);
 
@@ -411,11 +444,11 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(SelectTableCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(SelectTabelLabel)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(TableScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 779, Short.MAX_VALUE)
+                        .addComponent(TableScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 774, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(NumberOfRows)
-                            .addComponent(btnPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btnPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(NumberOfRows, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -429,11 +462,11 @@ public class MainFrame extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(38, 38, 38)
                         .addComponent(btnPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 293, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(NumberOfRows))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(TableScrollPane)))
+                        .addComponent(TableScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 591, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -454,28 +487,8 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
-        int index = SelectTableCombo.getSelectedIndex();
-        int i = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete the Competence Matrix: " + selectedCompetence + " from all five tables");
-        if (i == 0) {
-            Debug.Log("Deleting competence: " + selectedCompetence);
-            data.RemoveCompetence(selectedCompetence);
-        } else if (i == 1) {
-            Debug.Log("Not deleting competence: " + selectedCompetence);
-            //dont delete
-        } else if (i == 2) {
-            Debug.Log("Cancelling deletion of competence: " + selectedCompetence);
-            //cancel
-        }
-        SelectTableCombo.setSelectedIndex(index);
+        this.Delete();
     }//GEN-LAST:event_btnDeleteActionPerformed
-
-    private void EnableSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnableSearchActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EnableSearchActionPerformed
-
-    private void EnableEditingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnableEditingActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EnableEditingActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
@@ -556,7 +569,29 @@ public class MainFrame extends javax.swing.JFrame {
         selectedCompetence = det[selectedRow].getCompetenceReferenceNo();
         Debug.Log("Selected row is " + selectedRow + " and the competence num is " + selectedCompetence);
         btnDelete.setEnabled(true);
+        MenuDelete.setEnabled(true);
     }//GEN-LAST:event_TableMousePressed
+
+    private void MenuDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuDeleteActionPerformed
+        // TODO add your handling code here:
+        this.Delete();
+    }//GEN-LAST:event_MenuDeleteActionPerformed
+
+    private void MenuAddCompActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuAddCompActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        AddCompetenceFrame acf = new AddCompetenceFrame();
+        acf.setVisible(true);
+    }//GEN-LAST:event_MenuAddCompActionPerformed
+
+    private void btnDelete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelete1ActionPerformed
+        try {
+            // TODO add your handling code here:
+            this.RefreshTable(0);
+        } catch (FileNotFoundException ex) {
+            Debug.LogException(ex);
+        }
+    }//GEN-LAST:event_btnDelete1ActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -565,12 +600,11 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem ComDet;
     private javax.swing.JMenuItem ComOwn;
     private javax.swing.JMenuItem Cost;
-    private javax.swing.JCheckBox EnableEditing;
-    private javax.swing.JCheckBox EnableSearch;
+    private javax.swing.JMenuItem MenuAddComp;
     private javax.swing.JMenuBar MenuBar;
+    private javax.swing.JMenuItem MenuDelete;
     private javax.swing.JMenu MenuEdit;
     private javax.swing.JMenu MenuFile;
-    private javax.swing.JMenuItem MenuItemEdit;
     private javax.swing.JMenuItem MenuItemExit;
     private javax.swing.JMenu MenuTable;
     private javax.swing.JLabel NumberOfRows;
@@ -581,7 +615,10 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem Time;
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnDelete1;
     private javax.swing.JPanel btnPanel;
     private javax.swing.JButton btnSearch;
+    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

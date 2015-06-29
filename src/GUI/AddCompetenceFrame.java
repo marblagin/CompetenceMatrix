@@ -167,17 +167,21 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
         CostTable = new javax.swing.JTable();
         UniqueNumberLabel = new javax.swing.JLabel();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setTitle("Add Competence Matrix");
         setType(java.awt.Window.Type.UTILITY);
+
+        CompetenceDetailPanel.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
         CompetenceDetailTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null}
+                {}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6"
+
             }
         ));
-        CompetenceDetailTable.setCellSelectionEnabled(true);
+        CompetenceDetailTable.setColumnSelectionAllowed(false);
         CompetenceDetailTable.setEditingColumn(1);
         CompetenceDetailTable.setEditingRow(1);
         CompetenceDetailTable.setRowHeight(60);
@@ -211,15 +215,17 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
         CompetenceOwnershipLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         CompetenceOwnershipLabel.setText("Competence Ownership");
 
+        CompetenceOwnershipPanel.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+
         CompetenceOwnershipTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null}
+                {}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6"
+
             }
         ));
-        CompetenceOwnershipTable.setCellSelectionEnabled(true);
+        CompetenceOwnershipTable.setColumnSelectionAllowed(false);
         CompetenceOwnershipTable.setEditingColumn(1);
         CompetenceOwnershipTable.setEditingRow(1);
         CompetenceOwnershipTable.setRowHeight(60);
@@ -228,15 +234,17 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
         AppCompetenceLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         AppCompetenceLabel.setText("Applicability of competence");
 
+        AppCompetencePanel.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+
         AppCompetenceTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null}
+                {}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6"
+
             }
         ));
-        AppCompetenceTable.setCellSelectionEnabled(true);
+        AppCompetenceTable.setColumnSelectionAllowed(false);
         AppCompetenceTable.setEditingColumn(1);
         AppCompetenceTable.setEditingRow(1);
         AppCompetenceTable.setRowHeight(60);
@@ -245,15 +253,17 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
         TimesheetLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         TimesheetLabel.setText("Timesheet");
 
+        TimesheetPanel.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+
         TimesheetTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null}
+                {}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6"
+
             }
         ));
-        TimesheetTable.setCellSelectionEnabled(true);
+        TimesheetTable.setColumnSelectionAllowed(false);
         TimesheetTable.setEditingColumn(1);
         TimesheetTable.setEditingRow(1);
         TimesheetTable.setRowHeight(60);
@@ -262,15 +272,17 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
         CostLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         CostLabel.setText("Cost per person");
 
+        CostPanel.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+
         CostTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null}
+                {}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6"
+
             }
         ));
-        CostTable.setCellSelectionEnabled(true);
+        CostTable.setColumnSelectionAllowed(false);
         CostTable.setEditingColumn(1);
         CostTable.setEditingRow(1);
         CostTable.setRowHeight(60);
@@ -319,29 +331,29 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(HeadLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(CompetenceDetailLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(CompetenceDetailLabel))
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(UniqueNumberLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(22, 22, 22)))
-                .addComponent(CompetenceDetailPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(CompetenceDetailPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(CompetenceOwnershipLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(CompetenceOwnershipPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(CompetenceOwnershipPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(AppCompetenceLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(AppCompetencePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(AppCompetencePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(TimesheetLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TimesheetPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(TimesheetPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(CostLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(CostPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(CostPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdd)
                     .addComponent(btnBack))
@@ -375,6 +387,7 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
         this.setVisible(false);
         mf.setEnabled(true);
         mf.setVisible(true);
+        mf.setFocusable(true);
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void CompetenceDetailTableKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CompetenceDetailTableKeyPressed

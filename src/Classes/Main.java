@@ -20,7 +20,6 @@ public class Main {
         MainFrame mf = new MainFrame (0);
         mf.setExtendedState(MainFrame.MAXIMIZED_BOTH);
         mf.setVisible(true);
-
     }
 
 }
