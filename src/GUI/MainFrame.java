@@ -230,6 +230,11 @@ public class MainFrame extends javax.swing.JFrame {
         MenuFile = new javax.swing.JMenu();
         MenuItemExit = new javax.swing.JMenuItem();
         MenuEdit = new javax.swing.JMenu();
+        MenuSortBy = new javax.swing.JMenu();
+        MenuRefASC = new javax.swing.JMenuItem();
+        MenuRefDESC = new javax.swing.JMenuItem();
+        MenuTotalASC = new javax.swing.JMenuItem();
+        MneuTotalDESC = new javax.swing.JMenuItem();
         MenuAddComp = new javax.swing.JMenuItem();
         MenuDelete = new javax.swing.JMenuItem();
         MenuTable = new javax.swing.JMenu();
@@ -427,6 +432,42 @@ public class MainFrame extends javax.swing.JFrame {
         MenuBar.add(MenuFile);
 
         MenuEdit.setText("Edit");
+
+        MenuSortBy.setText("Sort Tables by");
+
+        MenuRefASC.setText("Reference Number (Ascending)");
+        MenuRefASC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuRefASCActionPerformed(evt);
+            }
+        });
+        MenuSortBy.add(MenuRefASC);
+
+        MenuRefDESC.setText("Reference Number (Descending)");
+        MenuRefDESC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuRefDESCActionPerformed(evt);
+            }
+        });
+        MenuSortBy.add(MenuRefDESC);
+
+        MenuTotalASC.setText("Total Cost (Ascending)");
+        MenuTotalASC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuTotalASCActionPerformed(evt);
+            }
+        });
+        MenuSortBy.add(MenuTotalASC);
+
+        MneuTotalDESC.setText("Total Cost (Descending)");
+        MneuTotalDESC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MneuTotalDESCActionPerformed(evt);
+            }
+        });
+        MenuSortBy.add(MneuTotalDESC);
+
+        MenuEdit.add(MenuSortBy);
 
         MenuAddComp.setText("Add Competence");
         MenuAddComp.addActionListener(new java.awt.event.ActionListener() {
@@ -657,6 +698,26 @@ public class MainFrame extends javax.swing.JFrame {
         selectedSort = SortCombo.getSelectedIndex();
         this.Sort(selectedSort);
     }//GEN-LAST:event_SortComboActionPerformed
+
+    private void MenuRefASCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuRefASCActionPerformed
+        // TODO add your handling code here:
+        this.Sort(1);
+    }//GEN-LAST:event_MenuRefASCActionPerformed
+
+    private void MenuRefDESCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuRefDESCActionPerformed
+        // TODO add your handling code here:
+        this.Sort(2);
+    }//GEN-LAST:event_MenuRefDESCActionPerformed
+
+    private void MenuTotalASCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuTotalASCActionPerformed
+        // TODO add your handling code here:
+        this.Sort(3);
+    }//GEN-LAST:event_MenuTotalASCActionPerformed
+
+    private void MneuTotalDESCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MneuTotalDESCActionPerformed
+        // TODO add your handling code here:
+        this.Sort(4);
+    }//GEN-LAST:event_MneuTotalDESCActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -671,7 +732,12 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenu MenuEdit;
     private javax.swing.JMenu MenuFile;
     private javax.swing.JMenuItem MenuItemExit;
+    private javax.swing.JMenuItem MenuRefASC;
+    private javax.swing.JMenuItem MenuRefDESC;
+    private javax.swing.JMenu MenuSortBy;
     private javax.swing.JMenu MenuTable;
+    private javax.swing.JMenuItem MenuTotalASC;
+    private javax.swing.JMenuItem MneuTotalDESC;
     private javax.swing.JLabel NumberOfRows;
     private javax.swing.JLabel SelectTabelLabel;
     private javax.swing.JComboBox SelectTableCombo;

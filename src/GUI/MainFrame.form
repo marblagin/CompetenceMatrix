@@ -24,6 +24,45 @@
             <Property name="text" type="java.lang.String" value="Edit"/>
           </Properties>
           <SubComponents>
+            <Menu class="javax.swing.JMenu" name="MenuSortBy">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Sort Tables by"/>
+              </Properties>
+              <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="MenuRefASC">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Reference Number (Ascending)"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MenuRefASCActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="MenuRefDESC">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Reference Number (Descending)"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MenuRefDESCActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="MenuTotalASC">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Total Cost (Ascending)"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MenuTotalASCActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="MneuTotalDESC">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Total Cost (Descending)"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MneuTotalDESCActionPerformed"/>
+                  </Events>
+                </MenuItem>
+              </SubComponents>
+            </Menu>
             <MenuItem class="javax.swing.JMenuItem" name="MenuAddComp">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Add Competence"/>
