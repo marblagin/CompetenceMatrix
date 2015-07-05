@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Classes;
 
 /**
@@ -19,7 +16,7 @@ public class CostPerPerson extends CompetenceMatrix {
     private String workBack;
 
     /**
-     *
+     *A constructor now follows with the parameters of: 
      * @param competenceReferenceNo
      * @param internal
      * @param cash
@@ -40,6 +37,7 @@ public class CostPerPerson extends CompetenceMatrix {
         this.workBack = workBack;
     }
 
+    // The next Get methods return its respective value 
     /**
      *
      * @return
@@ -96,6 +94,10 @@ public class CostPerPerson extends CompetenceMatrix {
         return workBack;
     }
 
+    /**
+     * 
+     * @returns a string representing this classes group of data in a line, separate by tabs 
+     */
     @Override
     public String toString() {
         String out = "";

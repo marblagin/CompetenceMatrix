@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Classes;
 
 /**
@@ -12,7 +9,7 @@ public class CompetenceMatrix {
     private int competenceReferenceNo;
 
     /**
-     *
+     *A constructor now follows with the parameter of: 
      * @param competenceReferenceNo
      */
     public CompetenceMatrix(int competenceReferenceNo) {
@@ -21,7 +18,7 @@ public class CompetenceMatrix {
 
     /**
      *
-     * @return
+     * @returns the competence Reference Number is this class
      */
     public int getCompetenceReferenceNo() {
         return competenceReferenceNo;

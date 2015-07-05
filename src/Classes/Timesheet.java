@@ -14,7 +14,7 @@ public class Timesheet extends CompetenceMatrix {
     private String hours;
 
     /**
-     *
+     *A constructor now follows with the parameters of: 
      * @param competenceReferenceNo
      * @param code
      * @param hours
@@ -25,6 +25,7 @@ public class Timesheet extends CompetenceMatrix {
         this.hours = hours;
     }
 
+    // The next Get methods return its respective value 
     /**
      *
      * @return
@@ -41,6 +42,10 @@ public class Timesheet extends CompetenceMatrix {
         return hours;
     }
 
+    /**
+     * 
+     * @returns a string representing this classes group of data in a line, separate by tabs 
+     */
     @Override
     public String toString() {
         String out = "";

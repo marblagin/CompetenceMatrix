@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Classes;
 
 /**
@@ -18,7 +15,7 @@ public class Applicability extends CompetenceMatrix{
     private String grade;
 
     /**
-     *
+     * A constructor now follows with the parameters of: 
      * @param coreCareer 
      * @param promotion 
      * @param applicable 
@@ -26,6 +23,7 @@ public class Applicability extends CompetenceMatrix{
      * @param grade
      * @param degrees 
      * @param competenceReferenceNo  
+     * from the class design
      */
     public Applicability(String coreCareer, String promotion, String applicable, String softTechnical, String degrees, String grade, int competenceReferenceNo) {
         super(competenceReferenceNo);
@@ -37,6 +35,7 @@ public class Applicability extends CompetenceMatrix{
         this.grade = grade;
     }
 
+    // The next Get methods return its respective value 
     /**
      *
      * @return
@@ -84,6 +83,11 @@ public class Applicability extends CompetenceMatrix{
     public String getGrade() {
         return grade;
     }
+    
+    /**
+     * 
+     * @returns a string representing this classes group of data in a line, separate by tabs 
+     */
     @Override
     public String toString (){
         String out = "";

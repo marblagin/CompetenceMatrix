@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Classes;
 /**
  *
@@ -9,14 +6,16 @@ package Classes;
  */
 public class SearchEngine {
 
+    //This class provides methos of sorting data arrays in a specific way
+    
     /**
-     *
+     * This method returns a two-dimentional array that is sorting according to the competence reference number, in ascending order
      * @param det
      * @param own
-     * @param app
+     * @param app       The parameters are the arrays that are needed to be sorted
      * @param cost
      * @param time
-     * @return
+     * @returns a sorted two-dimentional array
      */
     public static CompetenceMatrix[][] SortByCompNumASC(CompetenceDetails[] det, CompetenceOwnership[] own, Applicability[] app, CostPerPerson[] cost, Timesheet[] time) {
         CompetenceMatrix[][] arr = new CompetenceMatrix[5][200];
@@ -88,13 +87,13 @@ public class SearchEngine {
     }
 
     /**
-     *
+     * This method returns a two-dimentional array that is sorting according to the competence reference number, in descending order
      * @param det
      * @param own
-     * @param app
+     * @param app       The parameters are the arrays that are needed to be sorted
      * @param cost
      * @param time
-     * @return
+     * @returns a sorted two-dimentional array 
      */
     public static CompetenceMatrix[][] SortByCompNumDESC(CompetenceDetails[] det, CompetenceOwnership[] own, Applicability[] app, CostPerPerson[] cost, Timesheet[] time) {
         CompetenceMatrix[][] arr = new CompetenceMatrix[5][200];
@@ -166,10 +165,10 @@ public class SearchEngine {
     }
 
     /**
-     *
+     *  This returns a two-dimentional array sorted according to the total cost of the competence in ascending order
      * @param det
      * @param own
-     * @param app
+     * @param app       The parameters are the arrays that are needed to be sorted
      * @param cost
      * @param time
      * @return
@@ -214,10 +213,10 @@ public class SearchEngine {
     }
 
     /**
-     *
+     * This returns a two-dimentional array sorted according to the total cost of the competence in descending order
      * @param det
      * @param own
-     * @param app
+     * @param app       The parameters are the arrays that are needed to be sorted
      * @param cost
      * @param time
      * @return

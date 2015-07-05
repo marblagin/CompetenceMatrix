@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Classes;
 
 import GUI.*;
@@ -12,13 +9,10 @@ import GUI.*;
  */
 public class Main {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+        // This code is merely to initiate the GUI
         MainFrame mf = new MainFrame (0);
-        mf.setExtendedState(MainFrame.MAXIMIZED_BOTH);
+        mf.setExtendedState(MainFrame.MAXIMIZED_BOTH); // in fullscreen mode
         mf.setVisible(true);
     }
 

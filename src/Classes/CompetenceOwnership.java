@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Classes;
 
 /**
@@ -15,7 +12,7 @@ public class CompetenceOwnership extends CompetenceMatrix {
     private String details;
 
     /**
-     *
+     *A constructor now follows with the parameters of: 
      * @param competenceReferenceNo
      * @param partner
      * @param champion
@@ -27,7 +24,8 @@ public class CompetenceOwnership extends CompetenceMatrix {
         this.champion = champion;
         this.details = details;
     }
-
+    
+    // The next Get methods return its respective value 
     /**
      *
      * @return
@@ -52,6 +50,10 @@ public class CompetenceOwnership extends CompetenceMatrix {
         return details;
     }
 
+    /**
+     * 
+     * @returns a string representing this classes group of data in a line, separate by tabs 
+     */
     @Override
     public String toString() {
         String out = "";

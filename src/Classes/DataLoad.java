@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Classes;
 
 import Util.Debug;
@@ -26,35 +23,35 @@ import javax.swing.table.DefaultTableModel;
 public class DataLoad {
 
     /**
-     *
+     * These variables are created to keep tracking of the number of data sets and keeps a list of all the competence numbers
      */
     public static DataLoad data = new DataLoad();
     private static int numberOfRows;
     private static int[] CompetenceNumbers;
     /**
-     *
+     * This string represents the path of the respective file "Competence Details.txt"
      */
     public static String Detailstxt = "Competence Details.txt";
     /**
-     *
+     * This string represents the path of the respective file "Competence Ownership.txt"
      */
     public static String Ownershiptxt = "Competence Ownership.txt";
     /**
-     *
+     * This string represents the path of the respective file "Applicability of competence.txt"
      */
     public static String Applicablitytxt = "Applicability of competence.txt";
     /**
-     *
+     * This string represents the path of the respective file "Timesheet.txt"
      */
     public static String Timetxt = "Timesheet.txt";
     /**
-     *
+     * This string represents the path of the respective file "Cost per person.txt"
      */
     public static String Costtxt = "Cost per person.txt";
 
     /**
      *
-     * @return
+     * @returns the number of data sets (ie rows)
      */
     public int getNumberOfRows() {
         return numberOfRows;
@@ -62,7 +59,7 @@ public class DataLoad {
 
     /**
      *
-     * @return
+     * @returns an array of the values read from the Applicability of competence text file
      */
     public Applicability[] LoadApplicability() {
         CompetenceNumbers = new int[200];
@@ -98,7 +95,7 @@ public class DataLoad {
 
     /**
      *
-     * @return
+     * @returns the  default headings of the text file, these headings are applied to the GUI's tables
      */
     public String[] LoadApplicabilityHeadings() {
         String[] out = {
@@ -115,7 +112,7 @@ public class DataLoad {
 
     /**
      *
-     * @return
+     * returns an array of the values read from the Competence details text file
      */
     public CompetenceDetails[] LoadDetails() {
         CompetenceNumbers = new int[200];
@@ -155,7 +152,7 @@ public class DataLoad {
 
     /**
      *
-     * @return
+     * @returns the  default headings of the text file, these headings are applied to the GUI's tables
      */
     public String[] LoadDetailsHeadings() {
         String[] out = {
@@ -175,7 +172,7 @@ public class DataLoad {
 
     /**
      *
-     * @return
+     * @return  an array of the values read from the Competence ownership text file
      */
     public CompetenceOwnership[] LoadOwnership() {
         CompetenceNumbers = new int[200];
@@ -208,7 +205,7 @@ public class DataLoad {
 
     /**
      *
-     * @return
+     * @returns the  default headings of the text file, these headings are applied to the GUI's tables
      */
     public String[] LoadOwnershipHeadings() {
         String[] out = {
@@ -222,7 +219,7 @@ public class DataLoad {
 
     /**
      *
-     * @return
+     * @return  an array of the values read from the Cost per person text file
      */
     public CostPerPerson[] LoadCost() {
         CompetenceNumbers = new int[200];
@@ -259,7 +256,7 @@ public class DataLoad {
 
     /**
      *
-     * @return
+     * @returns the  default headings of the text file, these headings are applied to the GUI's tables
      */
     public String[] LoadCostHeadings() {
         String[] out = {
@@ -276,7 +273,7 @@ public class DataLoad {
 
     /**
      *
-     * @return
+     * @return an array of the values read from the Timesheet text file
      */
     public Timesheet[] LoadTimesheet() {
         CompetenceNumbers = new int[200];
@@ -308,7 +305,7 @@ public class DataLoad {
 
     /**
      *
-     * @return
+     * @returns the  default headings of the text file, these headings are applied to the GUI's tables
      */
     public String[] LoadTimesheetHeadings() {
         String[] out = {
@@ -321,7 +318,7 @@ public class DataLoad {
 
     /**
      *
-     * @return
+     * @returns an array of default table models with the default headings
      */
     public DefaultTableModel[] GenerateTableModel() {
         DefaultTableModel[] tableArr = new DefaultTableModel[5];
@@ -341,8 +338,9 @@ public class DataLoad {
     }
 
     /**
-     *
-     * @param lines
+     * This void stores the data of a new data set
+     * The data is store in each of the five text files
+     * @param lines is an array of strings that consist of five lines separated \r\n, this array is constructed in the addCompetenceFrame 
      */
     public static void StoreData(String[] lines) {
         FileWriter fw;
@@ -391,7 +389,7 @@ public class DataLoad {
 
     /**
      *
-     * @return
+     * @returns a unique Competence Reference number 
      */
     public int getUniqueCompetenceNumber() {
         int result = 1;
@@ -405,7 +403,7 @@ public class DataLoad {
     }
 
     /**
-     *
+     * This void removes a data set from all five text files, using the Compnum parameter to tell which data set needs to be removed
      * @param CompNum
      */
     public void RemoveCompetence(int CompNum) {
