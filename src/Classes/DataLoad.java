@@ -51,7 +51,7 @@ public class DataLoad {
 
     /**
      *
-     * @returns the number of data sets (ie rows)
+     * @return the number of data sets (ie rows)
      */
     public int getNumberOfRows() {
         return numberOfRows;
@@ -59,7 +59,8 @@ public class DataLoad {
 
     /**
      *
-     * @returns an array of the values read from the Applicability of competence text file
+     * 
+     * @return  an array of the values read from the Applicability of competence text file
      */
     public Applicability[] LoadApplicability() {
         CompetenceNumbers = new int[200];
@@ -95,7 +96,7 @@ public class DataLoad {
 
     /**
      *
-     * @returns the  default headings of the text file, these headings are applied to the GUI's tables
+     * @return the  default headings of the text file, these headings are applied to the GUI's tables
      */
     public String[] LoadApplicabilityHeadings() {
         String[] out = {
@@ -112,7 +113,7 @@ public class DataLoad {
 
     /**
      *
-     * returns an array of the values read from the Competence details text file
+     * return an array of the values read from the Competence details text file
      */
     public CompetenceDetails[] LoadDetails() {
         CompetenceNumbers = new int[200];
@@ -152,7 +153,7 @@ public class DataLoad {
 
     /**
      *
-     * @returns the  default headings of the text file, these headings are applied to the GUI's tables
+     * @return the  default headings of the text file, these headings are applied to the GUI's tables
      */
     public String[] LoadDetailsHeadings() {
         String[] out = {
@@ -205,7 +206,7 @@ public class DataLoad {
 
     /**
      *
-     * @returns the  default headings of the text file, these headings are applied to the GUI's tables
+     * @return the  default headings of the text file, these headings are applied to the GUI's tables
      */
     public String[] LoadOwnershipHeadings() {
         String[] out = {
@@ -256,7 +257,7 @@ public class DataLoad {
 
     /**
      *
-     * @returns the  default headings of the text file, these headings are applied to the GUI's tables
+     * @return the  default headings of the text file, these headings are applied to the GUI's tables
      */
     public String[] LoadCostHeadings() {
         String[] out = {
@@ -305,7 +306,7 @@ public class DataLoad {
 
     /**
      *
-     * @returns the  default headings of the text file, these headings are applied to the GUI's tables
+     * @return the  default headings of the text file, these headings are applied to the GUI's tables
      */
     public String[] LoadTimesheetHeadings() {
         String[] out = {
@@ -318,7 +319,7 @@ public class DataLoad {
 
     /**
      *
-     * @returns an array of default table models with the default headings
+     * @return an array of default table models with the default headings
      */
     public DefaultTableModel[] GenerateTableModel() {
         DefaultTableModel[] tableArr = new DefaultTableModel[5];
@@ -389,7 +390,7 @@ public class DataLoad {
 
     /**
      *
-     * @returns a unique Competence Reference number 
+     * @return a unique Competence Reference number 
      */
     public int getUniqueCompetenceNumber() {
         int result = 1;
@@ -446,7 +447,7 @@ public class DataLoad {
             try {
                 Files.delete(path);
                 Debug.Log("File was successfully deleted");
-            } catch (Exception e) {
+            } catch (IOException e) {
                 Debug.Log("File failed to delete");
             }
             boolean successfulRename = tempFile.renameTo(new File (Detailstxt));
@@ -490,7 +491,7 @@ public class DataLoad {
             try {
                 Files.delete(path);
                 Debug.Log("File was successfully deleted");
-            } catch (Exception e) {
+            } catch (IOException e) {
                 Debug.Log("File failed to delete");
             }
             boolean successfulRename = tempFile.renameTo(new File (Ownershiptxt));
@@ -534,7 +535,7 @@ public class DataLoad {
             try {
                 Files.delete(path);
                 Debug.Log("File was successfully deleted");
-            } catch (Exception e) {
+            } catch (IOException e) {
                 Debug.Log("File failed to delete");
             }
             boolean successfulRename = tempFile.renameTo(new File (Applicablitytxt));
@@ -578,7 +579,7 @@ public class DataLoad {
             try {
                 Files.delete(path);
                 Debug.Log("File was successfully deleted");
-            } catch (Exception e) {
+            } catch (IOException e) {
                 Debug.Log("File failed to delete");
             }
             boolean successfulRename = tempFile.renameTo(new File (Timetxt));
@@ -621,7 +622,7 @@ public class DataLoad {
             try {
                 Files.delete(path);
                 Debug.Log("File was successfully deleted");
-            } catch (Exception e) {
+            } catch (IOException e) {
                 Debug.Log("File failed to delete");
             }
             boolean successfulRename = tempFile.renameTo(new File (Costtxt));
