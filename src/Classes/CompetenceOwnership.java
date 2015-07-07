@@ -12,7 +12,7 @@ public class CompetenceOwnership extends CompetenceMatrix {
     private String details;
 
     /**
-     *A constructor now follows with the parameters of: 
+     *A constructor of Competence Ownership  
      * @param competenceReferenceNo
      * @param partner
      * @param champion
@@ -28,7 +28,7 @@ public class CompetenceOwnership extends CompetenceMatrix {
     // The next Get methods return its respective value 
     /**
      *
-     * @return
+     * @return the requested value
      */
     public String getPartner() {
         return partner;
@@ -36,7 +36,7 @@ public class CompetenceOwnership extends CompetenceMatrix {
 
     /**
      *
-     * @return
+     * @return the requested value
      */
     public String getChampion() {
         return champion;
@@ -44,7 +44,7 @@ public class CompetenceOwnership extends CompetenceMatrix {
 
     /**
      *
-     * @return
+     * @return the requested value
      */
     public String getDetails() {
         return details;
@@ -52,7 +52,7 @@ public class CompetenceOwnership extends CompetenceMatrix {
 
     /**
      * 
-     * @returns a string representing this classes group of data in a line, separate by tabs 
+     * @return string representing this classes group of data in a line, separate by tabs 
      */
     @Override
     public String toString() {

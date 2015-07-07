@@ -20,7 +20,7 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
     MainFrame mf;
 
     /**
-     *
+     * Initializes the AddCompetenceFrame using the various methods
      */
     public AddCompetenceFrame() {
         initComponents();
@@ -80,9 +80,9 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
     }
     
     /**
-     * 
-     * @param line is an array of strings with each value needing to be placed into one line of string, separated by tabs 
-     * @returns a string of the line with tab delimeters
+     * Parameter line is an array of strings with each value needing to be placed into one line of string, separated by tabs 
+     * @param line
+     * @return a string of the line with tab delimeters
      */
     private String ConstructLine(String[] line) {
         String result = "";
@@ -107,10 +107,11 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
     }
 
     /**
-     * This method constructs a line specifically for the cost per person table
-     * Due to the cost per person requiring integer values
-     * @param line a string of the line with tab delimeters
-     * @return  a string of the line with tab delimeters
+     * This method constructs a line specifically for the cost per person table. 
+     * Due to the cost per person requiring integer values. 
+     * Parameter line a string of the line with tab delimeters
+     * @param line
+     * @return a string of the line with tab delimeters
      */
     private String ConstructLineCost(String[] line) {
         String result = "";
@@ -135,9 +136,10 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
     }
 
     /**
-     * This method returns an array of strings read from each of the five tables
-     * @param table is a defaultTableModel acquired from the to-be-read table
-     * @returns a string array of the data read
+     * This method returns an array of strings read from each of the five tables. 
+     * Parameter table is a defaultTableModel acquired from the to-be-read table
+     * @param table
+     * @return a string array of the data read
      */
     private String[] getTableData(JTable table) {
         DefaultTableModel dtm = (DefaultTableModel) table.getModel();
@@ -151,7 +153,8 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
     }
 
     /**
-     * This method returns an array of strings read from the cost per person table specifically
+     * This method returns an array of strings read from the cost per person table specifically. 
+     * Parameter table is a defaultTableModel acquired from the to-be-read table
      * @param table is a defaultTableModel acquired from the to-be-read table
      * @return a string array of the data read
      */
@@ -169,7 +172,7 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
     /**
      * a small method used to test if a string entered is an integer or not
      * @param s
-     * @return 
+     * @return true if integer, false if not
      */
     private boolean isInteger(String s) {
         try {
@@ -182,7 +185,7 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
 
     /**
      * This method returns a string array of all the data read in from the tables
-     * @return 
+     * @return an array of all the lines
      */
     private String[] ConstructArray() {
 

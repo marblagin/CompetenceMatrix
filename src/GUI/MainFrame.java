@@ -42,7 +42,7 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     /**
-     * This method refreshes the MainFrame's tables, depending on which tables is selected
+     * This method refreshes the MainFrame's tables, depending on which tables is selected. 
      * The default table to refresh is the Competence Details
      * @param Index
      * @throws FileNotFoundException

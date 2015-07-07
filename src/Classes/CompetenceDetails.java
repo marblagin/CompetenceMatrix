@@ -19,7 +19,7 @@ public class CompetenceDetails extends CompetenceMatrix {
     private String reviewActionNotes;
 
     /**
-     *A constructor now follows with the parameters of: 
+     *A constructor of Competence Details 
      * @param competenceReferenceNo
      * @param shortName
      * @param details 
@@ -49,7 +49,7 @@ public class CompetenceDetails extends CompetenceMatrix {
     // The next Get methods return its respective value 
     /**
      *
-     * @return
+     * @return the requested value
      */
     public String getDetails() {
         return details;
@@ -57,15 +57,15 @@ public class CompetenceDetails extends CompetenceMatrix {
 
     /**
      *
-     * @return
-     */
+     * @return the requested value
+     */ 
     public String getShortName() {
         return shortName;
     }
 
     /**
      *
-     * @return
+     * @return the requested value
      */
     public String getObjective() {
         return objective;
@@ -73,7 +73,7 @@ public class CompetenceDetails extends CompetenceMatrix {
 
     /**
      *
-     * @return
+     * @return the requested value
      */
     public String getHyperlink() {
         return hyperlink;
@@ -81,7 +81,7 @@ public class CompetenceDetails extends CompetenceMatrix {
 
     /**
      *
-     * @return
+     * @return the requested value
      */
     public String getTiming() {
         return timing;
@@ -89,7 +89,7 @@ public class CompetenceDetails extends CompetenceMatrix {
 
     /**
      *
-     * @return
+     * @return the requested value
      */
     public String getWhoProvides() {
         return whoProvides;
@@ -97,7 +97,7 @@ public class CompetenceDetails extends CompetenceMatrix {
 
     /**
      *
-     * @return
+     * @return the requested value
      */
     public String getType() {
         return type;
@@ -105,7 +105,7 @@ public class CompetenceDetails extends CompetenceMatrix {
 
     /**
      *
-     * @return
+     * @return the requested value
      */
     public String getDependencies() {
         return dependencies;
@@ -113,7 +113,7 @@ public class CompetenceDetails extends CompetenceMatrix {
 
     /**
      *
-     * @return
+     * @return the requested value
      */
     public String getStatus() {
         return status;
@@ -121,7 +121,7 @@ public class CompetenceDetails extends CompetenceMatrix {
 
     /**
      *
-     * @return
+     * @return the requested value
      */
     public String getReviewActionNotes() {
         return reviewActionNotes;
@@ -129,7 +129,7 @@ public class CompetenceDetails extends CompetenceMatrix {
     
     /**
      * 
-     * @returns a string representing this classes group of data in a line, separate by tabs 
+     * @return string representing this classes group of data in a line, separate by tabs 
      */
     @Override
     public String toString() {

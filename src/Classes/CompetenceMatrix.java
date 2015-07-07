@@ -9,7 +9,7 @@ public class CompetenceMatrix {
     private int competenceReferenceNo;
 
     /**
-     *A constructor now follows with the parameter of: 
+     *A constructor now follows with the parameter of: competenceReferenceNo
      * @param competenceReferenceNo
      */
     public CompetenceMatrix(int competenceReferenceNo) {
@@ -18,7 +18,7 @@ public class CompetenceMatrix {
 
     /**
      *
-     * @returns the competence Reference Number is this class
+     * @return the competence Reference Number is this class
      */
     public int getCompetenceReferenceNo() {
         return competenceReferenceNo;

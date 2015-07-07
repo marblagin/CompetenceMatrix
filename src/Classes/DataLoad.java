@@ -23,7 +23,7 @@ import javax.swing.table.DefaultTableModel;
 public class DataLoad {
 
     /**
-     * These variables are created to keep tracking of the number of data sets and keeps a list of all the competence numbers
+     * DataLoad is used to make the rest of the class's methods static
      */
     public static DataLoad data = new DataLoad();
     private static int numberOfRows;
@@ -60,7 +60,7 @@ public class DataLoad {
     /**
      *
      * 
-     * @return  an array of the values read from the Applicability of competence text file
+     * @return an array of the values read from the Applicability of competence text file
      */
     public Applicability[] LoadApplicability() {
         CompetenceNumbers = new int[200];
@@ -96,7 +96,7 @@ public class DataLoad {
 
     /**
      *
-     * @return the  default headings of the text file, these headings are applied to the GUI's tables
+     * @return the default headings of the text file, these headings are applied to the GUI's tables
      */
     public String[] LoadApplicabilityHeadings() {
         String[] out = {
@@ -173,7 +173,7 @@ public class DataLoad {
 
     /**
      *
-     * @return  an array of the values read from the Competence ownership text file
+     * @return an array of the values read from the Competence ownership text file
      */
     public CompetenceOwnership[] LoadOwnership() {
         CompetenceNumbers = new int[200];
@@ -206,7 +206,7 @@ public class DataLoad {
 
     /**
      *
-     * @return the  default headings of the text file, these headings are applied to the GUI's tables
+     * @return the default headings of the text file, these headings are applied to the GUI's tables
      */
     public String[] LoadOwnershipHeadings() {
         String[] out = {
@@ -220,7 +220,7 @@ public class DataLoad {
 
     /**
      *
-     * @return  an array of the values read from the Cost per person text file
+     * @return an array of the values read from the Cost per person text file
      */
     public CostPerPerson[] LoadCost() {
         CompetenceNumbers = new int[200];
@@ -339,8 +339,9 @@ public class DataLoad {
     }
 
     /**
-     * This void stores the data of a new data set
-     * The data is store in each of the five text files
+     * This void stores the data of a new data set. 
+     * The data is store in each of the five text files.
+     * The parameter lines is an array of strings that consist of five lines separated \r\n, this array is constructed in the addCompetenceFrame 
      * @param lines is an array of strings that consist of five lines separated \r\n, this array is constructed in the addCompetenceFrame 
      */
     public static void StoreData(String[] lines) {

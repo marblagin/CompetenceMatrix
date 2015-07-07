@@ -2,15 +2,13 @@
 package Util;
 
 /**
- *
+ *  This class was used to debug the program by printing any and all errors or exceptions
  * @author Llewellyn Craddock
  */
 public class Debug {
     
-    //This class was used to debug the program by printing any and all errors or exceptions
-    
     /**
-     *
+     * This debug method prints out a log of a type string when called
      * @param content
      */
     public static void Log(String content)
@@ -18,7 +16,7 @@ public class Debug {
         System.out.println("[Debug]" + content);
     }
     /**
-     *
+     * This debug method prints out a log of a type integer when called
      * @param content
      */
     public static void Log(int content)
@@ -26,7 +24,7 @@ public class Debug {
         System.out.println("[Debug]" + content);
     }
     /**
-     *
+     * This debug method prints out a log of a type exception when called
      * @param e 
      */
     public static void LogException(Exception e)

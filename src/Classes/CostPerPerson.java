@@ -16,7 +16,7 @@ public class CostPerPerson extends CompetenceMatrix {
     private String workBack;
 
     /**
-     *A constructor now follows with the parameters of: 
+     *A constructor of Cost per person 
      * @param competenceReferenceNo
      * @param internal
      * @param cash
@@ -40,7 +40,7 @@ public class CostPerPerson extends CompetenceMatrix {
     // The next Get methods return its respective value 
     /**
      *
-     * @return
+     * @return  the requested value
      */
     public int getInternal() {
         return internal;
@@ -48,7 +48,7 @@ public class CostPerPerson extends CompetenceMatrix {
 
     /**
      *
-     * @return
+     * @return the requested value
      */
     public int getCash() {
         return cash;
@@ -56,7 +56,7 @@ public class CostPerPerson extends CompetenceMatrix {
 
     /**
      *
-     * @return
+     * @return the requested value
      */
     public int getDisbursement() {
         return disbursement;
@@ -64,7 +64,7 @@ public class CostPerPerson extends CompetenceMatrix {
 
     /**
      *
-     * @return
+     * @return the requested value
      */
     public int getOpportunity() {
         return opportunity;
@@ -72,7 +72,7 @@ public class CostPerPerson extends CompetenceMatrix {
 
     /**
      *
-     * @return
+     * @return the requested value
      */
     public int getTotal() {
         return total;
@@ -80,7 +80,7 @@ public class CostPerPerson extends CompetenceMatrix {
 
     /**
      *
-     * @return
+     * @return the requested value
      */
     public String getWorkBackApplicable() {
         return workBackApplicable;
@@ -88,7 +88,7 @@ public class CostPerPerson extends CompetenceMatrix {
 
     /**
      *
-     * @return
+     * @return the requested value
      */
     public String getWorkBack() {
         return workBack;
@@ -96,7 +96,7 @@ public class CostPerPerson extends CompetenceMatrix {
 
     /**
      * 
-     * @returns a string representing this classes group of data in a line, separate by tabs 
+     * @return string representing this classes group of data in a line, separate by tabs 
      */
     @Override
     public String toString() {

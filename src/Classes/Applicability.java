@@ -15,7 +15,7 @@ public class Applicability extends CompetenceMatrix{
     private String grade;
 
     /**
-     * A constructor now follows with the parameters of: 
+     * A constructor of Applicability of competence
      * @param coreCareer 
      * @param promotion 
      * @param applicable 
@@ -38,7 +38,7 @@ public class Applicability extends CompetenceMatrix{
     // The next Get methods return its respective value 
     /**
      *
-     * @return
+     * @return the requested value
      */
     public String getApplicable() {
         return applicable;
@@ -46,7 +46,7 @@ public class Applicability extends CompetenceMatrix{
    
     /**
      *
-     * @return
+     * @return the requested value
      */
     public String getCoreCareer() {
         return coreCareer;
@@ -54,7 +54,7 @@ public class Applicability extends CompetenceMatrix{
 
     /**
      *
-     * @return
+     * @return the requested value
      */
     public String getPromotion() {
         return promotion;
@@ -62,7 +62,7 @@ public class Applicability extends CompetenceMatrix{
 
     /**
      *
-     * @return
+     * @return the requested value
      */
     public String getSoftTechnical() {
         return softTechnical;
@@ -70,7 +70,7 @@ public class Applicability extends CompetenceMatrix{
 
     /**
      *
-     * @return
+     * @return the requested value
      */
     public String getDegrees() {
         return degrees;
@@ -78,7 +78,7 @@ public class Applicability extends CompetenceMatrix{
 
     /**
      *
-     * @return
+     * @return the requested value
      */
     public String getGrade() {
         return grade;
@@ -86,7 +86,7 @@ public class Applicability extends CompetenceMatrix{
     
     /**
      * 
-     * @returns a string representing this classes group of data in a line, separate by tabs 
+     * @return string representing this classes group of data in a line, separate by tabs 
      */
     @Override
     public String toString (){
