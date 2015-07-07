@@ -113,7 +113,7 @@ public class DataLoad {
 
     /**
      *
-     * return an array of the values read from the Competence details text file
+     * @return an array of the values read from the Competence details text file
      */
     public CompetenceDetails[] LoadDetails() {
         CompetenceNumbers = new int[200];
