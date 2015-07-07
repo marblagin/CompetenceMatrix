@@ -721,9 +721,7 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.Sort(4);
     }//GEN-LAST:event_MenuTotalDESCActionPerformed
-    /**
-     * @param args the command line arguments
-     */
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem App;
     private javax.swing.JMenuItem ComDet;
