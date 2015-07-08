@@ -1,4 +1,3 @@
-
 package GUI;
 
 import Classes.*;
@@ -23,12 +22,14 @@ public class MainFrame extends javax.swing.JFrame {
     CostPerPerson[] cost = DataLoad.data.LoadCost();
     Timesheet[] time = DataLoad.data.LoadTimesheet();
     DataLoad data = new DataLoad();
+    SearchFrame sf = new SearchFrame();
     int selectedRow;
     int selectedCompetence;
     int selectedSort;
 
     /**
      * This method initializes the MainFrame's tables and refreshes them
+     *
      * @param index
      */
     public MainFrame(int index) {
@@ -42,8 +43,9 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     /**
-     * This method refreshes the MainFrame's tables, depending on which tables is selected. 
-     * The default table to refresh is the Competence Details
+     * This method refreshes the MainFrame's tables, depending on which tables
+     * is selected. The default table to refresh is the Competence Details
+     *
      * @param Index
      * @throws FileNotFoundException
      */
@@ -133,11 +135,11 @@ public class MainFrame extends javax.swing.JFrame {
                     table.addRow(row);
                 }
                 Table.setModel(table);
-                NumberOfRows.setText("Number of Rows: " + String.valueOf(DataLoad.data.getNumberOfRows()));               
+                NumberOfRows.setText("Number of Rows: " + String.valueOf(DataLoad.data.getNumberOfRows()));
                 break;
 
         }
-        
+
     }
 
     /**
@@ -160,7 +162,8 @@ public class MainFrame extends javax.swing.JFrame {
 
     /**
      * This method applies the required sort to the table and refreshes it
-     * @param index 
+     *
+     * @param index the selected number on the combo box
      */
     public void Sort(int index) {
         CompetenceMatrix[][] arr;
@@ -203,6 +206,19 @@ public class MainFrame extends javax.swing.JFrame {
                 app = (Applicability[]) arr[2];
                 time = (Timesheet[]) arr[3];
                 cost = (CostPerPerson[]) arr[4];
+                break;
+            case 5:
+                String Phrase = sf.getPhrase();
+                if ("".equals(Phrase)) {
+                    this.btnSearchActionPerformed(null);
+                } else {
+                    arr = SearchEngine.SearchPhrase(Phrase, det, own, app, cost, time);
+                    //det = (CompetenceDetails[]) arr[0];
+                    //own = (CompetenceOwnership[]) arr[1];
+                    //app = (Applicability[]) arr[2];
+                    //time = (Timesheet[]) arr[3];
+                    //cost = (CostPerPerson[]) arr[4];
+                }
                 break;
         }
         try {
@@ -361,7 +377,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel1.setText("Sort by:");
 
         SortCombo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        SortCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None", "Reference Number (Ascending)", "Reference Number (Descending)", "Total Cost (Ascending)", "Total Cost (Descending)" }));
+        SortCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None", "Reference Number (Ascending)", "Reference Number (Descending)", "Total Cost (Ascending)", "Total Cost (Descending)", "Search Phrase" }));
         SortCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SortComboActionPerformed(evt);
@@ -583,7 +599,6 @@ public class MainFrame extends javax.swing.JFrame {
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
         this.setFocusable(false);
-        SearchFrame sf = new SearchFrame();
         sf.setVisible(true);
     }//GEN-LAST:event_btnSearchActionPerformed
 
@@ -721,7 +736,6 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.Sort(4);
     }//GEN-LAST:event_MenuTotalDESCActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem App;
     private javax.swing.JMenuItem ComDet;

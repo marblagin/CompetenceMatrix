@@ -1,6 +1,8 @@
 
 package GUI;
 
+import Util.Debug;
+
 /**
  *
  * @author Llewellyn Craddock
@@ -13,6 +15,12 @@ public class SearchFrame extends javax.swing.JFrame {
     public SearchFrame() {
         initComponents();
     }
+    
+    public String getPhrase (){
+        String out;
+        out = PhraseTextArea.getText();
+        return out;
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -20,7 +28,6 @@ public class SearchFrame extends javax.swing.JFrame {
 
         btnBack = new javax.swing.JButton();
         HeadLabel = new javax.swing.JLabel();
-        btnSearch = new javax.swing.JButton();
         CriteriaPanel = new javax.swing.JPanel();
         ScrollTextPane = new javax.swing.JScrollPane();
         PhraseTextArea = new javax.swing.JTextArea();
@@ -41,14 +48,6 @@ public class SearchFrame extends javax.swing.JFrame {
 
         HeadLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         HeadLabel.setText("Search Options:");
-
-        btnSearch.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnSearch.setText("Search");
-        btnSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSearchActionPerformed(evt);
-            }
-        });
 
         CriteriaPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -90,15 +89,9 @@ public class SearchFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnBack)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnSearch))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(HeadLabel)
-                            .addComponent(CriteriaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                    .addComponent(btnBack)
+                    .addComponent(HeadLabel)
+                    .addComponent(CriteriaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -109,9 +102,7 @@ public class SearchFrame extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(CriteriaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSearch)
-                    .addComponent(btnBack))
+                .addComponent(btnBack)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -123,12 +114,9 @@ public class SearchFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         MainFrame mf = new MainFrame(0);
         mf.setFocusable(true);
+        Debug.Log("The phrase is: "+this.getPhrase());
         this.setVisible(false);
     }//GEN-LAST:event_btnBackActionPerformed
-
-    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSearchActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel CriteriaPanel;
@@ -137,6 +125,5 @@ public class SearchFrame extends javax.swing.JFrame {
     private javax.swing.JTextArea PhraseTextArea;
     private javax.swing.JScrollPane ScrollTextPane;
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnSearch;
     // End of variables declaration//GEN-END:variables
 }

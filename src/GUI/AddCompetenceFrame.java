@@ -1,9 +1,9 @@
-
 package GUI;
 
 import Classes.DataLoad;
 import Util.Debug;
 import java.io.FileNotFoundException;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -18,7 +18,7 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
      */
     int unique;
     MainFrame mf;
-
+    boolean canAdd = true;
     /**
      * Initializes the AddCompetenceFrame using the various methods
      */
@@ -32,7 +32,8 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
     }
 
     /**
-     * This method initializes the addCompetenceFrame's tables with the default table headings, unique numbers and fills any blanks with a default value 
+     * This method initializes the addCompetenceFrame's tables with the default
+     * table headings, unique numbers and fills any blanks with a default value
      */
     private void InitializeTables() {
 
@@ -78,66 +79,89 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
         UniqueNumberLabel.setText("Your Unique Competence Matrix Number is: " + unique);
 
     }
-    
+
+    private void showMessageDialogue(String message) {
+        JOptionPane.showMessageDialog(null, message);
+        canAdd = false;
+    }
+
     /**
-     * Parameter line is an array of strings with each value needing to be placed into one line of string, separated by tabs 
+     * Parameter line is an array of strings with each value needing to be
+     * placed into one line of string, separated by tabs
+     *
      * @param line
      * @return a string of the line with tab delimeters
      */
     private String ConstructLine(String[] line) {
         String result = "";
-        for (int i = 0; i < line.length; i++) {
-            if (i == (line.length - 1)) {
-                if ("null".equals(line[i])) {
-                    result += "NA";
-                } else {
-                    result += line[i];
-                }
-            } else {
-                if ("null".equals(line[i])) {
-                    result += "NA" + "\t";
-                } else {
-                    result += line[i] + "\t";
-                }
-            }
 
+        //to check if unique number still exists and is an integer
+        if (this.isInteger(line[0])) {
+            result += line[0] + "\t";
+        } else {
+            result += unique + "\t";
         }
-        Debug.Log(result);
+
+        for (int i = 1; i < line.length - 1; i++) {
+            if ("null".equals(line[i])) {
+                result += "NA" + "\t";
+            } else {
+                result += line[i] + "\t";
+            }
+        }
+        if ("null".equals(line[line.length - 1])) {
+            result += "NA";
+        } else {
+            result += line[line.length - 1];
+        }
+
+        Debug.Log("Line to print: " + result);
         return result;
     }
 
     /**
-     * This method constructs a line specifically for the cost per person table. 
-     * Due to the cost per person requiring integer values. 
-     * Parameter line a string of the line with tab delimeters
+     * This method constructs a line specifically for the cost per person table.
+     * Due to the cost per person requiring integer values. Parameter line a
+     * string of the line with tab delimeters
+     *
      * @param line
      * @return a string of the line with tab delimeters
      */
     private String ConstructLineCost(String[] line) {
         String result = "";
-        for (int i = 0; i < line.length; i++) {
-            if (i == (line.length - 1)) {
-                if ("null".equals(line[i])) {
-                    result += "0";
-                } else {
-                    result += line[i];
-                }
+        //to check if unique number still exists and is an integer
+        if (this.isInteger(line[0])) {
+            result += line[0] + "\t";
+        } else {
+            result += unique + "\t";
+        }
+
+        for (int i = 1; i < line.length - 1; i++) {
+            if ("null".equals(line[i])) {
+                result += "0" + "\t";
             } else {
-                if ("null".equals(line[i])) {
-                    result += "0" + "\t";
-                } else {
+                if (this.isInteger(line[i])) {
                     result += line[i] + "\t";
+                } else {
+                    this.showMessageDialogue("Some values in the Cost per Person table (excluding the last column) are not numbers");
                 }
             }
-
         }
-        Debug.Log(result);
+        if (line[line.length - 1] == null) {
+            result += "N/A";
+        } else {
+            result += line[line.length - 1];
+        }
+
+        Debug.Log("Line to print: " + result);
         return result;
     }
 
     /**
-     * This method returns an array of strings read from each of the five tables. 
-     * Parameter table is a defaultTableModel acquired from the to-be-read table
+     * This method returns an array of strings read from each of the four
+     * tables. Parameter table is a defaultTableModel acquired from the
+     * to-be-read table
+     *
      * @param table
      * @return a string array of the data read
      */
@@ -153,8 +177,10 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
     }
 
     /**
-     * This method returns an array of strings read from the cost per person table specifically. 
-     * Parameter table is a defaultTableModel acquired from the to-be-read table
+     * This method returns an array of strings read from the cost per person
+     * table specifically. Parameter table is a defaultTableModel acquired from
+     * the to-be-read table
+     *
      * @param table is a defaultTableModel acquired from the to-be-read table
      * @return a string array of the data read
      */
@@ -162,7 +188,7 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
         DefaultTableModel dtm = (DefaultTableModel) table.getModel();
         int numCol = dtm.getColumnCount();
         String[] tableData = new String[numCol];
-        for (int j = 0; j < numCol - 1; j++) {
+        for (int j = 0; j < numCol; j++) {
             tableData[j] = String.valueOf(dtm.getValueAt(0, j));
         }
         Debug.Log("Printing TableData:");
@@ -171,24 +197,30 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
 
     /**
      * a small method used to test if a string entered is an integer or not
+     *
      * @param s
      * @return true if integer, false if not
      */
     private boolean isInteger(String s) {
         try {
             Integer.parseInt(s);
-        } catch (NumberFormatException | NullPointerException e) {
+        } catch (NumberFormatException e) {
             return false;
         }
+        Debug.Log("isInteger returns: true");
         return true;
     }
 
     /**
-     * This method returns a string array of all the data read in from the tables
+     * This method returns a string array of all the data read in from the
+     * tables
+     *
      * @return an array of all the lines
      */
     private String[] ConstructArray() {
 
+        canAdd = true;
+        
         String[] lineArr = new String[5];
         String[] line;
 
@@ -206,14 +238,6 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
 
         line = this.getTableDataCost(CostTable);
         lineArr[4] = this.ConstructLineCost(line);
-
-        for (int i = 0; i < lineArr.length; i++) {
-            if (lineArr[i] == null) {
-                Debug.Log("Changing Null to NA");
-                lineArr[i] = "NA";
-            }
-            Debug.Log(lineArr[i]);
-        }
 
         return lineArr;
     }
@@ -256,10 +280,10 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
 
             }
         ));
-        CompetenceDetailTable.setColumnSelectionAllowed(false);
         CompetenceDetailTable.setEditingColumn(1);
         CompetenceDetailTable.setEditingRow(1);
         CompetenceDetailTable.setRowHeight(60);
+        CompetenceDetailTable.setRowSelectionAllowed(false);
         CompetenceDetailTable.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 CompetenceDetailTableKeyPressed(evt);
@@ -300,10 +324,10 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
 
             }
         ));
-        CompetenceOwnershipTable.setColumnSelectionAllowed(false);
         CompetenceOwnershipTable.setEditingColumn(1);
         CompetenceOwnershipTable.setEditingRow(1);
         CompetenceOwnershipTable.setRowHeight(60);
+        CompetenceOwnershipTable.setRowSelectionAllowed(false);
         CompetenceOwnershipPanel.setViewportView(CompetenceOwnershipTable);
 
         AppCompetenceLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -319,10 +343,10 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
 
             }
         ));
-        AppCompetenceTable.setColumnSelectionAllowed(false);
         AppCompetenceTable.setEditingColumn(1);
         AppCompetenceTable.setEditingRow(1);
         AppCompetenceTable.setRowHeight(60);
+        AppCompetenceTable.setRowSelectionAllowed(false);
         AppCompetencePanel.setViewportView(AppCompetenceTable);
 
         TimesheetLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -338,10 +362,10 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
 
             }
         ));
-        TimesheetTable.setColumnSelectionAllowed(false);
         TimesheetTable.setEditingColumn(1);
         TimesheetTable.setEditingRow(1);
         TimesheetTable.setRowHeight(60);
+        TimesheetTable.setRowSelectionAllowed(false);
         TimesheetPanel.setViewportView(TimesheetTable);
 
         CostLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -357,10 +381,10 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
 
             }
         ));
-        CostTable.setColumnSelectionAllowed(false);
         CostTable.setEditingColumn(1);
         CostTable.setEditingRow(1);
         CostTable.setRowHeight(60);
+        CostTable.setRowSelectionAllowed(false);
         CostPanel.setViewportView(CostTable);
 
         UniqueNumberLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -453,8 +477,10 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // Initializes the main frame again and refreshes its tables, when btnAdd is pressed
-        DataLoad.StoreData(this.ConstructArray());
-        mf.Sort(0);
+        String [] arr = this.ConstructArray();
+        if (canAdd){
+            DataLoad.StoreData(arr);
+            mf.Sort(0);
         try {
             mf.RefreshTable(0);
         } catch (FileNotFoundException ex) {
@@ -464,12 +490,15 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
         mf.setEnabled(true);
         mf.setVisible(true);
         mf.setFocusable(true);
+        }
+        
+
+
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void CompetenceDetailTableKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CompetenceDetailTableKeyPressed
         // This method is redundant, yet I am unable to delete it
     }//GEN-LAST:event_CompetenceDetailTableKeyPressed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AppCompetenceLabel;
     private javax.swing.JScrollPane AppCompetencePanel;

@@ -1,5 +1,7 @@
-
 package Classes;
+
+import Util.Debug;
+
 /**
  *
  * @author Llewellyn Craddock
@@ -7,14 +9,15 @@ package Classes;
 public class SearchEngine {
 
     //This class provides methos of sorting data arrays in a specific way
-    
     /**
-     * This method returns a two-dimentional array that is sorting according to the competence reference number, in ascending order
-     * @param det
-     * @param own
-     * @param app      
-     * @param cost
-     * @param time
+     * This method returns a two-dimentional array that is sorting according to
+     * the competence reference number, in ascending order
+     *
+     * @param det the array of the Competence Details records
+     * @param own the array of the Competence Ownership records
+     * @param app the array of the Applicability of competence records
+     * @param cost the array of the Cost per person records
+     * @param time the array of the Timesheet records
      * @return a sorted two-dimentional array
      */
     public static CompetenceMatrix[][] SortByCompNumASC(CompetenceDetails[] det, CompetenceOwnership[] own, Applicability[] app, CostPerPerson[] cost, Timesheet[] time) {
@@ -87,13 +90,15 @@ public class SearchEngine {
     }
 
     /**
-     * This method returns a two-dimentional array that is sorting according to the competence reference number, in descending order
-     * @param det
-     * @param own
-     * @param app       
-     * @param cost
-     * @param time
-     * @return a sorted two-dimentional array 
+     * This method returns a two-dimentional array that is sorting according to
+     * the competence reference number, in descending order
+     *
+     * @param det the array of the Competence Details records
+     * @param own the array of the Competence Ownership records
+     * @param app the array of the Applicability of competence records
+     * @param cost the array of the Cost per person records
+     * @param time the array of the Timesheet records
+     * @return a sorted two-dimentional array
      */
     public static CompetenceMatrix[][] SortByCompNumDESC(CompetenceDetails[] det, CompetenceOwnership[] own, Applicability[] app, CostPerPerson[] cost, Timesheet[] time) {
         CompetenceMatrix[][] arr = new CompetenceMatrix[5][200];
@@ -165,13 +170,15 @@ public class SearchEngine {
     }
 
     /**
-     *  This returns a two-dimentional array sorted according to the total cost of the competence in ascending order
-     * @param det
-     * @param own
-     * @param app       
-     * @param cost
-     * @param time
-     * @return a sorted two-dimentional array 
+     * This returns a two-dimentional array sorted according to the total cost
+     * of the competence in ascending order
+     *
+     * @param det the array of the Competence Details records
+     * @param own the array of the Competence Ownership records
+     * @param app the array of the Applicability of competence records
+     * @param cost the array of the Cost per person records
+     * @param time the array of the Timesheet records
+     * @return a sorted two-dimentional array
      */
     public static CompetenceMatrix[][] SortByTotalASC(CompetenceDetails[] det, CompetenceOwnership[] own, Applicability[] app, CostPerPerson[] cost, Timesheet[] time) {
         CompetenceMatrix[][] arr = new CompetenceMatrix[5][200];
@@ -183,7 +190,7 @@ public class SearchEngine {
                     CompetenceDetails tempDET = det[x];
                     det[x] = det[y];
                     det[y] = tempDET;
-                    
+
                     CompetenceOwnership tempOWN = own[x];
                     own[x] = own[y];
                     own[y] = tempOWN;
@@ -213,13 +220,15 @@ public class SearchEngine {
     }
 
     /**
-     * This returns a two-dimentional array sorted according to the total cost of the competence in descending order
-     * @param det
-     * @param own
-     * @param app       
-     * @param cost
-     * @param time
-     * @return a sorted two-dimentional array 
+     * This returns a two-dimentional array sorted according to the total cost
+     * of the competence in descending order
+     *
+     * @param det the array of the Competence Details records
+     * @param own the array of the Competence Ownership records
+     * @param app the array of the Applicability of competence records
+     * @param cost the array of the Cost per person records
+     * @param time the array of the Timesheet records
+     * @return a sorted two-dimentional array
      */
     public static CompetenceMatrix[][] SortByTotalDESC(CompetenceDetails[] det, CompetenceOwnership[] own, Applicability[] app, CostPerPerson[] cost, Timesheet[] time) {
         CompetenceMatrix[][] arr = new CompetenceMatrix[5][200];
@@ -231,7 +240,7 @@ public class SearchEngine {
                     CompetenceDetails tempDET = det[x];
                     det[x] = det[y];
                     det[y] = tempDET;
-                    
+
                     CompetenceOwnership tempOWN = own[x];
                     own[x] = own[y];
                     own[y] = tempOWN;
@@ -256,6 +265,139 @@ public class SearchEngine {
         arr[2] = app;
         arr[3] = time;
         arr[4] = cost;
+
+        return arr;
+    }
+
+    public static CompetenceMatrix[][] SearchPhrase(String phrase, CompetenceDetails[] det, CompetenceOwnership[] own, Applicability[] app, CostPerPerson[] cost, Timesheet[] time) {
+        CompetenceMatrix[][] arr = new CompetenceMatrix[5][200];
+        String[] line;
+        int[] compNums = new int[200];
+        int compNumCounter = 0;
+
+        for (int i = 0; i < DataLoad.data.getNumberOfRows(); i++) {
+
+            line = det[i].toString().split("\t");
+
+            for (int x = 0; x < line.length; x++) {
+
+                if (line[x].equals(phrase)) {
+                    Debug.Log(line[x] + " equals the phrase: " + phrase);
+                    for (int d = 0; d < compNums.length; i++) {
+                        if (det[i].getCompetenceReferenceNo() != compNums[compNumCounter]) {
+                            Debug.Log(det[i].getCompetenceReferenceNo());
+                            compNums[compNumCounter] = det[i].getCompetenceReferenceNo();
+                            Debug.Log(compNums[compNumCounter]);
+                            compNumCounter++;
+                            break;
+                        }
+                    }
+
+                }
+
+            }
+
+        }
+        for (int i = 0; i < DataLoad.data.getNumberOfRows(); i++) {
+
+            line = own[i].toString().split("\t");
+
+            for (int x = 0; x < line.length; x++) {
+
+                if (line[x].equals(phrase)) {
+                    Debug.Log(line[x] + " equals the phrase: " + phrase);
+                    for (int d = 0; d < compNums.length; i++) {
+                        if (own[i].getCompetenceReferenceNo() != compNums[compNumCounter]) {
+                            Debug.Log(own[i].getCompetenceReferenceNo());
+                            compNums[compNumCounter] = own[i].getCompetenceReferenceNo();
+                            Debug.Log(compNums[compNumCounter]);
+                            compNumCounter++;
+                            break;
+                        }
+                    }
+                }
+
+            }
+
+        }
+
+        for (int i = 0; i < DataLoad.data.getNumberOfRows(); i++) {
+
+            line = app[i].toString().split("\t");
+
+            for (int x = 0; x < line.length; x++) {
+
+                if (line[x].equals(phrase)) {
+                    Debug.Log(line[x] + " equals the phrase: " + phrase);
+                    for (int d = 0; d < compNums.length; i++) {
+                        if (app[i].getCompetenceReferenceNo() != compNums[compNumCounter]) {
+                            Debug.Log(app[i].getCompetenceReferenceNo());
+                            compNums[compNumCounter] = app[i].getCompetenceReferenceNo();
+                            Debug.Log(compNums[compNumCounter]);
+                            compNumCounter++;
+                            break;
+                        }
+                    }
+                }
+
+            }
+
+        }
+
+        for (int i = 0; i < DataLoad.data.getNumberOfRows(); i++) {
+
+            line = cost[i].toString().split("\t");
+
+            for (int x = 0; x < line.length; x++) {
+
+                if (line[x].equals(phrase)) {
+                    Debug.Log(line[x] + " equals the phrase: " + phrase);
+                    for (int d = 0; d < compNums.length; i++) {
+                        if (cost[i].getCompetenceReferenceNo() != compNums[compNumCounter]) {
+                            Debug.Log(cost[i].getCompetenceReferenceNo());
+                            compNums[compNumCounter] = cost[i].getCompetenceReferenceNo();
+                            Debug.Log(compNums[compNumCounter]);
+                            compNumCounter++;
+                            break;
+                        }
+                    }
+                }
+
+            }
+
+        }
+
+        for (int i = 0; i < DataLoad.data.getNumberOfRows(); i++) {
+
+            line = time[i].toString().split("\t");
+
+            for (int x = 0; x < line.length; x++) {
+
+                if (line[x].equals(phrase)) {
+                    Debug.Log(line[x] + " equals the phrase: " + phrase);
+                    for (int d = 0; d < compNums.length; i++) {
+                        if (time[i].getCompetenceReferenceNo() != compNums[compNumCounter]) {
+                            Debug.Log(time[i].getCompetenceReferenceNo());
+                            compNums[compNumCounter] = time[i].getCompetenceReferenceNo();
+                            Debug.Log(compNums[compNumCounter]);
+                            compNumCounter++;
+                            break;
+                        }
+                    }
+                }
+
+            }
+
+        }
+
+        String textCompNum = "";
+        for (int y = 0; y < compNumCounter; y++) {
+            textCompNum += compNums[y] + ", ";
+        }
+        Debug.Log("The compNum array is: " + textCompNum);
+        Debug.Log("The number of compNums is: " + compNumCounter);
+
+
 
         return arr;
     }
