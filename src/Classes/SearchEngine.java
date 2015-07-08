@@ -10,7 +10,7 @@ public class SearchEngine {
 
     //This class provides methos of sorting data arrays in a specific way
     /**
-     * This method returns a two-dimentional array that is sorting according to
+     * This method returns a two-dimensional array that is sorting according to
      * the competence reference number, in ascending order
      *
      * @param det the array of the Competence Details records
@@ -18,7 +18,7 @@ public class SearchEngine {
      * @param app the array of the Applicability of competence records
      * @param cost the array of the Cost per person records
      * @param time the array of the Timesheet records
-     * @return a sorted two-dimentional array
+     * @return a sorted two-dimensional array
      */
     public static CompetenceMatrix[][] SortByCompNumASC(CompetenceDetails[] det, CompetenceOwnership[] own, Applicability[] app, CostPerPerson[] cost, Timesheet[] time) {
         CompetenceMatrix[][] arr = new CompetenceMatrix[5][200];
@@ -90,7 +90,7 @@ public class SearchEngine {
     }
 
     /**
-     * This method returns a two-dimentional array that is sorting according to
+     * This method returns a two-dimensional array that is sorting according to
      * the competence reference number, in descending order
      *
      * @param det the array of the Competence Details records
@@ -98,7 +98,7 @@ public class SearchEngine {
      * @param app the array of the Applicability of competence records
      * @param cost the array of the Cost per person records
      * @param time the array of the Timesheet records
-     * @return a sorted two-dimentional array
+     * @return a sorted two-dimensional array
      */
     public static CompetenceMatrix[][] SortByCompNumDESC(CompetenceDetails[] det, CompetenceOwnership[] own, Applicability[] app, CostPerPerson[] cost, Timesheet[] time) {
         CompetenceMatrix[][] arr = new CompetenceMatrix[5][200];
@@ -170,7 +170,7 @@ public class SearchEngine {
     }
 
     /**
-     * This returns a two-dimentional array sorted according to the total cost
+     * This returns a two-dimensional array sorted according to the total cost
      * of the competence in ascending order
      *
      * @param det the array of the Competence Details records
@@ -178,7 +178,7 @@ public class SearchEngine {
      * @param app the array of the Applicability of competence records
      * @param cost the array of the Cost per person records
      * @param time the array of the Timesheet records
-     * @return a sorted two-dimentional array
+     * @return a sorted two-dimensional array
      */
     public static CompetenceMatrix[][] SortByTotalASC(CompetenceDetails[] det, CompetenceOwnership[] own, Applicability[] app, CostPerPerson[] cost, Timesheet[] time) {
         CompetenceMatrix[][] arr = new CompetenceMatrix[5][200];
@@ -220,7 +220,7 @@ public class SearchEngine {
     }
 
     /**
-     * This returns a two-dimentional array sorted according to the total cost
+     * This returns a two-dimensional array sorted according to the total cost
      * of the competence in descending order
      *
      * @param det the array of the Competence Details records
@@ -228,7 +228,7 @@ public class SearchEngine {
      * @param app the array of the Applicability of competence records
      * @param cost the array of the Cost per person records
      * @param time the array of the Timesheet records
-     * @return a sorted two-dimentional array
+     * @return a sorted two-dimensional array
      */
     public static CompetenceMatrix[][] SortByTotalDESC(CompetenceDetails[] det, CompetenceOwnership[] own, Applicability[] app, CostPerPerson[] cost, Timesheet[] time) {
         CompetenceMatrix[][] arr = new CompetenceMatrix[5][200];
