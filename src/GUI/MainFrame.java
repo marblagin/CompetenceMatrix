@@ -175,6 +175,7 @@ public class MainFrame extends javax.swing.JFrame {
                 app = DataLoad.data.LoadApplicability();
                 cost = DataLoad.data.LoadCost();
                 time = DataLoad.data.LoadTimesheet();
+                searchCheckBox.setSelected(false);
                 break;
             case 1:
                 arr = SearchEngine.SortByCompNumASC(det, own, app, cost, time);
@@ -229,6 +230,13 @@ public class MainFrame extends javax.swing.JFrame {
         }
     }
 
+    public void StartSearch() {
+        this.setFocusable(false);
+        this.Sort(0);
+        SortCombo.setSelectedIndex(0);
+        sf.setVisible(true);
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -240,10 +248,12 @@ public class MainFrame extends javax.swing.JFrame {
         btnPanel = new javax.swing.JPanel();
         btnAdd = new javax.swing.JButton();
         btnSearch = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        labelSort = new javax.swing.JLabel();
         SortCombo = new javax.swing.JComboBox();
         btnRefresh = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
+        labelFilter = new javax.swing.JLabel();
+        searchCheckBox = new javax.swing.JCheckBox();
         NumberOfRows = new javax.swing.JLabel();
         MenuBar = new javax.swing.JMenuBar();
         MenuFile = new javax.swing.JMenu();
@@ -374,11 +384,11 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel1.setText("Sort by:");
+        labelSort.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        labelSort.setText("Sort by:");
 
         SortCombo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        SortCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None", "Reference Number (Ascending)", "Reference Number (Descending)", "Total Cost (Ascending)", "Total Cost (Descending)", "Search Phrase" }));
+        SortCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None", "Reference Number (Ascending)", "Reference Number (Descending)", "Total Cost (Ascending)", "Total Cost (Descending)" }));
         SortCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SortComboActionPerformed(evt);
@@ -402,6 +412,16 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        labelFilter.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        labelFilter.setText("Filter by:");
+
+        searchCheckBox.setText("Search Phrase");
+        searchCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchCheckBoxActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout btnPanelLayout = new javax.swing.GroupLayout(btnPanel);
         btnPanel.setLayout(btnPanelLayout);
         btnPanelLayout.setHorizontalGroup(
@@ -412,10 +432,13 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(btnAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnRefresh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(SortCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(btnPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(SortCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(btnPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelSort)
+                            .addComponent(labelFilter)
+                            .addComponent(searchCheckBox))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         btnPanelLayout.setVerticalGroup(
@@ -429,9 +452,13 @@ public class MainFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(11, 11, 11)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(labelSort, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(SortCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(labelFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(searchCheckBox)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -599,10 +626,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
-        this.setFocusable(false);
-        this.Sort(0);
-        SortCombo.setSelectedIndex(0);
-        sf.setVisible(true);
+        this.StartSearch();
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -741,6 +765,16 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.Sort(4);
     }//GEN-LAST:event_MenuTotalDESCActionPerformed
+
+    private void searchCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchCheckBoxActionPerformed
+        // TODO add your handling code here:
+        if (searchCheckBox.isSelected()) {
+            this.Sort(5);
+        } else {
+            this.Sort(0);
+            SortCombo.setSelectedIndex(0);
+        }
+    }//GEN-LAST:event_searchCheckBoxActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem App;
     private javax.swing.JMenuItem ComDet;
@@ -770,6 +804,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel btnPanel;
     private javax.swing.JButton btnRefresh;
     private javax.swing.JButton btnSearch;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel labelFilter;
+    private javax.swing.JLabel labelSort;
+    private javax.swing.JCheckBox searchCheckBox;
     // End of variables declaration//GEN-END:variables
 }
