@@ -269,12 +269,14 @@ public class SearchEngine {
         return arr;
     }
 
+    static int[] compNums = new int[200];
+    static int compNumCounter = 0;
+
     public static CompetenceMatrix[][] SearchPhrase(String phrase, CompetenceDetails[] det, CompetenceOwnership[] own, Applicability[] app, CostPerPerson[] cost, Timesheet[] time) {
         CompetenceMatrix[][] arr = new CompetenceMatrix[5][200];
         String[] line;
-        int[] compNums = new int[200];
-        int compNumCounter = 0;
-
+        compNums = new int[200];
+        compNumCounter = 0;
         for (int i = 0; i < DataLoad.data.getNumberOfRows(); i++) {
 
             line = det[i].toString().split("\t");
@@ -283,16 +285,7 @@ public class SearchEngine {
 
                 if (line[x].equals(phrase)) {
                     Debug.Log(line[x] + " equals the phrase: " + phrase);
-                    for (int d = 0; d < compNums.length; i++) {
-                        if (det[i].getCompetenceReferenceNo() != compNums[compNumCounter]) {
-                            Debug.Log(det[i].getCompetenceReferenceNo());
-                            compNums[compNumCounter] = det[i].getCompetenceReferenceNo();
-                            Debug.Log(compNums[compNumCounter]);
-                            compNumCounter++;
-                            break;
-                        }
-                    }
-
+                    addToArray(det[i].getCompetenceReferenceNo());
                 }
 
             }
@@ -306,15 +299,7 @@ public class SearchEngine {
 
                 if (line[x].equals(phrase)) {
                     Debug.Log(line[x] + " equals the phrase: " + phrase);
-                    for (int d = 0; d < compNums.length; i++) {
-                        if (own[i].getCompetenceReferenceNo() != compNums[compNumCounter]) {
-                            Debug.Log(own[i].getCompetenceReferenceNo());
-                            compNums[compNumCounter] = own[i].getCompetenceReferenceNo();
-                            Debug.Log(compNums[compNumCounter]);
-                            compNumCounter++;
-                            break;
-                        }
-                    }
+                    addToArray(own[i].getCompetenceReferenceNo());
                 }
 
             }
@@ -329,15 +314,7 @@ public class SearchEngine {
 
                 if (line[x].equals(phrase)) {
                     Debug.Log(line[x] + " equals the phrase: " + phrase);
-                    for (int d = 0; d < compNums.length; i++) {
-                        if (app[i].getCompetenceReferenceNo() != compNums[compNumCounter]) {
-                            Debug.Log(app[i].getCompetenceReferenceNo());
-                            compNums[compNumCounter] = app[i].getCompetenceReferenceNo();
-                            Debug.Log(compNums[compNumCounter]);
-                            compNumCounter++;
-                            break;
-                        }
-                    }
+                    addToArray(app[i].getCompetenceReferenceNo());
                 }
 
             }
@@ -352,15 +329,7 @@ public class SearchEngine {
 
                 if (line[x].equals(phrase)) {
                     Debug.Log(line[x] + " equals the phrase: " + phrase);
-                    for (int d = 0; d < compNums.length; i++) {
-                        if (cost[i].getCompetenceReferenceNo() != compNums[compNumCounter]) {
-                            Debug.Log(cost[i].getCompetenceReferenceNo());
-                            compNums[compNumCounter] = cost[i].getCompetenceReferenceNo();
-                            Debug.Log(compNums[compNumCounter]);
-                            compNumCounter++;
-                            break;
-                        }
-                    }
+                    addToArray(cost[i].getCompetenceReferenceNo());
                 }
 
             }
@@ -375,15 +344,7 @@ public class SearchEngine {
 
                 if (line[x].equals(phrase)) {
                     Debug.Log(line[x] + " equals the phrase: " + phrase);
-                    for (int d = 0; d < compNums.length; i++) {
-                        if (time[i].getCompetenceReferenceNo() != compNums[compNumCounter]) {
-                            Debug.Log(time[i].getCompetenceReferenceNo());
-                            compNums[compNumCounter] = time[i].getCompetenceReferenceNo();
-                            Debug.Log(compNums[compNumCounter]);
-                            compNumCounter++;
-                            break;
-                        }
-                    }
+                    addToArray(time[i].getCompetenceReferenceNo());
                 }
 
             }
@@ -394,11 +355,26 @@ public class SearchEngine {
         for (int y = 0; y < compNumCounter; y++) {
             textCompNum += compNums[y] + ", ";
         }
-        Debug.Log("The compNum array is: " + textCompNum);
+        Debug.Log("The compNums array is: " + textCompNum);
         Debug.Log("The number of compNums is: " + compNumCounter);
-
-
-
+        
+        for (int i = 0; i<arr.length; i++){
+           switch (i){
+              
+           } 
+        }
+        
         return arr;
+    }
+
+    private static void addToArray(int ref) {
+        for (int i : compNums) {
+            if (ref == i) {
+                return;
+            }
+        }
+        compNums[compNumCounter] = ref;
+            Debug.Log(compNums[compNumCounter] + " added to array.");
+        compNumCounter ++;
     }
 }
