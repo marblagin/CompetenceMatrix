@@ -22,7 +22,7 @@ public class MainFrame extends javax.swing.JFrame {
     CostPerPerson[] cost = DataLoad.data.LoadCost();
     Timesheet[] time = DataLoad.data.LoadTimesheet();
     DataLoad data = new DataLoad();
-    SearchFrame sf = new SearchFrame();
+    static SearchFrame sf = new SearchFrame();
     int selectedRow;
     int selectedCompetence;
     int selectedSort;
@@ -58,6 +58,7 @@ public class MainFrame extends javax.swing.JFrame {
         switch (Index) {
             case 0:
                 table = new DefaultTableModel(DataLoad.data.LoadDetailsHeadings(), 0);
+                Debug.Log(DataLoad.data.getNumberOfRows());
                 for (int i = 0; i < DataLoad.data.getNumberOfRows(); i++) {
                     String[] row = {
                         String.valueOf(det[i].getCompetenceReferenceNo()),
@@ -213,11 +214,11 @@ public class MainFrame extends javax.swing.JFrame {
                     this.btnSearchActionPerformed(null);
                 } else {
                     arr = SearchEngine.SearchPhrase(Phrase, det, own, app, cost, time);
-                    //det = (CompetenceDetails[]) arr[0];
-                    //own = (CompetenceOwnership[]) arr[1];
-                    //app = (Applicability[]) arr[2];
-                    //time = (Timesheet[]) arr[3];
-                    //cost = (CostPerPerson[]) arr[4];
+                    det = (CompetenceDetails[]) arr[0];
+                    own = (CompetenceOwnership[]) arr[1];
+                    app = (Applicability[]) arr[2];
+                    time = (Timesheet[]) arr[4];
+                    cost = (CostPerPerson[]) arr[3];
                 }
                 break;
         }
@@ -599,6 +600,8 @@ public class MainFrame extends javax.swing.JFrame {
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
         this.setFocusable(false);
+        this.Sort(0);
+        SortCombo.setSelectedIndex(0);
         sf.setVisible(true);
     }//GEN-LAST:event_btnSearchActionPerformed
 
@@ -709,6 +712,8 @@ public class MainFrame extends javax.swing.JFrame {
             Debug.LogException(ex);
         }
         SelectTableCombo.setSelectedIndex(0);
+        this.Sort(0);
+        SortCombo.setSelectedIndex(0);
     }//GEN-LAST:event_btnRefreshActionPerformed
 
     private void SortComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SortComboActionPerformed

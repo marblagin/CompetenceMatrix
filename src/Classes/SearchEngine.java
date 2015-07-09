@@ -268,10 +268,19 @@ public class SearchEngine {
 
         return arr;
     }
-
     static int[] compNums = new int[200];
     static int compNumCounter = 0;
 
+    /**
+     *
+     * @param phrase
+     * @param det
+     * @param own
+     * @param app
+     * @param cost
+     * @param time
+     * @return
+     */
     public static CompetenceMatrix[][] SearchPhrase(String phrase, CompetenceDetails[] det, CompetenceOwnership[] own, Applicability[] app, CostPerPerson[] cost, Timesheet[] time) {
         CompetenceMatrix[][] arr = new CompetenceMatrix[5][200];
         String[] line;
@@ -358,12 +367,81 @@ public class SearchEngine {
         Debug.Log("The compNums array is: " + textCompNum);
         Debug.Log("The number of compNums is: " + compNumCounter);
         
-        for (int i = 0; i<arr.length; i++){
-           switch (i){
-              
-           } 
+
+        CompetenceDetails[] tempDet = new CompetenceDetails[DataLoad.data.getNumberOfRows()];
+        CompetenceOwnership[] tempOwn = new CompetenceOwnership[DataLoad.data.getNumberOfRows()];
+        Applicability[] tempApp = new Applicability[DataLoad.data.getNumberOfRows()];
+        CostPerPerson[] tempCost = new CostPerPerson[DataLoad.data.getNumberOfRows()];
+        Timesheet[] tempTime = new Timesheet[DataLoad.data.getNumberOfRows()];
+        int compCounter;
+        int arrayCounter;
+
+        for (int i = 0; i < arr.length; i++) {
+            switch (i) {
+                case 0:
+                    compCounter = 0;
+                    arrayCounter = 0;
+                    for (int x = 0; x < DataLoad.data.getNumberOfRows(); x++) {
+                        if (det[x].getCompetenceReferenceNo()== compNums[compCounter]) {
+                            tempDet [arrayCounter] = det[x];
+                            arrayCounter++;
+                            compCounter ++;
+                        }
+                    }
+                    arr[0] = tempDet;
+                    break;
+                case 1:
+                    compCounter = 0;
+                    arrayCounter = 0;
+                    for (int x = 0; x < DataLoad.data.getNumberOfRows(); x++) {
+                        if (own[x].getCompetenceReferenceNo()== compNums[compCounter]) {
+                            tempOwn [arrayCounter] = own[x];
+                            arrayCounter++;
+                            compCounter ++;
+                        }
+                    }
+                    arr[1] = tempOwn;
+                    break;
+                case 2:
+                    compCounter = 0;
+                    arrayCounter = 0;
+                    for (int x = 0; x < DataLoad.data.getNumberOfRows(); x++) {
+                        if (app[x].getCompetenceReferenceNo()== compNums[compCounter]) {
+                            tempApp [arrayCounter] = app[x];
+                            arrayCounter++;
+                            compCounter ++;
+                        }
+                    }
+                    arr[2] = tempApp;
+                    break;
+                case 3:
+                    compCounter = 0;
+                    arrayCounter = 0;
+                    for (int x = 0; x < DataLoad.data.getNumberOfRows(); x++) {
+                        if (cost[x].getCompetenceReferenceNo()== compNums[compCounter]) {
+                            tempCost [arrayCounter] = cost[x];
+                            arrayCounter++;
+                            compCounter ++;
+                        }
+                    }
+                    arr[3] = tempCost;
+                    break;
+                case 4:
+                    compCounter = 0;
+                    arrayCounter = 0;
+                    for (int x = 0; x < DataLoad.data.getNumberOfRows(); x++) {
+                        if (time[x].getCompetenceReferenceNo()== compNums[compCounter]) {
+                            tempTime [arrayCounter] = time[x];
+                            arrayCounter++;
+                            compCounter ++;
+                        }
+                    }
+                    arr[4] = tempTime;
+                    break;
+            }
         }
-        
+        DataLoad.data.setNumberOfRows(compNumCounter);
+
         return arr;
     }
 
@@ -374,7 +452,7 @@ public class SearchEngine {
             }
         }
         compNums[compNumCounter] = ref;
-            Debug.Log(compNums[compNumCounter] + " added to array.");
-        compNumCounter ++;
+        Debug.Log(compNums[compNumCounter] + " added to array.");
+        compNumCounter++;
     }
 }

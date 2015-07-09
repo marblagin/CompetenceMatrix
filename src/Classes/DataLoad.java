@@ -1,4 +1,3 @@
-
 package Classes;
 
 import Util.Debug;
@@ -29,15 +28,18 @@ public class DataLoad {
     private static int numberOfRows;
     private static int[] CompetenceNumbers;
     /**
-     * This string represents the path of the respective file "Competence Details.txt"
+     * This string represents the path of the respective file "Competence
+     * Details.txt"
      */
     public static String Detailstxt = "Competence Details.txt";
     /**
-     * This string represents the path of the respective file "Competence Ownership.txt"
+     * This string represents the path of the respective file "Competence
+     * Ownership.txt"
      */
     public static String Ownershiptxt = "Competence Ownership.txt";
     /**
-     * This string represents the path of the respective file "Applicability of competence.txt"
+     * This string represents the path of the respective file "Applicability of
+     * competence.txt"
      */
     public static String Applicablitytxt = "Applicability of competence.txt";
     /**
@@ -45,7 +47,8 @@ public class DataLoad {
      */
     public static String Timetxt = "Timesheet.txt";
     /**
-     * This string represents the path of the respective file "Cost per person.txt"
+     * This string represents the path of the respective file "Cost per
+     * person.txt"
      */
     public static String Costtxt = "Cost per person.txt";
 
@@ -57,10 +60,15 @@ public class DataLoad {
         return numberOfRows;
     }
 
+    public void setNumberOfRows(int rows) {
+        numberOfRows = rows;
+    }
+
     /**
      *
-     * 
-     * @return an array of the values read from the Applicability of competence text file
+     *
+     * @return an array of the values read from the Applicability of competence
+     * text file
      */
     public Applicability[] LoadApplicability() {
         CompetenceNumbers = new int[200];
@@ -96,7 +104,8 @@ public class DataLoad {
 
     /**
      *
-     * @return the default headings of the text file, these headings are applied to the GUI's tables
+     * @return the default headings of the text file, these headings are applied
+     * to the GUI's tables
      */
     public String[] LoadApplicabilityHeadings() {
         String[] out = {
@@ -153,7 +162,8 @@ public class DataLoad {
 
     /**
      *
-     * @return the  default headings of the text file, these headings are applied to the GUI's tables
+     * @return the default headings of the text file, these headings are applied
+     * to the GUI's tables
      */
     public String[] LoadDetailsHeadings() {
         String[] out = {
@@ -173,7 +183,8 @@ public class DataLoad {
 
     /**
      *
-     * @return an array of the values read from the Competence ownership text file
+     * @return an array of the values read from the Competence ownership text
+     * file
      */
     public CompetenceOwnership[] LoadOwnership() {
         CompetenceNumbers = new int[200];
@@ -206,7 +217,8 @@ public class DataLoad {
 
     /**
      *
-     * @return the default headings of the text file, these headings are applied to the GUI's tables
+     * @return the default headings of the text file, these headings are applied
+     * to the GUI's tables
      */
     public String[] LoadOwnershipHeadings() {
         String[] out = {
@@ -257,7 +269,8 @@ public class DataLoad {
 
     /**
      *
-     * @return the  default headings of the text file, these headings are applied to the GUI's tables
+     * @return the default headings of the text file, these headings are applied
+     * to the GUI's tables
      */
     public String[] LoadCostHeadings() {
         String[] out = {
@@ -296,7 +309,7 @@ public class DataLoad {
                 }
             }
             Debug.Log("Timesheet File found and loaded");
-        }catch (IOException e) {
+        } catch (IOException e) {
             Debug.LogException(e);
         }
         numberOfRows = counter;
@@ -306,7 +319,8 @@ public class DataLoad {
 
     /**
      *
-     * @return the  default headings of the text file, these headings are applied to the GUI's tables
+     * @return the default headings of the text file, these headings are applied
+     * to the GUI's tables
      */
     public String[] LoadTimesheetHeadings() {
         String[] out = {
@@ -339,10 +353,13 @@ public class DataLoad {
     }
 
     /**
-     * This void stores the data of a new data set. 
-     * The data is store in each of the five text files.
-     * The parameter lines is an array of strings that consist of five lines separated \r\n, this array is constructed in the addCompetenceFrame 
-     * @param lines is an array of strings that consist of five lines separated \r\n, this array is constructed in the addCompetenceFrame 
+     * This void stores the data of a new data set. The data is store in each of
+     * the five text files. The parameter lines is an array of strings that
+     * consist of five lines separated \r\n, this array is constructed in the
+     * addCompetenceFrame
+     *
+     * @param lines is an array of strings that consist of five lines separated
+     * \r\n, this array is constructed in the addCompetenceFrame
      */
     public static void StoreData(String[] lines) {
         FileWriter fw;
@@ -391,7 +408,7 @@ public class DataLoad {
 
     /**
      *
-     * @return a unique Competence Reference number 
+     * @return a unique Competence Reference number
      */
     public int getUniqueCompetenceNumber() {
         int result = 1;
@@ -405,7 +422,9 @@ public class DataLoad {
     }
 
     /**
-     * This void removes a data set from all five text files, using the Compnum parameter to tell which data set needs to be removed
+     * This void removes a data set from all five text files, using the Compnum
+     * parameter to tell which data set needs to be removed
+     *
      * @param CompNum
      */
     public void RemoveCompetence(int CompNum) {
@@ -451,7 +470,7 @@ public class DataLoad {
             } catch (IOException e) {
                 Debug.Log("File failed to delete");
             }
-            boolean successfulRename = tempFile.renameTo(new File (Detailstxt));
+            boolean successfulRename = tempFile.renameTo(new File(Detailstxt));
             if (successfulRename) {
                 Debug.Log("Renaming successful...");
             }
@@ -459,9 +478,9 @@ public class DataLoad {
         } catch (IOException ex) {
             Debug.LogException(ex);
         }
-        
+
         //Competence Ownership:
-        
+
         lineToRemove = "";
         for (int i = 0; i < numberOfRows; i++) {
             if (own[i].getCompetenceReferenceNo() == CompNum) {
@@ -495,7 +514,7 @@ public class DataLoad {
             } catch (IOException e) {
                 Debug.Log("File failed to delete");
             }
-            boolean successfulRename = tempFile.renameTo(new File (Ownershiptxt));
+            boolean successfulRename = tempFile.renameTo(new File(Ownershiptxt));
             if (successfulRename) {
                 Debug.Log("Renaming successful...");
             }
@@ -503,9 +522,9 @@ public class DataLoad {
         } catch (IOException ex) {
             Debug.LogException(ex);
         }
-        
+
         //Applicabiity of Competence:
-        
+
         lineToRemove = "";
         for (int i = 0; i < numberOfRows; i++) {
             if (app[i].getCompetenceReferenceNo() == CompNum) {
@@ -539,7 +558,7 @@ public class DataLoad {
             } catch (IOException e) {
                 Debug.Log("File failed to delete");
             }
-            boolean successfulRename = tempFile.renameTo(new File (Applicablitytxt));
+            boolean successfulRename = tempFile.renameTo(new File(Applicablitytxt));
             if (successfulRename) {
                 Debug.Log("Renaming successful...");
             }
@@ -547,9 +566,9 @@ public class DataLoad {
         } catch (IOException ex) {
             Debug.LogException(ex);
         }
-        
+
         //Timesheet:
-        
+
         lineToRemove = "";
         for (int i = 0; i < numberOfRows; i++) {
             if (time[i].getCompetenceReferenceNo() == CompNum) {
@@ -583,7 +602,7 @@ public class DataLoad {
             } catch (IOException e) {
                 Debug.Log("File failed to delete");
             }
-            boolean successfulRename = tempFile.renameTo(new File (Timetxt));
+            boolean successfulRename = tempFile.renameTo(new File(Timetxt));
             if (successfulRename) {
                 Debug.Log("Renaming successful...");
             }
@@ -591,9 +610,9 @@ public class DataLoad {
         } catch (IOException ex) {
             Debug.LogException(ex);
         }
-        
+
         //Cost:
-        
+
         lineToRemove = "";
         for (int i = 0; i < numberOfRows; i++) {
             if (cost[i].getCompetenceReferenceNo() == CompNum) {
@@ -626,7 +645,7 @@ public class DataLoad {
             } catch (IOException e) {
                 Debug.Log("File failed to delete");
             }
-            boolean successfulRename = tempFile.renameTo(new File (Costtxt));
+            boolean successfulRename = tempFile.renameTo(new File(Costtxt));
             if (successfulRename) {
                 Debug.Log("Renaming successful...");
             }
