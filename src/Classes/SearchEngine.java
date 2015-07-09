@@ -272,14 +272,14 @@ public class SearchEngine {
     static int compNumCounter = 0;
 
     /**
-     *
-     * @param phrase
-     * @param det
-     * @param own
-     * @param app
-     * @param cost
-     * @param time
-     * @return
+     * This method Searches the competence tables and filters them by a specific phrase
+     * @param phrase the phrase used for the search method
+     * @param det the array of the Competence Details records
+     * @param own the array of the Competence Ownership records
+     * @param app the array of the Applicability of competence records
+     * @param cost the array of the Cost per person records
+     * @param time the array of the Timesheet records
+     * @return a two-dimensional array filtered by the search phrase
      */
     public static CompetenceMatrix[][] SearchPhrase(String phrase, CompetenceDetails[] det, CompetenceOwnership[] own, Applicability[] app, CostPerPerson[] cost, Timesheet[] time) {
         CompetenceMatrix[][] arr = new CompetenceMatrix[5][200];
