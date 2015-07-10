@@ -45,6 +45,7 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
 
         CompetenceDetailTable.setModel(Arr[0]);
         CompetenceDetailTable.setValueAt(unique, 0, 0);
+        CompetenceDetailTable.getTableHeader().setReorderingAllowed(false);
         String defaultText = "NA";
         for (int i = 1; i < CompetenceDetailTable.getColumnCount(); i++) {
             CompetenceDetailTable.setValueAt(defaultText, 0, i);
@@ -52,24 +53,28 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
 
         CompetenceOwnershipTable.setModel(Arr[1]);
         CompetenceOwnershipTable.setValueAt(unique, 0, 0);
+        CompetenceOwnershipTable.getTableHeader().setReorderingAllowed(false);
         for (int i = 1; i < CompetenceOwnershipTable.getColumnCount(); i++) {
             CompetenceOwnershipTable.setValueAt(defaultText, 0, i);
         }
 
         AppCompetenceTable.setModel(Arr[2]);
         AppCompetenceTable.setValueAt(unique, 0, 0);
+        AppCompetenceTable.getTableHeader().setReorderingAllowed(false);
         for (int i = 1; i < AppCompetenceTable.getColumnCount(); i++) {
             AppCompetenceTable.setValueAt(defaultText, 0, i);
         }
 
         TimesheetTable.setModel(Arr[3]);
         TimesheetTable.setValueAt(unique, 0, 0);
+        TimesheetTable.getTableHeader().setReorderingAllowed(false);
         for (int i = 1; i < TimesheetTable.getColumnCount(); i++) {
             TimesheetTable.setValueAt(defaultText, 0, i);
         }
 
         CostTable.setModel(Arr[4]);
         CostTable.setValueAt(unique, 0, 0);
+        CostTable.getTableHeader().setReorderingAllowed(false);
         int defaultNum = 0;
         for (int i = 1; i < CostTable.getColumnCount() - 1; i++) {
             CostTable.setValueAt(defaultNum, 0, i);
