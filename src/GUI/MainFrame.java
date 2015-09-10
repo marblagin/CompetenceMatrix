@@ -2,9 +2,13 @@ package GUI;
 
 import Classes.*;
 import Util.Debug;
+import java.awt.Point;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.event.CellEditorListener;
+import javax.swing.event.ChangeEvent;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -53,12 +57,12 @@ public class MainFrame extends javax.swing.JFrame {
         Debug.Log("Tables refreshing");
         DefaultTableModel table;
         Debug.Log("Selected Index = " + String.valueOf(SelectTableCombo.getSelectedIndex()));
+        Debug.Log("Number of rows = " + DataLoad.data.getNumberOfRows());
         MenuDelete.setEnabled(false);
         btnDelete.setEnabled(false);
         switch (Index) {
             case 0:
                 table = new DefaultTableModel(DataLoad.data.LoadDetailsHeadings(), 0);
-                Debug.Log(DataLoad.data.getNumberOfRows());
                 for (int i = 0; i < DataLoad.data.getNumberOfRows(); i++) {
                     String[] row = {
                         String.valueOf(det[i].getCompetenceReferenceNo()),
@@ -159,6 +163,19 @@ public class MainFrame extends javax.swing.JFrame {
             //cancel
         }
         this.Sort(0);
+    }
+
+    private void Edit(java.awt.event.MouseEvent evt) {
+        if (evt.getClickCount() == 2 && !evt.isConsumed()) { //handles double click event.
+            evt.consume();
+            Debug.Log("Double click on Table");
+            JTable target = (JTable) evt.getSource();
+            int row = target.getSelectedRow();
+            int column = target.getSelectedColumn();
+            Debug.Log("Row is " + row);
+            Debug.Log("Column is " + column);
+            Debug.Log("Entered value is " + Table.getModel().getValueAt(row, column));
+        }
     }
 
     /**
@@ -276,7 +293,11 @@ public class MainFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Competence Matrix Editor");
         setName("MainFrame"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(1020, 700));
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
+            }
+        });
 
         TableScrollPane.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -712,6 +733,19 @@ public class MainFrame extends javax.swing.JFrame {
         selectedRow = Table.getSelectedRow();
         selectedCompetence = det[selectedRow].getCompetenceReferenceNo();
         Debug.Log("Selected row is " + selectedRow + " and the competence num is " + selectedCompetence);
+        CellEditorListener edit;
+        edit = new CellEditorListener() {
+            @Override
+            public void editingStopped(ChangeEvent e) {
+                Debug.Log("Editing stopped");
+            }
+
+            @Override
+            public void editingCanceled(ChangeEvent e) {
+                Debug.Log("Editing cancelled");
+            }
+        };
+        this.Edit(evt);
         btnDelete.setEnabled(true);
         MenuDelete.setEnabled(true);
     }//GEN-LAST:event_TableMousePressed
@@ -775,6 +809,9 @@ public class MainFrame extends javax.swing.JFrame {
             SortCombo.setSelectedIndex(0);
         }
     }//GEN-LAST:event_searchCheckBoxActionPerformed
+
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+    }//GEN-LAST:event_formKeyPressed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem App;
     private javax.swing.JMenuItem ComDet;
