@@ -425,7 +425,7 @@ public class DataLoad {
      * This void removes a data set from all five text files, using the Compnum
      * parameter to tell which data set needs to be removed
      *
-     * @param CompNum
+     * @param CompNum the competence reference number needing to be deleted
      */
     public void RemoveCompetence(int CompNum) {
 
@@ -652,6 +652,314 @@ public class DataLoad {
 
         } catch (IOException ex) {
             Debug.LogException(ex);
+        }
+    }
+
+    /**
+     * This void edits the data set in the required text files, using the table and CompNum 
+     * parameter to tell which data set needs to be edited
+     *
+     * @param column the column in which the edited value exists 
+     * @param table refers to the selected table (one of the five)
+     * @param CompNum the competence reference number of the line required to be edited
+     * @param newValue the new value to take the place of the original value
+     */
+    public void Update(int column, int table, int CompNum, String newValue) {
+
+        CompetenceDetails[] det = this.LoadDetails();
+        CompetenceOwnership[] own = this.LoadOwnership();
+        Applicability[] app = this.LoadApplicability();
+        Timesheet[] time = this.LoadTimesheet();
+        CostPerPerson[] cost = this.LoadCost();
+
+        String lineToEdit;
+        String currentLine;
+
+        switch (table) {
+            case 0:
+                //Competence Details:
+                
+                lineToEdit = "";
+                for (int i = 0; i < numberOfRows; i++) {
+                    if (det[i].getCompetenceReferenceNo() == CompNum) {
+                        lineToEdit = det[i].toString();
+                        Debug.Log("lineToEdit is: " + lineToEdit);
+
+                    }
+                }
+                try {
+                    File tempFile = new File("myTempFile.txt");
+                    Debug.Log("Found files and beginning writing...");
+                    BufferedReader reader;
+                    try (BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile))) {
+                        reader = new BufferedReader(new FileReader(Detailstxt));
+                        while ((currentLine = reader.readLine()) != null) {
+                            //Debug.Log("currentLine is: " + currentLine);
+                            if (currentLine.equals(lineToEdit)) {
+                                Debug.Log("lineToEdit and currentLine are equal...");
+                                String[] currentArr = currentLine.split("\t");
+                                currentArr[column] = newValue;
+                                currentLine = "";
+                                for (int i = 0; i < currentArr.length; i++) {
+                                    if (i == currentArr.length - 1) {
+                                        currentLine += currentArr[i];
+                                    } else {
+                                        currentLine += currentArr[i] + "\t";
+                                    }
+                                }
+                                Debug.Log("New currentLine: " + currentLine);
+                                writer.write(currentLine + "\r\n");
+
+                            } else {
+                                writer.write(currentLine + "\r\n");
+                            }
+                        }
+                    }
+                    reader.close();
+                    File origanalFile = new File(Detailstxt);
+                    String txtpath = origanalFile.getPath();
+                    Path path = Paths.get(txtpath);
+                    try {
+                        Files.delete(path);
+                        Debug.Log("File was successfully deleted");
+                    } catch (IOException e) {
+                        Debug.Log("File failed to delete");
+                    }
+                    boolean successfulRename = tempFile.renameTo(new File(Detailstxt));
+                    if (successfulRename) {
+                        Debug.Log("Renaming successful...");
+                    }
+
+                } catch (IOException ex) {
+                    Debug.LogException(ex);
+                }
+                break;
+            case 1:
+                //Competence Ownership:
+
+                lineToEdit = "";
+                for (int i = 0; i < numberOfRows; i++) {
+                    if (own[i].getCompetenceReferenceNo() == CompNum) {
+                        lineToEdit = own[i].toString();
+                        Debug.Log("lineToEdit is: " + lineToEdit);
+                    }
+                }
+                try {
+                    File tempFile = new File("myTempFile.txt");
+                    Debug.Log("Created temp file and beginning writing...");
+                    BufferedReader reader;
+                    try (BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile))) {
+                        reader = new BufferedReader(new FileReader(Ownershiptxt));
+                        while ((currentLine = reader.readLine()) != null) {
+                            //Debug.Log("currentLine is: " + currentLine);
+                            if (currentLine.equals(lineToEdit)) {
+                                Debug.Log("lineToEdit and currentLine are equal...");
+                                String[] currentArr = currentLine.split("\t");
+                                currentArr[column] = newValue;
+                                currentLine = "";
+                                for (int i = 0; i < currentArr.length; i++) {
+                                    if (i == currentArr.length - 1) {
+                                        currentLine += currentArr[i];
+                                    } else {
+                                        currentLine += currentArr[i] + "\t";
+                                    }
+                                }
+                                Debug.Log("New currentLine: " + currentLine);
+                                writer.write(currentLine + "\r\n");
+                            } else {
+                                writer.write(currentLine + "\r\n");
+                            }
+                        }
+                    }
+                    reader.close();
+                    File origanalFile = new File(Ownershiptxt);
+                    String txtpath = origanalFile.getPath();
+                    Path path = Paths.get(txtpath);
+                    try {
+                        Files.delete(path);
+                        Debug.Log("File was successfully deleted");
+                    } catch (IOException e) {
+                        Debug.Log("File failed to delete");
+                    }
+                    boolean successfulRename = tempFile.renameTo(new File(Ownershiptxt));
+                    if (successfulRename) {
+                        Debug.Log("Renaming successful...");
+                    }
+
+                } catch (IOException ex) {
+                    Debug.LogException(ex);
+                }
+                break;
+            case 2:
+                //Applicabiity of Competence:
+
+                lineToEdit = "";
+                for (int i = 0; i < numberOfRows; i++) {
+                    if (app[i].getCompetenceReferenceNo() == CompNum) {
+                        lineToEdit = app[i].toString();
+                        Debug.Log("lineToEdit is: " + lineToEdit);
+
+                    }
+                }
+                try {
+                    File tempFile = new File("myTempFile.txt");
+                    Debug.Log("Created temp file and beginning writing...");
+                    BufferedReader reader;
+                    try (BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile))) {
+                        reader = new BufferedReader(new FileReader(Applicablitytxt));
+                        while ((currentLine = reader.readLine()) != null) {
+                            //Debug.Log("currentLine is: " + currentLine);
+                            if (currentLine.equals(lineToEdit)) {
+                                Debug.Log("lineToEdit and currentLine are equal");
+                                String[] currentArr = currentLine.split("\t");
+                                currentArr[column] = newValue;
+                                currentLine = "";
+                                for (int i = 0; i < currentArr.length; i++) {
+                                    if (i == currentArr.length - 1) {
+                                        currentLine += currentArr[i];
+                                    } else {
+                                        currentLine += currentArr[i] + "\t";
+                                    }
+                                }
+                                Debug.Log("New currentLine: " + currentLine);
+                                writer.write(currentLine + "\r\n");
+                            } else {
+                                writer.write(currentLine + "\r\n");
+                            }
+                        }
+                    }
+                    reader.close();
+                    File origanalFile = new File(Applicablitytxt);
+                    String txtpath = origanalFile.getPath();
+                    Path path = Paths.get(txtpath);
+                    try {
+                        Files.delete(path);
+                        Debug.Log("File was successfully deleted");
+                    } catch (IOException e) {
+                        Debug.Log("File failed to delete");
+                    }
+                    boolean successfulRename = tempFile.renameTo(new File(Applicablitytxt));
+                    if (successfulRename) {
+                        Debug.Log("Renaming successful...");
+                    }
+
+                } catch (IOException ex) {
+                    Debug.LogException(ex);
+                }
+                break;
+            case 3:
+                //Timesheet:
+
+                lineToEdit = "";
+                for (int i = 0; i < numberOfRows; i++) {
+                    if (time[i].getCompetenceReferenceNo() == CompNum) {
+                        lineToEdit = time[i].toString();
+                        Debug.Log("lineToEdit is: " + lineToEdit);
+
+                    }
+                }
+                try {
+                    File tempFile = new File("myTempFile.txt");
+                    Debug.Log("Created temp file and beginning writing...");
+                    BufferedReader reader;
+                    try (BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile))) {
+                        reader = new BufferedReader(new FileReader(Timetxt));
+                        while ((currentLine = reader.readLine()) != null) {
+                            //Debug.Log("currentLine is: " + currentLine);
+                            if (currentLine.equals(lineToEdit)) {
+                                Debug.Log("lineToEdit and currentLine are equal");
+                                String[] currentArr = currentLine.split("\t");
+                                currentArr[column] = newValue;
+                                currentLine = "";
+                                for (int i = 0; i < currentArr.length; i++) {
+                                    if (i == currentArr.length - 1) {
+                                        currentLine += currentArr[i];
+                                    } else {
+                                        currentLine += currentArr[i] + "\t";
+                                    }
+                                }
+                                Debug.Log("New currentLine: " + currentLine);
+                                writer.write(currentLine + "\r\n");
+                            } else {
+                                writer.write(currentLine + "\r\n");
+                            }
+                        }
+                    }
+                    reader.close();
+                    File origanalFile = new File(Timetxt);
+                    String txtpath = origanalFile.getPath();
+                    Path path = Paths.get(txtpath);
+                    try {
+                        Files.delete(path);
+                        Debug.Log("File was successfully deleted");
+                    } catch (IOException e) {
+                        Debug.Log("File failed to delete");
+                    }
+                    boolean successfulRename = tempFile.renameTo(new File(Timetxt));
+                    if (successfulRename) {
+                        Debug.Log("Renaming successful...");
+                    }
+
+                } catch (IOException ex) {
+                    Debug.LogException(ex);
+                }
+                break;
+            case 4:
+                //Cost:
+
+                lineToEdit = "";
+                for (int i = 0; i < numberOfRows; i++) {
+                    if (cost[i].getCompetenceReferenceNo() == CompNum) {
+                        lineToEdit = cost[i].toString();
+                        Debug.Log("lineToEdit is: " + lineToEdit);
+                    }
+                }
+                try {
+                    File tempFile = new File("myTempFile.txt");
+                    Debug.Log("Created temp file and beginning writing...");
+                    BufferedReader reader;
+                    try (BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile))) {
+                        reader = new BufferedReader(new FileReader(Costtxt));
+                        while ((currentLine = reader.readLine()) != null) {
+                            //Debug.Log("currentLine is: " + currentLine);
+                            if (currentLine.equals(lineToEdit)) {
+                                Debug.Log("lineToEdit and currentLine are equal");
+                                String[] currentArr = currentLine.split("\t");
+                                currentArr[column] = newValue;
+                                currentLine = "";
+                                for (int i = 0; i < currentArr.length; i++) {
+                                    if (i == currentArr.length - 1) {
+                                        currentLine += currentArr[i];
+                                    } else {
+                                        currentLine += currentArr[i] + "\t";
+                                    }
+                                }
+                                Debug.Log("New currentLine: " + currentLine);
+                                writer.write(currentLine + "\r\n");
+                            } else {
+                                writer.write(currentLine + "\r\n");
+                            }
+                        }
+                    }
+                    reader.close();
+                    File origanalFile = new File(Costtxt);
+                    String txtpath = origanalFile.getPath();
+                    Path path = Paths.get(txtpath);
+                    try {
+                        Files.delete(path);
+                        Debug.Log("File was successfully deleted");
+                    } catch (IOException e) {
+                        Debug.Log("File failed to delete");
+                    }
+                    boolean successfulRename = tempFile.renameTo(new File(Costtxt));
+                    if (successfulRename) {
+                        Debug.Log("Renaming successful...");
+                    }
+
+                } catch (IOException ex) {
+                    Debug.LogException(ex);
+                }
+                break;
         }
     }
 }

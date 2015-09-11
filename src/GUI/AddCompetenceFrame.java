@@ -35,7 +35,7 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
      * This method initializes the addCompetenceFrame's tables with the default
      * table headings, unique numbers and fills any blanks with a default value
      */
-    private void InitializeTables() {
+    public void InitializeTables() {
 
         DataLoad data = new DataLoad();
         DefaultTableModel[] Arr;
@@ -97,7 +97,7 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
      * @param line
      * @return a string of the line with tab delimeters
      */
-    private String ConstructLine(String[] line) {
+    public String ConstructLine(String[] line) {
         String result = "";
 
         //to check if unique number still exists and is an integer
@@ -132,7 +132,7 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
      * @param line
      * @return a string of the line with tab delimeters
      */
-    private String ConstructLineCost(String[] line) {
+    public String ConstructLineCost(String[] line) {
         String result = "";
         //to check if unique number still exists and is an integer
         if (this.isInteger(line[0])) {
@@ -170,7 +170,7 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
      * @param table
      * @return a string array of the data read
      */
-    private String[] getTableData(JTable table) {
+    public String[] getTableData(JTable table) {
         DefaultTableModel dtm = (DefaultTableModel) table.getModel();
         int numCol = dtm.getColumnCount();
         String[] tableData = new String[numCol];
@@ -189,7 +189,7 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
      * @param table is a defaultTableModel acquired from the to-be-read table
      * @return a string array of the data read
      */
-    private String[] getTableDataCost(JTable table) {
+    public String[] getTableDataCost(JTable table) {
         DefaultTableModel dtm = (DefaultTableModel) table.getModel();
         int numCol = dtm.getColumnCount();
         String[] tableData = new String[numCol];
@@ -206,7 +206,7 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
      * @param s
      * @return true if integer, false if not
      */
-    private boolean isInteger(String s) {
+    public boolean isInteger(String s) {
         try {
             Integer.parseInt(s);
         } catch (NumberFormatException e) {
@@ -222,7 +222,7 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
      *
      * @return an array of all the lines
      */
-    private String[] ConstructArray() {
+    public String[] ConstructArray() {
 
         canAdd = true;
         

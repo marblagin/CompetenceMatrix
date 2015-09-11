@@ -26,9 +26,16 @@ public class MainFrame extends javax.swing.JFrame {
     Timesheet[] time = DataLoad.data.LoadTimesheet();
     DataLoad data = new DataLoad();
     static SearchFrame sf = new SearchFrame();
+    TableModelListener n;
     int selectedRow;
+    int previousRow;
+    int selectedColumn;
+    int previousColumn;
     int selectedCompetence;
+    int previousCompetence;
     int selectedSort;
+    String originalValue;
+    String editedValue;
 
     /**
      * This method initializes the MainFrame's tables and refreshes them
@@ -42,14 +49,18 @@ public class MainFrame extends javax.swing.JFrame {
         } catch (IOException ex) {
             Debug.LogException(ex);
         }
-        TableModelListener n = new TableModelListener() {
-
+        n = new TableModelListener() {
             @Override
             public void tableChanged(TableModelEvent e) {
                 Debug.Log("Table Changed");
+                editedValue = String.valueOf(Table.getValueAt(previousRow, previousColumn));
+                Debug.Log("Edited Value is: " + editedValue);
+                if (!originalValue.equals(editedValue)) {
+                    Edit();
+                }
             }
         };
-        Table.getModel().addTableModelListener(n);      
+        Table.getModel().addTableModelListener(n);
     }
 
     /**
@@ -150,13 +161,12 @@ public class MainFrame extends javax.swing.JFrame {
                 break;
 
         }
-
     }
 
     /**
-     * This method displays an option pane to confirm a deletion
+     * This method displays an option pane to confirm a deletion, then calls up the required functions to perform the deletion
      */
-    private void Delete() {
+    public void Delete() {
         int i = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete the Competence Matrix: " + selectedCompetence + " from all five tables");
         if (i == 0) {
             Debug.Log("Deleting competence: " + selectedCompetence);
@@ -171,17 +181,54 @@ public class MainFrame extends javax.swing.JFrame {
         this.Sort(0);
     }
 
-    private void Edit(java.awt.event.MouseEvent evt) {
+    /**
+     * This method displays an option pane to confirm a edit on a specific cell, then calls up the required functions to perform the edit
+     */
+    public void Edit() {
+        int i = JOptionPane.showConfirmDialog(null, "Are you sure you want to update the Competence Matrix with the new value/s?");
+        if (i == 0) {
+            Debug.Log("Editing competence: " + selectedCompetence);
+            data.Update(previousColumn, SelectTableCombo.getSelectedIndex(), previousCompetence, editedValue);
+        } else if (i == 1) {
+            Debug.Log("Not Editing competence: " + selectedCompetence);
+            Table.setValueAt(originalValue, previousRow, previousColumn);
+            //dont edit
+        } else if (i == 2) {
+            Debug.Log("Cancelling Editing of competence: " + selectedCompetence);
+            //cancel
+        }
+        try {
+            this.RefreshTable(selectedCompetence);
+        } catch (FileNotFoundException ex) {
+            Debug.LogException(ex);
+        }
+    }
+
+    /**
+     * Checks if a double click action has occurred and then forwards the program to the next function
+     * @param evt The event received, in this case is the mouse event when the table is clicked upon
+     */
+    public void CheckDoubleClick(java.awt.event.MouseEvent evt) {
         if (evt.getClickCount() == 2 && !evt.isConsumed()) { //handles double click event.
             evt.consume();
             Debug.Log("Double click on Table");
-            JTable target = (JTable) evt.getSource();
-            int row = target.getSelectedRow();
-            int column = target.getSelectedColumn();
-            Debug.Log("Row is " + row);
-            Debug.Log("Column is " + column);
-            Debug.Log("Entered value is " + Table.getModel().getValueAt(row, column));
+            this.storeOriginal(evt);
         }
+    }
+
+    /**
+     * Stores the original value of the edited cell for further use later
+     * @param evt The event received, in this case is the mouse event when the table is clicked upon
+     */
+    public void storeOriginal(java.awt.event.MouseEvent evt) {
+        JTable target = (JTable) evt.getSource();
+        previousRow = target.getSelectedRow();
+        previousColumn = target.getSelectedColumn();
+        previousCompetence = det[selectedRow].getCompetenceReferenceNo();
+        Debug.Log("Row is " + previousRow);
+        Debug.Log("Column is " + previousColumn);
+        originalValue = String.valueOf(Table.getModel().getValueAt(previousRow, previousColumn));
+        Debug.Log("Original value is: " + originalValue);
     }
 
     /**
@@ -253,6 +300,9 @@ public class MainFrame extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * This void sets the state of the tables in search mode
+     */
     public void StartSearch() {
         this.setFocusable(false);
         this.Sort(0);
@@ -739,7 +789,7 @@ public class MainFrame extends javax.swing.JFrame {
         selectedRow = Table.getSelectedRow();
         selectedCompetence = det[selectedRow].getCompetenceReferenceNo();
         Debug.Log("Selected row is " + selectedRow + " and the competence num is " + selectedCompetence);
-        this.Edit(evt);
+        this.CheckDoubleClick(evt);
         btnDelete.setEnabled(true);
         MenuDelete.setEnabled(true);
     }//GEN-LAST:event_TableMousePressed

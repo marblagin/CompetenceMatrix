@@ -9,7 +9,7 @@ public class Debug {
     
     /**
      * This debug method prints out a log of a type string when called
-     * @param content
+     * @param content String values to be printed as debug log
      */
     public static void Log(String content)
     {
@@ -17,7 +17,7 @@ public class Debug {
     }
     /**
      * This debug method prints out a log of a type integer when called
-     * @param content
+     * @param content Integer values to be printed as debug log
      */
     public static void Log(int content)
     {
@@ -25,7 +25,7 @@ public class Debug {
     }
     /**
      * This debug method prints out a log of a type exception when called
-     * @param e 
+     * @param e The exception given (various)
      */
     public static void LogException(Exception e)
     {
