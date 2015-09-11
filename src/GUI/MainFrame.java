@@ -216,7 +216,7 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     /**
-     *
+     * This method is used specifically to check the editing of a competence reference  number, in order to check if what is entered is unique 
      */
     public void CompNumEdit() {
         boolean unique = true;
