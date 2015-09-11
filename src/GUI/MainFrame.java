@@ -2,14 +2,13 @@ package GUI;
 
 import Classes.*;
 import Util.Debug;
-import java.awt.Point;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
-import javax.swing.event.CellEditorListener;
-import javax.swing.event.ChangeEvent;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
 
 /**
  *
@@ -43,7 +42,14 @@ public class MainFrame extends javax.swing.JFrame {
         } catch (IOException ex) {
             Debug.LogException(ex);
         }
+        TableModelListener n = new TableModelListener() {
 
+            @Override
+            public void tableChanged(TableModelEvent e) {
+                Debug.Log("Table Changed");
+            }
+        };
+        Table.getModel().addTableModelListener(n);      
     }
 
     /**
@@ -733,18 +739,6 @@ public class MainFrame extends javax.swing.JFrame {
         selectedRow = Table.getSelectedRow();
         selectedCompetence = det[selectedRow].getCompetenceReferenceNo();
         Debug.Log("Selected row is " + selectedRow + " and the competence num is " + selectedCompetence);
-        CellEditorListener edit;
-        edit = new CellEditorListener() {
-            @Override
-            public void editingStopped(ChangeEvent e) {
-                Debug.Log("Editing stopped");
-            }
-
-            @Override
-            public void editingCanceled(ChangeEvent e) {
-                Debug.Log("Editing cancelled");
-            }
-        };
         this.Edit(evt);
         btnDelete.setEnabled(true);
         MenuDelete.setEnabled(true);
