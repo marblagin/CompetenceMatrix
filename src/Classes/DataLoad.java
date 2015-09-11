@@ -664,13 +664,7 @@ public class DataLoad {
      * @param CompNum the competence reference number of the line required to be edited
      * @param newValue the new value to take the place of the original value
      */
-    public void Update(int column, int table, int CompNum, String newValue) {
-
-        CompetenceDetails[] det = this.LoadDetails();
-        CompetenceOwnership[] own = this.LoadOwnership();
-        Applicability[] app = this.LoadApplicability();
-        Timesheet[] time = this.LoadTimesheet();
-        CostPerPerson[] cost = this.LoadCost();
+    public void Update(int column, int table, int CompNum, String newValue, CompetenceDetails[] det, CompetenceOwnership[] own, Applicability[] app, CostPerPerson[] cost, Timesheet[] time) {
 
         String lineToEdit;
         String currentLine;

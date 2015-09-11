@@ -55,8 +55,17 @@ public class MainFrame extends javax.swing.JFrame {
                 Debug.Log("Table Changed");
                 editedValue = String.valueOf(Table.getValueAt(previousRow, previousColumn));
                 Debug.Log("Edited Value is: " + editedValue);
-                if (!originalValue.equals(editedValue)) {
-                    Edit();
+                if (editedValue.equals("")) {
+                    JOptionPane.showMessageDialog(null, "Nothing Entered!");
+                    Table.setValueAt(originalValue, previousRow, previousColumn);
+                } else {
+                    if (!originalValue.equals(editedValue) && previousColumn != 0) {
+                        Edit();
+                    } else {
+                        if (!originalValue.equals(editedValue) && previousColumn == 0) {
+                            CompNumEdit();
+                        }
+                    }
                 }
             }
         };
@@ -164,7 +173,8 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     /**
-     * This method displays an option pane to confirm a deletion, then calls up the required functions to perform the deletion
+     * This method displays an option pane to confirm a deletion, then calls up
+     * the required functions to perform the deletion
      */
     public void Delete() {
         int i = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete the Competence Matrix: " + selectedCompetence + " from all five tables");
@@ -182,13 +192,14 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     /**
-     * This method displays an option pane to confirm a edit on a specific cell, then calls up the required functions to perform the edit
+     * This method displays an option pane to confirm a edit on a specific cell,
+     * then calls up the required functions to perform the edit
      */
     public void Edit() {
         int i = JOptionPane.showConfirmDialog(null, "Are you sure you want to update the Competence Matrix with the new value/s?");
         if (i == 0) {
             Debug.Log("Editing competence: " + selectedCompetence);
-            data.Update(previousColumn, SelectTableCombo.getSelectedIndex(), previousCompetence, editedValue);
+            data.Update(previousColumn, SelectTableCombo.getSelectedIndex(), previousCompetence, editedValue, det, own, app, cost, time);
         } else if (i == 1) {
             Debug.Log("Not Editing competence: " + selectedCompetence);
             Table.setValueAt(originalValue, previousRow, previousColumn);
@@ -205,8 +216,50 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     /**
-     * Checks if a double click action has occurred and then forwards the program to the next function
-     * @param evt The event received, in this case is the mouse event when the table is clicked upon
+     *
+     */
+    public void CompNumEdit() {
+        boolean unique = true;
+        for (int i = 0; i < data.getNumberOfRows(); i++) {
+            if (String.valueOf(det[i].getCompetenceReferenceNo()).equals(editedValue)) {
+                unique = false;
+                break;
+            } else {
+                unique = true;
+            }
+        }
+        if (unique) {
+            Debug.Log("Entered Comp Number is unique");
+            int i = JOptionPane.showConfirmDialog(null, "Are you sure you want to change the Competence Matrix reference number?");
+            if (i == 0) {
+                Debug.Log("Editing competence: " + selectedCompetence);
+                data.Update(previousColumn, SelectTableCombo.getSelectedIndex(), previousCompetence, editedValue, det, own, app, cost, time);
+            } else if (i == 1) {
+                Debug.Log("Not Editing competence: " + selectedCompetence);
+                Table.setValueAt(originalValue, previousRow, previousColumn);
+                //dont edit
+            } else if (i == 2) {
+                Debug.Log("Cancelling Editing of competence: " + selectedCompetence);
+                //cancel
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "The number which you have entered is not a unique competence reference number!"
+                    + "\r\n" + "The next unique competence reference number is: " + data.getUniqueCompetenceNumber());
+            Table.setValueAt(originalValue, previousRow, previousColumn);
+        }
+        try {
+            this.RefreshTable(selectedCompetence);
+        } catch (FileNotFoundException ex) {
+            Debug.LogException(ex);
+        }
+    }
+
+    /**
+     * Checks if a double click action has occurred and then forwards the
+     * program to the next function
+     *
+     * @param evt The event received, in this case is the mouse event when the
+     * table is clicked upon
      */
     public void CheckDoubleClick(java.awt.event.MouseEvent evt) {
         if (evt.getClickCount() == 2 && !evt.isConsumed()) { //handles double click event.
@@ -218,7 +271,9 @@ public class MainFrame extends javax.swing.JFrame {
 
     /**
      * Stores the original value of the edited cell for further use later
-     * @param evt The event received, in this case is the mouse event when the table is clicked upon
+     *
+     * @param evt The event received, in this case is the mouse event when the
+     * table is clicked upon
      */
     public void storeOriginal(java.awt.event.MouseEvent evt) {
         JTable target = (JTable) evt.getSource();
