@@ -53,20 +53,23 @@ public class DataLoad {
     public static String Costtxt = "Cost per person.txt";
 
     /**
-     *
+     * Returns the number of Competences, present in the text files
      * @return the number of data sets (ie rows)
      */
     public int getNumberOfRows() {
         return numberOfRows;
     }
 
+    /**
+     * Sets the number of Competences to the given value
+     * @param rows the number of rows the variable is set to
+     */
     public void setNumberOfRows(int rows) {
         numberOfRows = rows;
     }
 
     /**
-     *
-     *
+     * Loads the data read from the Applicability text file and places the data into a array of the data
      * @return an array of the values read from the Applicability of competence
      * text file
      */
@@ -103,7 +106,7 @@ public class DataLoad {
     }
 
     /**
-     *
+     * Returns the default headings present in the Applicability text file
      * @return the default headings of the text file, these headings are applied
      * to the GUI's tables
      */
@@ -121,7 +124,7 @@ public class DataLoad {
     }
 
     /**
-     *
+     * Loads the data read from the Competence Details text file and places the data into a array of the data
      * @return an array of the values read from the Competence details text file
      */
     public CompetenceDetails[] LoadDetails() {
@@ -161,7 +164,7 @@ public class DataLoad {
     }
 
     /**
-     *
+     * Returns the default headings present in the Competence details text file
      * @return the default headings of the text file, these headings are applied
      * to the GUI's tables
      */
@@ -182,7 +185,7 @@ public class DataLoad {
     }
 
     /**
-     *
+     * Loads the data read from the Competence Ownership text file and places the data into a array of the data
      * @return an array of the values read from the Competence ownership text
      * file
      */
@@ -216,7 +219,7 @@ public class DataLoad {
     }
 
     /**
-     *
+     * Returns the default headings present in the Competence Ownership text file
      * @return the default headings of the text file, these headings are applied
      * to the GUI's tables
      */
@@ -231,7 +234,7 @@ public class DataLoad {
     }
 
     /**
-     *
+     * Loads the data read from the Cost per person text file and places the data into a array of the data
      * @return an array of the values read from the Cost per person text file
      */
     public CostPerPerson[] LoadCost() {
@@ -268,7 +271,7 @@ public class DataLoad {
     }
 
     /**
-     *
+     * Returns the default headings present in the Cost per person text file
      * @return the default headings of the text file, these headings are applied
      * to the GUI's tables
      */
@@ -286,7 +289,7 @@ public class DataLoad {
     }
 
     /**
-     *
+     * Loads the data read from the Timesheet text file and places the data into a array of the data
      * @return an array of the values read from the Timesheet text file
      */
     public Timesheet[] LoadTimesheet() {
@@ -318,7 +321,7 @@ public class DataLoad {
     }
 
     /**
-     *
+     * Returns the default headings present in the Timesheet text file
      * @return the default headings of the text file, these headings are applied
      * to the GUI's tables
      */
@@ -332,7 +335,7 @@ public class DataLoad {
     }
 
     /**
-     *
+     * This method is used to return the default tables models of the each of the tables, with the default headings included 
      * @return an array of default table models with the default headings
      */
     public DefaultTableModel[] GenerateTableModel() {
@@ -407,7 +410,7 @@ public class DataLoad {
     }
 
     /**
-     *
+     * This method calculates and returns a unique competence reference number, used when adding a new competence
      * @return a unique Competence Reference number
      */
     public int getUniqueCompetenceNumber() {
