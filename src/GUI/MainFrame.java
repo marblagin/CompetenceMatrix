@@ -318,7 +318,7 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     /**
-     * This void sets the state of the tables in search mode
+     * This void displays the search to allow the user to enter in a phrase to search for
      */
     public void StartSearch() {
         this.setFocusable(false);

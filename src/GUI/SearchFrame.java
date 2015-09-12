@@ -16,6 +16,10 @@ public class SearchFrame extends javax.swing.JFrame {
         initComponents();
     }
     
+    /**
+     * This method returns the phrase given by the user to search with
+     * @return string value of the phrase entered
+     */
     public String getPhrase (){
         String out;
         out = PhraseTextArea.getText();

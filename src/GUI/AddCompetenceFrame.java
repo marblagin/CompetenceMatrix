@@ -19,6 +19,7 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
     int unique;
     MainFrame mf;
     boolean canAdd = true;
+    
     /**
      * Initializes the AddCompetenceFrame using the various methods
      */
@@ -496,9 +497,6 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
         mf.setVisible(true);
         mf.setFocusable(true);
         }
-        
-
-
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void CompetenceDetailTableKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CompetenceDetailTableKeyPressed

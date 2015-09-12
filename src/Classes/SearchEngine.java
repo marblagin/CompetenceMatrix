@@ -8,7 +8,7 @@ import Util.Debug;
  */
 public class SearchEngine {
 
-    //This class provides methos of sorting data arrays in a specific way
+    //This class provides methods of sorting data arrays in a specific way
     /**
      * This method returns a two-dimensional array that is sorting according to
      * the competence reference number, in ascending order
@@ -273,6 +273,7 @@ public class SearchEngine {
 
     /**
      * This method Searches the competence tables and filters them by a specific phrase
+     * 
      * @param phrase the phrase used for the search method
      * @param det the array of the Competence Details records
      * @param own the array of the Competence Ownership records
