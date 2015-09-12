@@ -61,10 +61,6 @@ public class MainFrame extends javax.swing.JFrame {
                 } else {
                     if (!originalValue.equals(editedValue) && previousColumn != 0) {
                         Edit();
-                    } else {
-                        if (!originalValue.equals(editedValue) && previousColumn == 0) {
-                            CompNumEdit();
-                        }
                     }
                 }
             }
@@ -216,45 +212,6 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     /**
-     * This method is used specifically to check the editing of a competence reference  number, in order to check if what is entered is unique 
-     */
-    public void CompNumEdit() {
-        boolean unique = true;
-        for (int i = 0; i < data.getNumberOfRows(); i++) {
-            if (String.valueOf(det[i].getCompetenceReferenceNo()).equals(editedValue)) {
-                unique = false;
-                break;
-            } else {
-                unique = true;
-            }
-        }
-        if (unique) {
-            Debug.Log("Entered Comp Number is unique");
-            int i = JOptionPane.showConfirmDialog(null, "Are you sure you want to change the Competence Matrix reference number?");
-            if (i == 0) {
-                Debug.Log("Editing competence: " + selectedCompetence);
-                data.Update(previousColumn, SelectTableCombo.getSelectedIndex(), previousCompetence, editedValue, det, own, app, cost, time);
-            } else if (i == 1) {
-                Debug.Log("Not Editing competence: " + selectedCompetence);
-                Table.setValueAt(originalValue, previousRow, previousColumn);
-                //dont edit
-            } else if (i == 2) {
-                Debug.Log("Cancelling Editing of competence: " + selectedCompetence);
-                //cancel
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "The number which you have entered is not a unique competence reference number!"
-                    + "\r\n" + "The next unique competence reference number is: " + data.getUniqueCompetenceNumber());
-            Table.setValueAt(originalValue, previousRow, previousColumn);
-        }
-        try {
-            this.RefreshTable(selectedCompetence);
-        } catch (FileNotFoundException ex) {
-            Debug.LogException(ex);
-        }
-    }
-
-    /**
      * Checks if a double click action has occurred and then forwards the
      * program to the next function
      *
@@ -270,7 +227,7 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     /**
-     * Stores the original value of the edited cell for further use later
+     * Stores the original value of the edited cell for further use later and checks is the selected column to be edited is the competence reference number. It then proceeds to display a message that says the competence reference number cannot be edited.
      *
      * @param evt The event received, in this case is the mouse event when the
      * table is clicked upon
@@ -284,6 +241,11 @@ public class MainFrame extends javax.swing.JFrame {
         Debug.Log("Column is " + previousColumn);
         originalValue = String.valueOf(Table.getModel().getValueAt(previousRow, previousColumn));
         Debug.Log("Original value is: " + originalValue);
+        if (previousColumn == 0) {
+            JOptionPane.showMessageDialog(null, "The competence reference number cannot be edited, as it is unique.");
+            Table.editingCanceled(null);
+            Table.setValueAt(originalValue, previousRow, previousColumn);
+        }
     }
 
     /**
