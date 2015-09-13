@@ -5,6 +5,8 @@ import Util.Debug;
 import java.io.FileNotFoundException;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.event.CellEditorListener;
+import javax.swing.event.ChangeEvent;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -19,7 +21,7 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
     int unique;
     MainFrame mf;
     boolean canAdd = true;
-    
+
     /**
      * Initializes the AddCompetenceFrame using the various methods
      */
@@ -143,7 +145,7 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
         }
 
         for (int i = 1; i < line.length - 1; i++) {
-            if ("null".equals(line[i])) {
+            if ("".equals(line[i])) {
                 result += "0" + "\t";
             } else {
                 if (this.isInteger(line[i])) {
@@ -226,7 +228,7 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
     public String[] ConstructArray() {
 
         canAdd = true;
-        
+
         String[] lineArr = new String[5];
         String[] line;
 
@@ -271,7 +273,6 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
         CostPanel = new javax.swing.JScrollPane();
         CostTable = new javax.swing.JTable();
         UniqueNumberLabel = new javax.swing.JLabel();
-        MakeSure = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Add Competence Matrix");
@@ -397,8 +398,6 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
         UniqueNumberLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         UniqueNumberLabel.setText("Your Unique Competence Matrix Number is: ");
 
-        MakeSure.setText("Make sure to press enter to confirm your changes to the table!");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -417,8 +416,6 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                     .addComponent(btnBack)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(MakeSure)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(btnAdd))
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(CompetenceDetailPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 907, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -466,8 +463,7 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdd)
-                    .addComponent(btnBack)
-                    .addComponent(MakeSure))
+                    .addComponent(btnBack))
                 .addContainerGap())
         );
 
@@ -489,19 +485,23 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // Initializes the main frame again and refreshes its tables, when btnAdd is pressed
-        String [] arr = this.ConstructArray();
-        if (canAdd){
-            DataLoad.StoreData(arr);
-            mf.Sort(0);
-        try {
-            mf.RefreshTable(0);
-        } catch (FileNotFoundException ex) {
-            Debug.LogException(ex);
-        }
-        this.setVisible(false);
-        mf.setEnabled(true);
-        mf.setVisible(true);
-        mf.setFocusable(true);
+        String[] arr = this.ConstructArray();
+        if (CompetenceDetailTable.isEditing() || CompetenceOwnershipTable.isEditing() || AppCompetenceTable.isEditing() || CostTable.isEditing() || TimesheetTable.isEditing()) {
+            JOptionPane.showMessageDialog(null, "Not all values are confirmed on the table. Confirm your added values by pressing entered in the cells edited");
+        } else {
+            if (canAdd) {
+                DataLoad.StoreData(arr);
+                mf.Sort(0);
+                try {
+                    mf.RefreshTable(0);
+                } catch (FileNotFoundException ex) {
+                    Debug.LogException(ex);
+                }
+                this.setVisible(false);
+                mf.setEnabled(true);
+                mf.setVisible(true);
+                mf.setFocusable(true);
+            }
         }
     }//GEN-LAST:event_btnAddActionPerformed
 
@@ -522,7 +522,6 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane CostPanel;
     private javax.swing.JTable CostTable;
     private javax.swing.JLabel HeadLabel;
-    private javax.swing.JLabel MakeSure;
     private javax.swing.JLabel TimesheetLabel;
     private javax.swing.JScrollPane TimesheetPanel;
     private javax.swing.JTable TimesheetTable;
