@@ -271,6 +271,7 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
         CostPanel = new javax.swing.JScrollPane();
         CostTable = new javax.swing.JTable();
         UniqueNumberLabel = new javax.swing.JLabel();
+        MakeSure = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Add Competence Matrix");
@@ -396,6 +397,8 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
         UniqueNumberLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         UniqueNumberLabel.setText("Your Unique Competence Matrix Number is: ");
 
+        MakeSure.setText("Make sure to press enter to confirm your changes to the table!");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -404,29 +407,31 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(btnBack)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnAdd))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(CompetenceDetailPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 907, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(CompetenceOwnershipPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 907, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(CompetenceOwnershipLabel)
-                                .addComponent(AppCompetencePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 907, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(AppCompetenceLabel)
-                                .addComponent(TimesheetPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 907, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(TimesheetLabel)
-                                .addComponent(CostPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 907, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(CostLabel)))
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CompetenceDetailLabel)
-                            .addComponent(HeadLabel))
+                        .addComponent(HeadLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(UniqueNumberLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(79, 79, 79))))
+                        .addGap(79, 79, 79))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(btnBack)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(MakeSure)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(btnAdd))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(CompetenceDetailPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 907, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(CompetenceOwnershipPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 907, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(CompetenceOwnershipLabel)
+                                    .addComponent(AppCompetencePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 907, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(AppCompetenceLabel)
+                                    .addComponent(TimesheetPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 907, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(TimesheetLabel)
+                                    .addComponent(CostPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 907, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(CostLabel)))
+                            .addComponent(CompetenceDetailLabel))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -461,7 +466,8 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdd)
-                    .addComponent(btnBack))
+                    .addComponent(btnBack)
+                    .addComponent(MakeSure))
                 .addContainerGap())
         );
 
@@ -516,6 +522,7 @@ public class AddCompetenceFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane CostPanel;
     private javax.swing.JTable CostTable;
     private javax.swing.JLabel HeadLabel;
+    private javax.swing.JLabel MakeSure;
     private javax.swing.JLabel TimesheetLabel;
     private javax.swing.JScrollPane TimesheetPanel;
     private javax.swing.JTable TimesheetTable;

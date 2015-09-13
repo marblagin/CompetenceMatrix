@@ -31,34 +31,36 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="btnBack" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="btnAdd" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                              <Component id="CompetenceDetailPanel" alignment="0" min="-2" pref="907" max="-2" attributes="0"/>
-                              <Component id="CompetenceOwnershipPanel" alignment="0" min="-2" pref="907" max="-2" attributes="0"/>
-                              <Component id="CompetenceOwnershipLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="AppCompetencePanel" alignment="0" min="-2" pref="907" max="-2" attributes="0"/>
-                              <Component id="AppCompetenceLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="TimesheetPanel" alignment="0" min="-2" pref="907" max="-2" attributes="0"/>
-                              <Component id="TimesheetLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="CostPanel" alignment="0" min="-2" pref="907" max="-2" attributes="0"/>
-                              <Component id="CostLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="CompetenceDetailLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="HeadLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="HeadLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="UniqueNumberLabel" min="-2" pref="323" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="btnBack" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="MakeSure" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="btnAdd" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                  <Component id="CompetenceDetailPanel" alignment="0" min="-2" pref="907" max="-2" attributes="0"/>
+                                  <Component id="CompetenceOwnershipPanel" alignment="0" min="-2" pref="907" max="-2" attributes="0"/>
+                                  <Component id="CompetenceOwnershipLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="AppCompetencePanel" alignment="0" min="-2" pref="907" max="-2" attributes="0"/>
+                                  <Component id="AppCompetenceLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TimesheetPanel" alignment="0" min="-2" pref="907" max="-2" attributes="0"/>
+                                  <Component id="TimesheetLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="CostPanel" alignment="0" min="-2" pref="907" max="-2" attributes="0"/>
+                                  <Component id="CostLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="CompetenceDetailLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -101,6 +103,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnAdd" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnBack" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="MakeSure" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
@@ -326,6 +329,11 @@
           <Font name="Tahoma" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Your Unique Competence Matrix Number is: "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="MakeSure">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Make sure to press enter to confirm your changes to the table!"/>
       </Properties>
     </Component>
   </SubComponents>
